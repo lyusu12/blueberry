@@ -1,5 +1,5 @@
 // 문득 — 오프라인 캐싱용 서비스워커
-const CACHE_NAME = "meokkitlist-v5";
+const CACHE_NAME = "meokkitlist-v6";
 const ASSETS = [
   "./",
   "./index.html",
