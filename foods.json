@@ -1,0 +1,618 @@
+{
+  "dailyValues": {
+    "energy": 2000,
+    "carbohydrate": 324,
+    "sugars": 100,
+    "fiber": 25,
+    "protein": 55,
+    "fat": 54,
+    "saturatedFat": 15,
+    "sodium": 2000
+  },
+  "foods": [
+    {
+      "id": "blueberry",
+      "name": "블루베리",
+      "categories": [
+        "과일"
+      ],
+      "summary": "강력한 항산화 성분이 눈의 피로와 노화를 늦추는 데 도움을 줘요",
+      "nutrition": {
+        "energy": {
+          "value": 57,
+          "unit": "kcal"
+        }
+      },
+      "highlights": [
+        {
+          "nutrient": "안토시아닌"
+        }
+      ],
+      "checkedAt": null
+    },
+    {
+      "id": "greek-yogurt",
+      "name": "그릭요거트",
+      "categories": [
+        "유제품·달걀",
+        "발효식품"
+      ],
+      "summary": "일반 요거트보다 단백질이 2배 많아 장 건강과 운동 후 근육 회복에 좋아요",
+      "nutrition": {
+        "energy": {
+          "value": 97,
+          "unit": "kcal"
+        }
+      },
+      "highlights": [
+        {
+          "nutrient": "단백질 9g/100g"
+        }
+      ],
+      "checkedAt": null
+    },
+    {
+      "id": "salmon",
+      "name": "연어",
+      "categories": [
+        "수산물"
+      ],
+      "summary": "혈중 중성지방을 낮추고 만성 염증을 줄이며, 두뇌 인지 기능에도 도움돼요",
+      "nutrition": {
+        "energy": {
+          "value": 206,
+          "unit": "kcal"
+        }
+      },
+      "highlights": [
+        {
+          "nutrient": "오메가3 지방산"
+        }
+      ],
+      "checkedAt": null
+    },
+    {
+      "id": "spinach",
+      "name": "시금치",
+      "categories": [
+        "채소"
+      ],
+      "summary": "철분 흡수를 돕는 비타민C도 풍부해 빈혈 예방과 혈액 생성에 좋아요",
+      "nutrition": {
+        "energy": {
+          "value": 23,
+          "unit": "kcal"
+        }
+      },
+      "highlights": [
+        {
+          "nutrient": "철분·엽산"
+        }
+      ],
+      "checkedAt": null
+    },
+    {
+      "id": "egg",
+      "name": "달걀",
+      "categories": [
+        "유제품·달걀"
+      ],
+      "summary": "9가지 필수 아미노산을 모두 갖춰 근육 합성 효율이 높은 대표 단백질원이에요",
+      "nutrition": {
+        "energy": {
+          "value": 155,
+          "unit": "kcal"
+        }
+      },
+      "highlights": [
+        {
+          "nutrient": "완전단백질"
+        }
+      ],
+      "checkedAt": null
+    },
+    {
+      "id": "avocado",
+      "name": "아보카도",
+      "categories": [
+        "과일"
+      ],
+      "summary": "나쁜 콜레스테롤(LDL)을 낮추고 좋은 콜레스테롤(HDL)은 유지해 혈관 건강에 도움돼요",
+      "nutrition": {
+        "energy": {
+          "value": 160,
+          "unit": "kcal"
+        }
+      },
+      "highlights": [
+        {
+          "nutrient": "불포화지방"
+        }
+      ],
+      "checkedAt": null
+    },
+    {
+      "id": "sweet-potato",
+      "name": "고구마",
+      "categories": [
+        "채소"
+      ],
+      "summary": "혈당을 천천히 올려 포만감이 오래 가고, 다이어트 중 대체 탄수화물로 좋아요",
+      "nutrition": {
+        "energy": {
+          "value": 86,
+          "unit": "kcal"
+        }
+      },
+      "highlights": [
+        {
+          "nutrient": "식이섬유·베타카로틴"
+        }
+      ],
+      "checkedAt": null
+    },
+    {
+      "id": "oat",
+      "name": "귀리",
+      "categories": [
+        "곡물"
+      ],
+      "summary": "수용성 식이섬유가 콜레스테롤 흡수를 막아 심혈관 건강을 개선해줘요",
+      "nutrition": {
+        "energy": {
+          "value": 389,
+          "unit": "kcal"
+        }
+      },
+      "highlights": [
+        {
+          "nutrient": "베타글루칸"
+        }
+      ],
+      "checkedAt": null
+    },
+    {
+      "id": "broccoli",
+      "name": "브로콜리",
+      "categories": [
+        "채소"
+      ],
+      "summary": "레몬보다 비타민C가 많고, 설포라판 성분이 항산화·해독 작용을 도와요",
+      "nutrition": {
+        "energy": {
+          "value": 34,
+          "unit": "kcal"
+        }
+      },
+      "highlights": [
+        {
+          "nutrient": "비타민C·설포라판"
+        }
+      ],
+      "checkedAt": null
+    },
+    {
+      "id": "nuts",
+      "name": "견과류",
+      "categories": [
+        "콩·견과"
+      ],
+      "summary": "소량으로도 포만감이 크고, 매일 소량 섭취 시 심혈관 질환 위험을 낮춰줘요",
+      "nutrition": {
+        "energy": {
+          "value": 607,
+          "unit": "kcal"
+        }
+      },
+      "highlights": [
+        {
+          "nutrient": "불포화지방·비타민E"
+        }
+      ],
+      "checkedAt": null
+    },
+    {
+      "id": "tofu",
+      "name": "두부",
+      "categories": [
+        "콩·견과"
+      ],
+      "summary": "콜레스테롤 없이 단백질을 보충할 수 있어 다이어트·근육 관리에 두루 좋아요",
+      "nutrition": {
+        "energy": {
+          "value": 76,
+          "unit": "kcal"
+        }
+      },
+      "highlights": [
+        {
+          "nutrient": "식물성 단백질"
+        }
+      ],
+      "checkedAt": null
+    },
+    {
+      "id": "banana",
+      "name": "바나나",
+      "categories": [
+        "과일"
+      ],
+      "summary": "운동 중 손실되는 칼륨을 보충해 근육 경련과 쥐를 예방하는 데 도움돼요",
+      "nutrition": {
+        "energy": {
+          "value": 89,
+          "unit": "kcal"
+        }
+      },
+      "highlights": [
+        {
+          "nutrient": "칼륨"
+        }
+      ],
+      "checkedAt": null
+    },
+    {
+      "id": "tomato",
+      "name": "토마토",
+      "categories": [
+        "채소"
+      ],
+      "summary": "열을 가하면 흡수율이 높아지는 항산화 성분으로, 피부와 전립선 건강에 좋아요",
+      "nutrition": {
+        "energy": {
+          "value": 18,
+          "unit": "kcal"
+        }
+      },
+      "highlights": [
+        {
+          "nutrient": "라이코펜"
+        }
+      ],
+      "checkedAt": null
+    },
+    {
+      "id": "garlic",
+      "name": "마늘",
+      "categories": [
+        "채소"
+      ],
+      "summary": "자르거나 다졌을 때 생기는 알리신이 면역력 강화와 혈행 개선에 도움돼요",
+      "nutrition": {
+        "energy": {
+          "value": 149,
+          "unit": "kcal"
+        }
+      },
+      "highlights": [
+        {
+          "nutrient": "알리신"
+        }
+      ],
+      "checkedAt": null
+    },
+    {
+      "id": "kimchi",
+      "name": "김치",
+      "categories": [
+        "채소",
+        "발효식품"
+      ],
+      "summary": "발효 과정에서 생긴 유산균이 장내 환경을 개선하고 소화를 도와요",
+      "nutrition": {
+        "energy": {
+          "value": 15,
+          "unit": "kcal"
+        }
+      },
+      "highlights": [
+        {
+          "nutrient": "유산균"
+        }
+      ],
+      "checkedAt": null
+    },
+    {
+      "id": "chicken-breast",
+      "name": "닭가슴살",
+      "categories": [
+        "육류"
+      ],
+      "summary": "지방은 적고 단백질은 풍부해 근육량 유지·다이어트 식단의 기본이 돼요",
+      "nutrition": {
+        "energy": {
+          "value": 165,
+          "unit": "kcal"
+        }
+      },
+      "highlights": [
+        {
+          "nutrient": "저지방 고단백"
+        }
+      ],
+      "checkedAt": null
+    },
+    {
+      "id": "quinoa",
+      "name": "퀴노아",
+      "categories": [
+        "곡물"
+      ],
+      "summary": "쌀보다 혈당을 천천히 올리면서 필수 아미노산을 모두 갖춘 곡물이에요",
+      "nutrition": {
+        "energy": {
+          "value": 120,
+          "unit": "kcal"
+        }
+      },
+      "highlights": [
+        {
+          "nutrient": "완전 아미노산·저GI"
+        }
+      ],
+      "checkedAt": null
+    },
+    {
+      "id": "lentil",
+      "name": "렌틸콩",
+      "categories": [
+        "콩·견과"
+      ],
+      "summary": "식이섬유가 풍부해 혈당 급상승을 막고 포만감이 오래 유지돼요",
+      "nutrition": {
+        "energy": {
+          "value": 116,
+          "unit": "kcal"
+        }
+      },
+      "highlights": [
+        {
+          "nutrient": "식물성 단백질·철분"
+        }
+      ],
+      "checkedAt": null
+    },
+    {
+      "id": "kale",
+      "name": "케일",
+      "categories": [
+        "채소"
+      ],
+      "summary": "뼈 형성에 필요한 비타민K가 풍부하고, 해독 효소 생성을 도와줘요",
+      "nutrition": {
+        "energy": {
+          "value": 49,
+          "unit": "kcal"
+        }
+      },
+      "highlights": [
+        {
+          "nutrient": "비타민K·칼슘"
+        }
+      ],
+      "checkedAt": null
+    },
+    {
+      "id": "pomegranate",
+      "name": "석류",
+      "categories": [
+        "과일"
+      ],
+      "summary": "녹차보다 항산화력이 높다고 알려져 있으며, 혈행 개선에 도움돼요",
+      "nutrition": {
+        "energy": {
+          "value": 83,
+          "unit": "kcal"
+        }
+      },
+      "highlights": [
+        {
+          "nutrient": "폴리페놀"
+        }
+      ],
+      "checkedAt": null
+    },
+    {
+      "id": "mushroom",
+      "name": "버섯",
+      "categories": [
+        "채소"
+      ],
+      "summary": "햇빛을 쬔 버섯일수록 비타민D가 많아지고, 면역세포 활성화에 도움돼요",
+      "nutrition": {
+        "energy": {
+          "value": 22,
+          "unit": "kcal"
+        }
+      },
+      "highlights": [
+        {
+          "nutrient": "비타민D·베타글루칸"
+        }
+      ],
+      "checkedAt": null
+    },
+    {
+      "id": "cheonggukjang",
+      "name": "청국장",
+      "categories": [
+        "콩·견과",
+        "발효식품"
+      ],
+      "summary": "혈전을 녹이는 효소와 발효 유산균이 함께 있어 혈행·장 건강에 이중으로 좋아요",
+      "nutrition": {
+        "energy": {
+          "value": 196,
+          "unit": "kcal"
+        }
+      },
+      "highlights": [
+        {
+          "nutrient": "낫토키나제·유산균"
+        }
+      ],
+      "checkedAt": null
+    },
+    {
+      "id": "miyeok",
+      "name": "미역",
+      "categories": [
+        "수산물"
+      ],
+      "summary": "요오드가 갑상선 기능을 돕고, 식이섬유가 콜레스테롤 배출을 도와요",
+      "nutrition": {
+        "energy": {
+          "value": 45,
+          "unit": "kcal"
+        }
+      },
+      "highlights": [
+        {
+          "nutrient": "요오드·알긴산"
+        }
+      ],
+      "checkedAt": null
+    },
+    {
+      "id": "chia-seed",
+      "name": "치아씨드",
+      "categories": [
+        "콩·견과"
+      ],
+      "summary": "물에 불리면 부피가 커져 적은 양으로도 포만감을 오래 유지시켜줘요",
+      "nutrition": {
+        "energy": {
+          "value": 486,
+          "unit": "kcal"
+        }
+      },
+      "highlights": [
+        {
+          "nutrient": "오메가3·수용성 식이섬유"
+        }
+      ],
+      "checkedAt": null
+    },
+    {
+      "id": "dark-chocolate",
+      "name": "다크초콜릿",
+      "categories": [
+        "기타"
+      ],
+      "summary": "카카오 함량 70% 이상 제품일수록 혈압 개선과 항산화 효과가 커요",
+      "nutrition": {
+        "energy": {
+          "value": 546,
+          "unit": "kcal"
+        }
+      },
+      "highlights": [
+        {
+          "nutrient": "플라보노이드"
+        }
+      ],
+      "checkedAt": null
+    },
+    {
+      "id": "natto",
+      "name": "낫토",
+      "categories": [
+        "콩·견과",
+        "발효식품"
+      ],
+      "summary": "혈전 용해를 돕는 효소가 풍부해 혈행 개선에 특화된 발효식품이에요",
+      "nutrition": {
+        "energy": {
+          "value": 212,
+          "unit": "kcal"
+        }
+      },
+      "highlights": [
+        {
+          "nutrient": "낫토키나제"
+        }
+      ],
+      "checkedAt": null
+    },
+    {
+      "id": "oyster",
+      "name": "굴",
+      "categories": [
+        "수산물"
+      ],
+      "summary": "아연 함량이 매우 높아 면역력 강화와 피로 회복에 효과적이에요",
+      "nutrition": {
+        "energy": {
+          "value": 81,
+          "unit": "kcal"
+        }
+      },
+      "highlights": [
+        {
+          "nutrient": "아연"
+        }
+      ],
+      "checkedAt": null
+    },
+    {
+      "id": "minari",
+      "name": "미나리",
+      "categories": [
+        "채소"
+      ],
+      "summary": "체내 노폐물 배출을 돕는 해독 작용과 부기 완화에 도움돼요",
+      "nutrition": {
+        "energy": {
+          "value": 20,
+          "unit": "kcal"
+        }
+      },
+      "highlights": [
+        {
+          "nutrient": "베타카로틴·칼륨"
+        }
+      ],
+      "checkedAt": null
+    },
+    {
+      "id": "shrimp",
+      "name": "새우",
+      "categories": [
+        "수산물"
+      ],
+      "summary": "지방 함량이 낮으면서 단백질이 풍부해 다이어트 식단에 부담이 적어요",
+      "nutrition": {
+        "energy": {
+          "value": 99,
+          "unit": "kcal"
+        }
+      },
+      "highlights": [
+        {
+          "nutrient": "저지방 고단백"
+        }
+      ],
+      "checkedAt": null
+    },
+    {
+      "id": "fig",
+      "name": "무화과",
+      "categories": [
+        "과일"
+      ],
+      "summary": "장운동을 촉진하는 식이섬유가 풍부하고, 칼륨이 혈압 조절을 도와요",
+      "nutrition": {
+        "energy": {
+          "value": 74,
+          "unit": "kcal"
+        }
+      },
+      "highlights": [
+        {
+          "nutrient": "식이섬유·칼륨"
+        }
+      ],
+      "checkedAt": null
+    }
+  ]
+}

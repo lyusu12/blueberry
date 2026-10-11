@@ -161,6 +161,63 @@
   .dict-add:hover{background:var(--accent-soft);}
   .dict-add[data-added]{border-color:var(--line);color:var(--faint);cursor:default;}
   .dict-add[data-added]:hover{background:transparent;}
+  .dict-link{color:inherit;text-decoration:none;display:block;flex:1;min-width:0;}
+  .dict-cats{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.06em;color:var(--taupe);margin-bottom:4px;}
+  .dict-summary{font-size:12.5px;color:var(--muted);line-height:1.6;}
+  .dict-status{color:var(--faint);font-size:13px;padding:24px 0;text-align:center;}
+
+  .entry-food{font-size:12px;color:var(--muted);margin-top:6px;line-height:1.6;}
+  .entry-food .mono{color:var(--ink);font-size:11px;}
+  a.entry-nutri-toggle{display:inline-block;}
+  .pick-summary{color:var(--muted);font-size:13px;line-height:1.65;margin:0 0 14px;}
+  .pick-more{display:inline-block;font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--muted);margin-bottom:22px;text-underline-offset:3px;text-decoration-color:var(--line);}
+
+  /* ===== Food detail view ===== */
+  .food-back{background:none;border:none;padding:0;margin-bottom:22px;font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--muted);cursor:pointer;}
+  .food-cats{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.12em;color:var(--taupe);margin:0 0 10px;}
+  .food-name{font-family:"Noto Serif KR",serif;font-weight:600;font-size:30px;margin:0 0 8px;line-height:1.2;letter-spacing:-.01em;}
+  .food-season{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--muted);margin:0 0 12px;}
+  .food-summary{font-size:14px;line-height:1.7;margin:0 0 18px;}
+  .food-section{margin-top:32px;}
+  .food-section h3{font-family:"JetBrains Mono",monospace;font-weight:500;font-size:10.5px;letter-spacing:.1em;color:var(--taupe);margin:0 0 4px;padding-bottom:10px;border-bottom:1px solid var(--ink);}
+  .food-section .basis-note{font-family:"JetBrains Mono",monospace;font-size:10px;color:var(--faint);margin:-2px 0 6px;}
+
+  .nut-row{display:flex;align-items:baseline;gap:10px;padding:9px 0;border-bottom:1px solid var(--line);font-size:13px;}
+  .nut-row .lbl{flex:1;}
+  .nut-row.sub .lbl{padding-left:14px;color:var(--muted);}
+  .nut-row .val{font-family:"JetBrains Mono",monospace;font-size:12px;}
+  .nut-row .pct{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--muted);width:44px;text-align:right;}
+
+  .food-item{padding:14px 0;border-bottom:1px solid var(--line);}
+  .food-item-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:6px;}
+  .food-item-title{font-family:"Noto Serif KR",serif;font-weight:600;font-size:15px;}
+  .food-item-title a{color:var(--ink);text-underline-offset:3px;text-decoration-color:var(--line);}
+  .food-item-amt{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--muted);}
+  .food-item p{margin:0;font-size:13px;line-height:1.7;color:var(--muted);}
+  .food-item p + p{margin-top:4px;}
+  .food-kv{display:flex;gap:12px;font-size:13px;line-height:1.7;}
+  .food-kv .k{flex:0 0 52px;font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--faint);padding-top:2px;}
+  .food-kv .v{flex:1;color:var(--muted);}
+
+  .badges{display:flex;flex-wrap:wrap;gap:6px;margin:4px 0 8px;}
+  .badge{font-family:"JetBrains Mono",monospace;font-size:10px;padding:3px 7px;border:1px solid var(--line);border-radius:2px;color:var(--muted);white-space:nowrap;}
+  .badge::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;margin-right:5px;vertical-align:1px;background:currentColor;}
+  .badge.ev-confirmed{color:#3F6B4E;border-color:#C9D8CD;}
+  .badge.ev-mixed{color:#8A6A2B;border-color:#E3D6B8;}
+  .badge.ev-unknown{color:var(--muted);}
+  .badge.ev-false{color:#9A4A3C;border-color:#E6CCC6;}
+  .badge.basis-extract{color:var(--accent);border-color:var(--accent);}
+  .badge.basis-extract::before,.badge.basis-food::before{display:none;}
+  .extract-warn{font-size:11.5px !important;color:var(--accent) !important;margin-top:6px !important;}
+  .refs{font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--faint);margin-top:6px;}
+  .ref-link{background:none;border:none;padding:0 2px;font:inherit;color:var(--muted);cursor:pointer;text-decoration:underline;text-underline-offset:2px;}
+
+  .ref-list{margin:0;padding:0;list-style:none;}
+  .ref-list li{display:flex;gap:10px;padding:9px 0;border-bottom:1px solid var(--line);font-size:12.5px;line-height:1.6;color:var(--muted);scroll-margin-top:24px;}
+  .ref-list li.flash{background:var(--accent-soft);}
+  .ref-list .no{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--faint);flex:0 0 18px;}
+  .ref-list a{color:var(--muted);word-break:break-all;}
+  .food-checked{margin-top:28px;font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--faint);}
 
   /* ===== Account view ===== */
   .account-card{border:1px solid var(--line);border-radius:3px;padding:20px;margin-bottom:20px;}
@@ -240,6 +297,7 @@
         <h2 class="pick-name" id="pick-name"></h2>
         <p class="pick-memo" id="pick-memo"></p>
 
+        <div id="pick-food"></div>
         <div class="pick-nutri" id="pick-nutri" style="display:none;"></div>
 
         <div class="pick-actions">
@@ -272,7 +330,13 @@
     <p class="tagline" style="margin-bottom:22px;max-width:none;">
       운영자가 미리 정리해둔 슈퍼푸드 사전이에요. 마음에 드는 걸 「담기」하면 내 바구니로 들어가고, 뽑기에도 포함돼요.
     </p>
-    <div id="dict-list"></div>
+    <div id="dict-list"><p class="dict-status">사전을 불러오는 중…</p></div>
+  </section>
+
+  <!-- ===== FOOD DETAIL VIEW ===== -->
+  <section class="view" id="view-food">
+    <button class="food-back" id="btn-food-back">← 사전</button>
+    <div id="food-detail"></div>
   </section>
 
   <!-- ===== ACCOUNT VIEW ===== -->
@@ -386,6 +450,7 @@ async function onLogin(user){
     items = snap.data().items;
     save();
     applyingRemote = false;
+    if(linkFoods()) save();
     renderAll();
   } else {
     await pushToCloud();
@@ -400,6 +465,7 @@ async function onLogin(user){
     items = remoteItems;
     localStorage.setItem(STORE_KEY, JSON.stringify(items));
     applyingRemote = false;
+    if(linkFoods()) save();
     renderAll();
   });
 }
@@ -424,39 +490,108 @@ document.getElementById("btn-login").addEventListener("click", async ()=>{
 getRedirectResult(auth).catch(()=>{});
 onAuthStateChanged(auth, (user)=>{ if(user) onLogin(user); else onLogout(); });
 
-/* ---------- 영양 데이터 (100g 기준) ---------- */
-const NUTRI = {
-  "블루베리": {kcal:57, key:"안토시아닌", note:"강력한 항산화 성분이 눈의 피로와 노화를 늦추는 데 도움을 줘요"},
-  "그릭요거트": {kcal:97, key:"단백질 9g/100g", note:"일반 요거트보다 단백질이 2배 많아 장 건강과 운동 후 근육 회복에 좋아요"},
-  "연어": {kcal:206, key:"오메가3 지방산", note:"혈중 중성지방을 낮추고 만성 염증을 줄이며, 두뇌 인지 기능에도 도움돼요"},
-  "시금치": {kcal:23, key:"철분·엽산", note:"철분 흡수를 돕는 비타민C도 풍부해 빈혈 예방과 혈액 생성에 좋아요"},
-  "달걀": {kcal:155, key:"완전단백질", note:"9가지 필수 아미노산을 모두 갖춰 근육 합성 효율이 높은 대표 단백질원이에요"},
-  "아보카도": {kcal:160, key:"불포화지방", note:"나쁜 콜레스테롤(LDL)을 낮추고 좋은 콜레스테롤(HDL)은 유지해 혈관 건강에 도움돼요"},
-  "고구마": {kcal:86, key:"식이섬유·베타카로틴", note:"혈당을 천천히 올려 포만감이 오래 가고, 다이어트 중 대체 탄수화물로 좋아요"},
-  "귀리": {kcal:389, key:"베타글루칸", note:"수용성 식이섬유가 콜레스테롤 흡수를 막아 심혈관 건강을 개선해줘요"},
-  "브로콜리": {kcal:34, key:"비타민C·설포라판", note:"레몬보다 비타민C가 많고, 설포라판 성분이 항산화·해독 작용을 도와요"},
-  "견과류": {kcal:607, key:"불포화지방·비타민E", note:"소량으로도 포만감이 크고, 매일 소량 섭취 시 심혈관 질환 위험을 낮춰줘요"},
-  "두부": {kcal:76, key:"식물성 단백질", note:"콜레스테롤 없이 단백질을 보충할 수 있어 다이어트·근육 관리에 두루 좋아요"},
-  "바나나": {kcal:89, key:"칼륨", note:"운동 중 손실되는 칼륨을 보충해 근육 경련과 쥐를 예방하는 데 도움돼요"},
-  "토마토": {kcal:18, key:"라이코펜", note:"열을 가하면 흡수율이 높아지는 항산화 성분으로, 피부와 전립선 건강에 좋아요"},
-  "마늘": {kcal:149, key:"알리신", note:"자르거나 다졌을 때 생기는 알리신이 면역력 강화와 혈행 개선에 도움돼요"},
-  "김치": {kcal:15, key:"유산균", note:"발효 과정에서 생긴 유산균이 장내 환경을 개선하고 소화를 도와요"},
-  "닭가슴살": {kcal:165, key:"저지방 고단백", note:"지방은 적고 단백질은 풍부해 근육량 유지·다이어트 식단의 기본이 돼요"},
-  "퀴노아": {kcal:120, key:"완전 아미노산·저GI", note:"쌀보다 혈당을 천천히 올리면서 필수 아미노산을 모두 갖춘 곡물이에요"},
-  "렌틸콩": {kcal:116, key:"식물성 단백질·철분", note:"식이섬유가 풍부해 혈당 급상승을 막고 포만감이 오래 유지돼요"},
-  "케일": {kcal:49, key:"비타민K·칼슘", note:"뼈 형성에 필요한 비타민K가 풍부하고, 해독 효소 생성을 도와줘요"},
-  "석류": {kcal:83, key:"폴리페놀", note:"녹차보다 항산화력이 높다고 알려져 있으며, 혈행 개선에 도움돼요"},
-  "버섯": {kcal:22, key:"비타민D·베타글루칸", note:"햇빛을 쬔 버섯일수록 비타민D가 많아지고, 면역세포 활성화에 도움돼요"},
-  "청국장": {kcal:196, key:"낫토키나제·유산균", note:"혈전을 녹이는 효소와 발효 유산균이 함께 있어 혈행·장 건강에 이중으로 좋아요"},
-  "미역": {kcal:45, key:"요오드·알긴산", note:"요오드가 갑상선 기능을 돕고, 식이섬유가 콜레스테롤 배출을 도와요"},
-  "치아씨드": {kcal:486, key:"오메가3·수용성 식이섬유", note:"물에 불리면 부피가 커져 적은 양으로도 포만감을 오래 유지시켜줘요"},
-  "다크초콜릿": {kcal:546, key:"플라보노이드", note:"카카오 함량 70% 이상 제품일수록 혈압 개선과 항산화 효과가 커요"},
-  "낫토": {kcal:212, key:"낫토키나제", note:"혈전 용해를 돕는 효소가 풍부해 혈행 개선에 특화된 발효식품이에요"},
-  "굴": {kcal:81, key:"아연", note:"아연 함량이 매우 높아 면역력 강화와 피로 회복에 효과적이에요"},
-  "미나리": {kcal:20, key:"베타카로틴·칼륨", note:"체내 노폐물 배출을 돕는 해독 작용과 부기 완화에 도움돼요"},
-  "새우": {kcal:99, key:"저지방 고단백", note:"지방 함량이 낮으면서 단백질이 풍부해 다이어트 식단에 부담이 적어요"},
-  "무화과": {kcal:74, key:"식이섬유·칼륨", note:"장운동을 촉진하는 식이섬유가 풍부하고, 칼륨이 혈압 조절을 도와요"}
+/* ---------- 사전 데이터 (foods.json에서 불러옴) ---------- */
+let FOODS = [];
+let FOOD_BY_ID = new Map();
+let DAILY_VALUES = {};
+let foodsLoaded = false;
+
+const EVIDENCE = {
+  confirmed: "연구로 확인됨",
+  mixed: "결과가 엇갈림",
+  unknown: "밝혀진 바 없음",
+  false: "사실과 다름",
 };
+const BASIS = { food: "식품 기준", extract: "추출물 기준" };
+// [키, 표시 이름, 기준 단위, 하위 항목 여부]
+const NUTRITION_ROWS = [
+  ["energy", "열량", "kcal"],
+  ["carbohydrate", "탄수화물", "g"],
+  ["sugars", "당류", "g", true],
+  ["fiber", "식이섬유", "g", true],
+  ["protein", "단백질", "g"],
+  ["fat", "지방", "g"],
+  ["saturatedFat", "포화지방", "g", true],
+  ["sodium", "나트륨", "mg"],
+];
+
+async function loadFoods(){
+  try{
+    const res = await fetch("foods.json");
+    if(!res.ok) throw new Error("HTTP " + res.status);
+    const data = await res.json();
+    FOODS = list(data.foods).filter(f=>f && f.id && f.name);
+    DAILY_VALUES = data.dailyValues || {};
+  }catch(e){
+    console.warn("사전 불러오기 실패", e);
+    FOODS = [];
+  }
+  FOOD_BY_ID = new Map(FOODS.map(f=>[f.id, f]));
+  foodsLoaded = true;
+}
+
+function list(v){ return Array.isArray(v) ? v : []; }
+function isNum(v){ return typeof v==="number" && isFinite(v); }
+function fmtNum(v){ return isNum(v) ? String(Math.round(v*10)/10) : "—"; }
+function foodOf(item){ return item && item.foodId ? FOOD_BY_ID.get(item.foodId) || null : null; }
+function foodCats(f){ return Array.isArray(f.categories) ? f.categories : (f.categories ? [f.categories] : []); }
+function foodEnergy(f){ const e = f.nutrition && f.nutrition.energy; return e && isNum(e.value) ? e.value : null; }
+function findFoodByName(name){
+  return FOODS.find(f=> f.name===name || list(f.aliases).includes(name)) || null;
+}
+
+// 사전 이름(또는 별칭)과 정확히 같은데 아직 연결 안 된 항목에 foodId를 붙임. 바뀐 게 있으면 true
+function linkFoods(){
+  if(FOODS.length===0) return false;
+  let changed = false;
+  items.forEach(it=>{
+    if(it.foodId) return;
+    const f = findFoodByName(it.name);
+    if(f){ it.foodId = f.id; changed = true; }
+  });
+  return changed;
+}
+
+function pctOf(key, entry, unit){
+  const dv = DAILY_VALUES[key];
+  if(!entry || !isNum(entry.value) || !isNum(dv) || dv<=0) return null;
+  if(entry.unit && entry.unit!==unit) return null;
+  return Math.round(entry.value / dv * 100);
+}
+
+// [6,7,8] → "6–8월", [11,12,1] → "11–1월", [3,9] → "3, 9월"
+function fmtMonths(ms){
+  const set = new Set(list(ms).filter(m=>Number.isInteger(m) && m>=1 && m<=12));
+  if(set.size===0) return "";
+  if(set.size===12) return "연중";
+  const next = m => m%12 + 1;
+  const prev = m => m===1 ? 12 : m-1;
+  const runs = [];
+  for(let m=1; m<=12; m++){
+    if(!set.has(m) || set.has(prev(m))) continue;
+    let end = m;
+    while(set.has(next(end))) end = next(end);
+    runs.push(end===m ? String(m) : `${m}–${end}`);
+  }
+  return runs.join(", ") + "월";
+}
+
+/* DOM 헬퍼: 텍스트는 항상 텍스트 노드로 넣음 (사용자 입력이 HTML로 해석되지 않게) */
+function h(tag, props, ...children){
+  const el = document.createElement(tag);
+  for(const [k, v] of Object.entries(props || {})){
+    if(v==null || v===false) continue;
+    if(k==="class") el.className = v;
+    else if(k==="text") el.textContent = v;
+    else if(k.includes("-")) el.setAttribute(k, v);
+    else el[k] = v;
+  }
+  for(const c of children.flat(Infinity)){
+    if(c==null || c===false || c==="") continue;
+    el.append(c instanceof Node ? c : String(c));
+  }
+  return el;
+}
 
 /* ---------- 상태 ---------- */
 let items = [];
@@ -481,13 +616,13 @@ function renderAll(){
 }
 function seedData(){
   return [
-    {id:crypto.randomUUID(), name:"블루베리", cat:"식재료", memo:"", lastEaten:0, nutri:NUTRI["블루베리"]},
-    {id:crypto.randomUUID(), name:"그릭요거트", cat:"식재료", memo:"", lastEaten:0, nutri:NUTRI["그릭요거트"]},
-    {id:crypto.randomUUID(), name:"닭가슴살", cat:"식재료", memo:"", lastEaten:0, nutri:NUTRI["닭가슴살"]},
+    {id:crypto.randomUUID(), name:"블루베리", cat:"식재료", memo:"", lastEaten:0, foodId:"blueberry"},
+    {id:crypto.randomUUID(), name:"그릭요거트", cat:"식재료", memo:"", lastEaten:0, foodId:"greek-yogurt"},
+    {id:crypto.randomUUID(), name:"닭가슴살", cat:"식재료", memo:"", lastEaten:0, foodId:"chicken-breast"},
     {id:crypto.randomUUID(), name:"마라탕", cat:"요리", memo:"광명동 그 집", lastEaten:0},
     {id:crypto.randomUUID(), name:"김치찌개", cat:"요리", memo:"", lastEaten:0},
-    {id:crypto.randomUUID(), name:"연어 스테이크", cat:"요리", memo:"", lastEaten:0, nutri:NUTRI["연어"]},
-    {id:crypto.randomUUID(), name:"청국장 정식", cat:"요리", memo:"", lastEaten:0, nutri:NUTRI["청국장"]},
+    {id:crypto.randomUUID(), name:"연어 스테이크", cat:"요리", memo:"", lastEaten:0, foodId:"salmon"},
+    {id:crypto.randomUUID(), name:"청국장 정식", cat:"요리", memo:"", lastEaten:0, foodId:"cheonggukjang"},
     {id:crypto.randomUUID(), name:"동네 파스타집", cat:"식당", memo:"", lastEaten:0},
     {id:crypto.randomUUID(), name:"삼산 초밥집", cat:"식당", memo:"", lastEaten:0},
     {id:crypto.randomUUID(), name:"다운동 삼겹살집", cat:"식당", memo:"", lastEaten:0},
@@ -562,13 +697,30 @@ function renderPickCard(it){
   document.getElementById("pick-memo").style.display = it.memo ? "block" : "none";
 
   const nutriBox = document.getElementById("pick-nutri");
-  if(it.nutri){
+  const foodBox = document.getElementById("pick-food");
+  foodBox.replaceChildren();
+  const f = foodOf(it);
+  if(f){
+    // 사전과 연결된 항목: 사전 데이터를 그때그때 읽어서 보여줌
+    nutriBox.style.display = "none";
+    const energy = foodEnergy(f);
+    const top = list(f.highlights).find(x=>x && x.nutrient);
+    const stats = [
+      energy!=null && h("div", {class:"stat"}, h("span", {class:"n", text:`${fmtNum(energy)} kcal`}), h("span", {class:"l", text:"100g 기준"})),
+      top && h("div", {class:"stat"}, h("span", {class:"n", text:top.nutrient}), h("span", {class:"l", text:"두드러지는 영양소"})),
+    ].filter(Boolean);
+    foodBox.append(
+      f.summary ? h("p", {class:"pick-summary", text:f.summary}) : "",
+      stats.length ? h("div", {class:"pick-nutri"}, stats) : "",
+      h("a", {class:"pick-more", href:"#food/"+encodeURIComponent(f.id), text:"자세히 보기 →"}),
+    );
+  } else if(it.nutri){
     nutriBox.style.display = "flex";
-    nutriBox.innerHTML = `
-      <div class="stat"><span class="n">${it.nutri.kcal} kcal</span><span class="l">100g 기준</span></div>
-      <div class="stat"><span class="n">${it.nutri.key}</span><span class="l">주성분</span></div>
-      <div class="stat"><span class="n">${it.nutri.note}</span><span class="l">효능</span></div>
-    `;
+    nutriBox.replaceChildren(
+      h("div", {class:"stat"}, h("span", {class:"n", text:`${it.nutri.kcal} kcal`}), h("span", {class:"l", text:"100g 기준"})),
+      h("div", {class:"stat"}, h("span", {class:"n", text:it.nutri.key}), h("span", {class:"l", text:"주성분"})),
+      h("div", {class:"stat"}, h("span", {class:"n", text:it.nutri.note}), h("span", {class:"l", text:"효능"})),
+    );
   } else {
     nutriBox.style.display = "none";
   }
@@ -619,15 +771,17 @@ document.getElementById("btn-add").onclick = async ()=>{
   const name = nameEl.value.trim();
   if(!name) return;
 
-  let nutri = null;
+  const item = {id:crypto.randomUUID(), name, cat:catEl.value, memo:memoEl.value.trim(), lastEaten:0};
   const kcalVal = kcalEl.value.trim(), keyVal = keyEl.value.trim(), noteVal = noteEl.value.trim();
   if(kcalVal || keyVal || noteVal){
-    nutri = { kcal: kcalVal || "-", key: keyVal || "-", note: noteVal || "-" };
+    item.nutri = { kcal: kcalVal || "-", key: keyVal || "-", note: noteVal || "-" };
   } else {
-    nutri = NUTRI[name] || null;
+    // 영양 정보를 안 적었고 이름이 사전에 있으면 사전과 연결
+    const f = findFoodByName(name);
+    if(f) item.foodId = f.id;
   }
 
-  items.push({id:crypto.randomUUID(), name, cat:catEl.value, memo:memoEl.value.trim(), lastEaten:0, nutri});
+  items.push(item);
   await save();
   nameEl.value=""; memoEl.value=""; kcalEl.value=""; keyEl.value=""; noteEl.value="";
   renderList(); renderDict();
@@ -641,34 +795,42 @@ function renderList(){
   document.getElementById("rec-count").textContent = fmtCount(items.length);
 
   if(pool.length===0){
-    el.innerHTML = `<div class="empty-state"><div class="serif">— 기록 없음 —</div><div class="mono">오른쪽 위 + 버튼으로 추가해보세요</div></div>`;
+    el.replaceChildren(h("div", {class:"empty-state"},
+      h("div", {class:"serif", text:"— 기록 없음 —"}),
+      h("div", {class:"mono", text:"오른쪽 위 + 버튼으로 추가해보세요"})));
     return;
   }
 
-  el.innerHTML = "";
-  pool.forEach((it, i)=>{
-    const card = document.createElement("div");
-    card.className = "entry";
-    card.innerHTML = `
-      <div class="entry-top">
-        <div>
-          <div class="entry-idx">No. ${String(i+1).padStart(3,"0")}</div>
-          <div class="entry-name">${it.name}</div>
-          <span class="entry-cat">${it.cat}</span>
-          ${it.memo ? `<div class="entry-memo">${it.memo}</div>` : ""}
-          ${it.nutri ? `<div class="entry-nutri-toggle" data-nut="${it.id}">영양정보 보기</div>` : ""}
-          ${it.nutri ? `
-            <div class="entry-nutri" id="nb-${it.id}">
-              <div class="row"><span>열량</span><b>${it.nutri.kcal} kcal/100g</b></div>
-              <div class="row"><span>주성분</span><b>${it.nutri.key}</b></div>
-              <div class="row"><span>효능</span><b>${it.nutri.note}</b></div>
-            </div>` : ""}
-        </div>
-        <button class="entry-del" data-del="${it.id}">✕</button>
-      </div>
-    `;
-    el.appendChild(card);
-  });
+  el.replaceChildren(...pool.map((it, i)=>{
+    const f = foodOf(it);
+    let extra = null;
+    if(f){
+      const energy = foodEnergy(f);
+      extra = [
+        (energy!=null || f.summary) && h("div", {class:"entry-food"},
+          energy!=null && h("span", {class:"mono", text:`${fmtNum(energy)} kcal/100g`}),
+          energy!=null && f.summary ? " · " : "",
+          f.summary || ""),
+        h("a", {class:"entry-nutri-toggle", href:foodHref(f.id), text:"자세히 보기 →"}),
+      ];
+    } else if(it.nutri){
+      const row = (k, v)=> h("div", {class:"row"}, h("span", {text:k}), h("b", {text:v}));
+      extra = [
+        h("div", {class:"entry-nutri-toggle", "data-nut":it.id, text:"영양정보 보기"}),
+        h("div", {class:"entry-nutri", id:"nb-"+it.id},
+          row("열량", `${it.nutri.kcal} kcal/100g`), row("주성분", it.nutri.key), row("효능", it.nutri.note)),
+      ];
+    }
+    return h("div", {class:"entry"},
+      h("div", {class:"entry-top"},
+        h("div", null,
+          h("div", {class:"entry-idx", text:`No. ${String(i+1).padStart(3,"0")}`}),
+          h("div", {class:"entry-name", text:it.name}),
+          h("span", {class:"entry-cat", text:it.cat}),
+          it.memo && h("div", {class:"entry-memo", text:it.memo}),
+          extra),
+        h("button", {class:"entry-del", "data-del":it.id, text:"✕"})));
+  }));
 }
 
 document.getElementById("entry-list").addEventListener("click", async (e)=>{
@@ -678,52 +840,281 @@ document.getElementById("entry-list").addEventListener("click", async (e)=>{
   if(nut){ document.getElementById("nb-"+nut.dataset.nut).classList.toggle("open"); }
 });
 
-function renderDict(){
-  const el = document.getElementById("dict-list");
-  el.innerHTML = "";
-  Object.keys(NUTRI).forEach(name=>{
-    const nutri = NUTRI[name];
-    const already = items.some(it=>it.name===name);
-    const row = document.createElement("div");
-    row.className = "dict-entry";
-    row.innerHTML = `
-      <div>
-        <div class="dict-name">${name}</div>
-        <div class="dict-meta">${nutri.kcal} kcal · ${nutri.key} · ${nutri.note}</div>
-      </div>
-      <button class="dict-add" ${already ? 'data-added="1"' : ""} data-name="${name}">${already ? "담음" : "담기"}</button>
-    `;
-    el.appendChild(row);
-  });
+/* ---------- 사전 목록 ---------- */
+function foodHref(id){ return "#food/" + encodeURIComponent(id); }
+function isInBasket(f){ return items.some(it=>it.foodId===f.id); }
+function addButton(f){
+  const already = isInBasket(f);
+  return h("button", {class:"dict-add", "data-added":already ? "1" : null, "data-food":f.id, text:already ? "담음" : "담기"});
 }
 
-document.getElementById("dict-list").addEventListener("click", async (e)=>{
-  const btn = e.target.closest(".dict-add");
-  if(!btn || btn.hasAttribute("data-added")) return;
-  const name = btn.dataset.name;
-  items.push({id:crypto.randomUUID(), name, cat:"식재료", memo:"", lastEaten:0, nutri:NUTRI[name]});
+function renderDict(){
+  const el = document.getElementById("dict-list");
+  if(!foodsLoaded) return;
+  if(FOODS.length===0){
+    el.replaceChildren(h("p", {class:"dict-status", text:"사전을 불러오지 못했어요. 네트워크 연결을 확인해주세요."}));
+    return;
+  }
+  el.replaceChildren(...FOODS.map(f=>{
+    const cats = foodCats(f);
+    return h("div", {class:"dict-entry"},
+      h("a", {class:"dict-link", href:foodHref(f.id)},
+        cats.length && h("div", {class:"dict-cats", text:cats.join(" · ")}),
+        h("div", {class:"dict-name", text:f.name}),
+        f.summary && h("div", {class:"dict-summary", text:f.summary})),
+      addButton(f));
+  }));
+}
+
+async function addFoodToBasket(id){
+  const f = FOOD_BY_ID.get(id);
+  if(!f || isInBasket(f)) return;
+  items.push({id:crypto.randomUUID(), name:f.name, cat:"식재료", memo:"", lastEaten:0, foodId:f.id});
   await save();
   renderDict(); renderList();
-});
+  if(currentFoodId===id) renderFood(id);
+}
 
-/* ---------- 하단 탭 전환 ---------- */
+/* ---------- 식재료 상세 ---------- */
+function section(title, ...children){
+  return h("section", {class:"food-section"}, h("h3", {text:title}), children);
+}
+function kv(k, v){
+  return v ? h("div", {class:"food-kv"}, h("span", {class:"k", text:k}), h("span", {class:"v", text:v})) : null;
+}
+function itemHead(...children){
+  return h("div", {class:"food-item-head"}, h("span", {class:"food-item-title"}, children));
+}
+
+function evidenceBadges(x){
+  const ev = typeof x.evidence==="string" && Object.hasOwn(EVIDENCE, x.evidence) ? x.evidence : null;
+  const basis = typeof x.basis==="string" && Object.hasOwn(BASIS, x.basis) ? x.basis : null;
+  if(!ev && !basis) return null;
+  return h("div", {class:"badges"},
+    ev && h("span", {class:"badge ev-"+ev, text:EVIDENCE[ev]}),
+    basis && h("span", {class:"badge basis-"+basis, text:BASIS[basis]}));
+}
+function extractWarning(x){
+  return x.basis==="extract"
+    ? h("p", {class:"extract-warn", text:"농축 추출물로 진행된 연구예요. 음식으로 먹는 양에서는 효과가 훨씬 작거나 없을 수 있어요."})
+    : null;
+}
+function refLinks(f, refs){
+  const known = new Set(list(f.references).map(r=>r && r.no));
+  const nos = list(refs).filter(n=>known.has(n));
+  if(!nos.length) return null;
+  return h("div", {class:"refs"}, "참고 ", nos.map(n=>h("button", {class:"ref-link", "data-ref":n, text:`[${n}]`})));
+}
+
+function nutritionSection(f){
+  const n = f.nutrition;
+  if(!n || typeof n!=="object" || !NUTRITION_ROWS.some(([k])=>n[k])) return null;
+  return section("영양성분 · 100g 기준",
+    h("p", {class:"basis-note", text:"% = 1일 영양성분 기준치 대비"}),
+    NUTRITION_ROWS.map(([key, label, unit, sub])=>{
+      const e = n[key];
+      const pct = pctOf(key, e, unit);
+      return h("div", {class:"nut-row" + (sub ? " sub" : "")},
+        h("span", {class:"lbl", text:label}),
+        h("span", {class:"val", text: e && isNum(e.value) ? `${fmtNum(e.value)} ${e.unit || unit}` : "—"}),
+        h("span", {class:"pct", text: pct!=null ? pct + "%" : ""}));
+    }));
+}
+
+function highlightsSection(f){
+  const xs = list(f.highlights).filter(x=>x && x.nutrient);
+  if(!xs.length) return null;
+  return section("두드러지는 영양소", xs.map(x=>{
+    const amt = [
+      isNum(x.amount) ? `${fmtNum(x.amount)}${x.unit ? " " + x.unit : ""}` : "",
+      isNum(x.dv) ? `기준치의 ${Math.round(x.dv)}%` : "",
+    ].filter(Boolean).join(" · ");
+    return h("div", {class:"food-item"},
+      h("div", {class:"food-item-head"},
+        h("span", {class:"food-item-title", text:x.nutrient}),
+        amt && h("span", {class:"food-item-amt", text:amt})),
+      x.role && h("p", {text:x.role}));
+  }));
+}
+
+function storageSection(f){
+  const xs = list(f.storage).filter(x=>x && (x.label || x.method || x.duration || x.caution));
+  if(!xs.length) return null;
+  return section("고르기와 보관", xs.map(x=>h("div", {class:"food-item"},
+    x.label && itemHead(x.label),
+    kv("방법", x.method), kv("기간", x.duration), kv("주의", x.caution))));
+}
+
+function howToEatSection(f){
+  const xs = list(f.howToEat).filter(x=>x && (x.title || x.body));
+  if(!xs.length) return null;
+  return section("먹는 법", xs.map(x=>h("div", {class:"food-item"},
+    x.title && itemHead(x.title),
+    x.body && h("p", {text:x.body}))));
+}
+
+function pairingsSection(f){
+  const xs = list(f.pairings).filter(x=>x && (x.target || x.targetName));
+  if(!xs.length) return null;
+  return section("궁합", xs.map(x=>{
+    // target이 사전에 있으면 링크, 없으면 targetName(없으면 id)을 텍스트로
+    const t = x.target ? FOOD_BY_ID.get(x.target) : null;
+    const name = t ? h("a", {href:foodHref(t.id), text:t.name + " →"}) : (x.targetName || x.target);
+    return h("div", {class:"food-item"},
+      itemHead("＋ ", name),
+      evidenceBadges(x),
+      x.reason && h("p", {text:x.reason}),
+      extractWarning(x),
+      refLinks(f, x.refs));
+  }));
+}
+
+function mythsSection(f){
+  const xs = list(f.myths).filter(x=>x && x.claim);
+  if(!xs.length) return null;
+  return section("속설", xs.map(x=>h("div", {class:"food-item"},
+    itemHead(`“${x.claim}”`),
+    evidenceBadges(x),
+    x.explanation && h("p", {text:x.explanation}),
+    extractWarning(x),
+    refLinks(f, x.refs))));
+}
+
+function referencesSection(f){
+  const xs = list(f.references).filter(r=>r && (r.source || r.url));
+  if(!xs.length) return null;
+  return section("참고한 자료", h("ol", {class:"ref-list"}, xs.map(r=>{
+    const url = typeof r.url==="string" && /^https?:\/\//.test(r.url) ? r.url : null;
+    return h("li", {id: r.no!=null ? "ref-" + r.no : null},
+      h("span", {class:"no", text: r.no!=null ? String(r.no) : ""}),
+      h("span", null,
+        r.source || "",
+        url && r.source ? " " : "",
+        url && h("a", {href:url, target:"_blank", rel:"noopener", text:url})));
+  })));
+}
+
+function renderFood(id){
+  const box = document.getElementById("food-detail");
+  if(!foodsLoaded){ box.replaceChildren(h("p", {class:"dict-status", text:"사전을 불러오는 중…"})); return; }
+  const f = FOOD_BY_ID.get(id);
+  if(!f){ box.replaceChildren(h("p", {class:"dict-status", text:"사전에서 찾을 수 없는 항목이에요."})); return; }
+
+  const cats = foodCats(f);
+  const months = f.season ? fmtMonths(f.season.months) : "";
+  const seasonText = [months && "제철 " + months, f.season && f.season.note].filter(Boolean).join(" · ");
+  box.replaceChildren(
+    cats.length ? h("p", {class:"food-cats", text:cats.join(" · ")}) : "",
+    h("h2", {class:"food-name", text:f.name}),
+    seasonText && h("p", {class:"food-season", text:seasonText}),
+    f.summary && h("p", {class:"food-summary", text:f.summary}),
+    addButton(f),
+    nutritionSection(f),
+    highlightsSection(f),
+    storageSection(f),
+    howToEatSection(f),
+    pairingsSection(f),
+    mythsSection(f),
+    referencesSection(f),
+    h("p", {class:"food-checked", text: f.checkedAt ? `마지막 확인 ${f.checkedAt}` : "아직 검증되지 않은 항목이에요."}),
+  );
+}
+
+/* ---------- 화면 전환 ---------- */
+// 탭은 클래스만 바꾸고, 식재료 상세만 #food/{id} 주소를 써서 뒤로가기가 되게 함
+let currentFoodId = null;
+let lastTab = "pick";
+
+function showView(name){
+  if(name!=="food") lastTab = name;
+  const tab = name==="food" ? "dict" : name;
+  document.querySelectorAll(".view").forEach(v=>v.classList.toggle("active", v.id==="view-"+name));
+  document.querySelectorAll("nav.tabbar button").forEach(b=>b.classList.toggle("active", b.dataset.tab===tab));
+}
+
+function routeFoodId(){
+  const m = location.hash.match(/^#food\/(.+)$/);
+  if(!m) return null;
+  try{ return decodeURIComponent(m[1]); }catch(e){ return null; }
+}
+
+function route(){
+  const id = routeFoodId();
+  if(id){
+    currentFoodId = id;
+    renderFood(id);
+    showView("food");
+    window.scrollTo(0, 0);
+  } else if(currentFoodId!==null){
+    currentFoodId = null;
+    showView(lastTab);
+  }
+}
+
+// depth: 앱 안에서 상세로 들어온 횟수. 0이면 「← 사전」을 눌러도 앱 밖으로 나가지 않게 함
+function openFood(id){
+  const depth = (history.state && history.state.depth) || 0;
+  history.pushState({depth: depth + 1}, "", foodHref(id));
+  route();
+}
+
+window.addEventListener("popstate", route);
+
+document.getElementById("btn-food-back").onclick = ()=>{
+  if(history.state && history.state.depth > 0){ history.back(); return; }
+  history.replaceState(null, "", location.pathname + location.search);
+  if(lastTab==="pick") lastTab = "dict";
+  route();
+};
+
 document.querySelectorAll("nav.tabbar button").forEach(btn=>{
   btn.onclick = ()=>{
-    document.querySelectorAll("nav.tabbar button").forEach(b=>b.classList.remove("active"));
-    document.querySelectorAll(".view").forEach(v=>v.classList.remove("active"));
-    btn.classList.add("active");
-    document.getElementById("view-"+btn.dataset.tab).classList.add("active");
+    if(routeFoodId()){
+      history.pushState(null, "", location.pathname + location.search);
+      currentFoodId = null;
+    }
+    showView(btn.dataset.tab);
   };
 });
 
+document.addEventListener("click", (e)=>{
+  const add = e.target.closest(".dict-add[data-food]");
+  if(add){
+    if(!add.hasAttribute("data-added")) addFoodToBasket(add.dataset.food);
+    return;
+  }
+  const link = e.target.closest('a[href^="#food/"]');
+  if(link){
+    e.preventDefault();
+    try{ openFood(decodeURIComponent(link.getAttribute("href").slice(6))); }catch(err){}
+    return;
+  }
+  const ref = e.target.closest("[data-ref]");
+  if(ref){
+    const li = document.getElementById("ref-" + ref.dataset.ref);
+    if(!li) return;
+    li.scrollIntoView({behavior:"smooth", block:"center"});
+    li.classList.add("flash");
+    setTimeout(()=>li.classList.remove("flash"), 1200);
+  }
+});
+
 /* ---------- 시작 ---------- */
-(function init(){
+(async function init(){
   load();
   renderPickChips();
   renderListChips();
-  renderDict();
   renderList();
   document.getElementById("rec-count").textContent = fmtCount(items.length);
+  route();
+
+  // 바구니·뽑기는 바로 쓰고, 사전은 foods.json이 도착하면 그림
+  await loadFoods();
+  if(linkFoods()) save();
+  renderDict();
+  renderList();
+  if(currentFoodId) renderFood(currentFoodId);
+  if(currentPick) renderPickCard(currentPick);
 })();
 
 if("serviceWorker" in navigator){
