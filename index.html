@@ -193,7 +193,7 @@
   .food-item-title{font-family:"Noto Serif KR",serif;font-weight:600;font-size:15px;}
   .food-item-title a{color:var(--ink);text-underline-offset:3px;text-decoration-color:var(--line);}
   .food-item-amt{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--muted);}
-  .food-item p{margin:0;font-size:13px;line-height:1.7;color:var(--muted);}
+  .food-item p{margin:0;font-size:13px;line-height:1.7;color:var(--muted);white-space:pre-line;}
   .food-item p + p{margin-top:4px;}
   .food-kv{display:flex;gap:12px;font-size:13px;line-height:1.7;}
   .food-kv .k{flex:0 0 52px;font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--faint);padding-top:2px;}
@@ -532,7 +532,12 @@ async function loadFoods(){
 
 function list(v){ return Array.isArray(v) ? v : []; }
 function isNum(v){ return typeof v==="number" && isFinite(v); }
-function fmtNum(v){ return isNum(v) ? String(Math.round(v*10)/10) : "—"; }
+// 1 이상은 소수 첫째 자리, 1 미만은 둘째 자리까지 (0.03g, 0.34mg이 0이나 0.3으로 뭉개지지 않게)
+function fmtNum(v){
+  if(!isNum(v)) return "—";
+  const k = Math.abs(v) < 1 ? 100 : 10;
+  return String(Math.round(v*k)/k);
+}
 function foodOf(item){ return item && item.foodId ? FOOD_BY_ID.get(item.foodId) || null : null; }
 function foodCats(f){ return Array.isArray(f.categories) ? f.categories : (f.categories ? [f.categories] : []); }
 function foodEnergy(f){ const e = f.nutrition && f.nutrition.energy; return e && isNum(e.value) ? e.value : null; }

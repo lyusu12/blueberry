@@ -16,19 +16,186 @@
       "categories": [
         "과일"
       ],
-      "summary": "강력한 항산화 성분이 눈의 피로와 노화를 늦추는 데 도움을 줘요",
+      "season": {
+        "months": [
+          6,
+          7,
+          8
+        ],
+        "note": "국내산 노지 기준. 냉동은 연중"
+      },
+      "summary": "씻어서 그대로 집어먹을 수 있고, 얼려두면 오래 두고 쓴다. 손이 덜 가는 과일.",
       "nutrition": {
         "energy": {
           "value": 57,
           "unit": "kcal"
+        },
+        "carbohydrate": {
+          "value": 14.5,
+          "unit": "g"
+        },
+        "sugars": {
+          "value": 10,
+          "unit": "g"
+        },
+        "fiber": {
+          "value": 2.4,
+          "unit": "g"
+        },
+        "protein": {
+          "value": 0.7,
+          "unit": "g"
+        },
+        "fat": {
+          "value": 0.3,
+          "unit": "g"
+        },
+        "saturatedFat": {
+          "value": 0.03,
+          "unit": "g"
+        },
+        "sodium": {
+          "value": 1,
+          "unit": "mg"
         }
       },
       "highlights": [
         {
-          "nutrient": "안토시아닌"
+          "nutrient": "비타민K",
+          "amount": 19,
+          "unit": "µg",
+          "dv": 27,
+          "role": "피가 굳는 과정과 뼈를 만드는 데 쓰인다. 과일 중에서는 많은 편."
+        },
+        {
+          "nutrient": "망간",
+          "amount": 0.34,
+          "unit": "mg",
+          "dv": 11,
+          "role": "여러 효소의 재료가 되는 미네랄로, 뼈와 연골을 만드는 데 관여한다."
+        },
+        {
+          "nutrient": "비타민C",
+          "amount": 10,
+          "unit": "mg",
+          "dv": 10,
+          "role": "콜라겐을 만드는 데 필요하고, 채소·곡물에 든 철분이 흡수되도록 돕는다."
+        },
+        {
+          "nutrient": "안토시아닌",
+          "role": "보라색을 내는 색소이자 폴리페놀의 한 종류. 껍질에 몰려 있고, 먹은 양에 비해 흡수되는 비율은 낮은 편이다."
         }
       ],
-      "checkedAt": null
+      "storage": [
+        {
+          "label": "고르기",
+          "method": "알이 단단하고 표면의 흰 가루(과분)가 고르게 남은 것",
+          "caution": "물러졌거나 즙이 밴 것은 피한다"
+        },
+        {
+          "label": "냉장",
+          "method": "씻지 않은 채로 밀폐 용기에 보관",
+          "duration": "5~10일",
+          "caution": "미리 씻으면 하루 이틀 만에 물러진다"
+        },
+        {
+          "label": "냉동",
+          "method": "겹치지 않게 펼쳐 얼린 뒤 밀폐 용기로 옮김",
+          "duration": "8~12개월",
+          "caution": "맛과 식감이 유지되는 기간이다. -18℃ 이하에서는 이후에도 먹는 데 지장이 없다"
+        }
+      ],
+      "howToEat": [
+        {
+          "title": "얼린 채로 요거트에 얹기"
+        },
+        {
+          "title": "우유와 갈아 스무디"
+        },
+        {
+          "title": "설탕 조금 넣고 졸여 잼"
+        }
+      ],
+      "pairings": [
+        {
+          "target": "oat",
+          "targetName": "오트밀",
+          "evidence": "confirmed",
+          "basis": "food",
+          "reason": "귀리의 베타글루칸은 물에 녹아 걸쭉해지는 식이섬유라 음식이 위에서 내려가는 속도를 늦춘다. 블루베리의 당분이 한꺼번에 흡수되는 것을 완만하게 만든다."
+        },
+        {
+          "targetName": "아몬드",
+          "evidence": "confirmed",
+          "basis": "food",
+          "reason": "지방과 단백질이 함께 들어오면 위가 비워지는 속도가 느려져 혈당이 급히 오르는 폭이 줄어든다. 블루베리에 거의 없는 단백질도 채워준다."
+        },
+        {
+          "target": "greek-yogurt",
+          "evidence": "mixed",
+          "basis": "food",
+          "refs": [
+            3,
+            4
+          ],
+          "reason": "우유 단백질이 안토시아닌을 감싸 장까지 보호한다는 동물 실험이 있는 반면, 사람이 우유와 함께 먹었을 때는 흡수가 오히려 줄었다는 결과도 있다. 우유 지방이 방해한다는 쪽이라 지방이 적은 제품이 무난하다.\n\n덧붙임: 칼슘이 흡수를 막는다는 말이 돌지만 그 근거는 찾지 못했다. 연구가 지목하는 것은 단백질과 지방이다. 칼슘이 방해하는 것으로 알려진 영양소는 철분이다."
+        }
+      ],
+      "myths": [
+        {
+          "claim": "살이 빠진다",
+          "evidence": "unknown",
+          "basis": "food",
+          "explanation": "열량이 낮아 다른 간식을 대신하면 도움이 될 수 있지만, 블루베리 자체가 체중을 줄인다는 근거는 찾지 못했다."
+        },
+        {
+          "claim": "어두운 데서 잘 보이게 된다",
+          "evidence": "false",
+          "basis": "extract",
+          "refs": [
+            5,
+            6
+          ],
+          "explanation": "2차대전 당시 영국 조종사 이야기에서 퍼진 말이다. 실험실에서는 안토시아닌이 어두운 곳에서 보는 데 쓰이는 망막 색소(로돕신)의 재생을 돕는 것으로 나타났지만, 사람의 야간 시력을 실제로 측정한 시험들에서는 차이가 확인되지 않았다."
+        },
+        {
+          "claim": "눈의 피로를 덜어준다",
+          "evidence": "mixed",
+          "basis": "extract",
+          "explanation": "화면을 오래 본 뒤의 눈 피로가 나아졌다는 소규모 시험이 몇 건 있다. 다만 표본이 작고 설문에 의존한 지표가 많다."
+        }
+      ],
+      "references": [
+        {
+          "no": 1,
+          "source": "미국 농무부 식품 데이터베이스(FoodData Central) — 영양성분 함량"
+        },
+        {
+          "no": 2,
+          "source": "Manach 외, 사람에서의 폴리페놀 생체이용률 연구 97건 리뷰, Am J Clin Nutr, 2005 — 안토시아닌의 낮은 흡수율"
+        },
+        {
+          "no": 3,
+          "source": "Lang 외, α-카제인이 쥐의 블루베리 안토시아닌 흡수에 미치는 영향, J Agric Food Chem, 2021 — 우유 단백질의 보호 효과"
+        },
+        {
+          "no": 4,
+          "source": "Serafini 외, 우유와 함께 섭취한 블루베리의 항산화 활성, Free Radic Biol Med, 2009 — 사람에서 흡수가 줄어든 결과"
+        },
+        {
+          "no": 5,
+          "source": "Matsumoto 외, 시아니딘 배당체가 로돕신 재생에 미치는 자극 효과, J Agric Food Chem, 2003 — 실험실에서 확인된 경로"
+        },
+        {
+          "no": 6,
+          "source": "Canter & Ernst, 빌베리 안토시아노사이드와 정상 시력자의 야간 시력에 관한 체계적 문헌고찰, 2004 — 효과 없음 / Levy & Glovinsky, Eye, 1998 — 위약군과 차이 없음"
+        },
+        {
+          "no": 7,
+          "source": "미국 FoodSafety.gov 냉장·냉동 보관 기준표 — 냉동 보관 기간은 안전이 아니라 품질 기준"
+        }
+      ],
+      "checkedAt": "2026-10-11"
     },
     {
       "id": "greek-yogurt",
