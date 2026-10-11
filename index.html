@@ -162,6 +162,13 @@
   .dict-add[data-added]{border-color:var(--line);color:var(--faint);cursor:default;}
   .dict-add[data-added]:hover{background:transparent;}
   .dict-link{color:inherit;text-decoration:none;display:block;flex:1;min-width:0;}
+
+  /* 식재료 이미지 자리: 사진이 없으면 분류 색 배경만 */
+  .food-img{position:relative;overflow:hidden;background:var(--tint, #ECEBE5);}
+  .food-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;}
+  .food-hero{aspect-ratio:16/10;max-width:100%;border-radius:3px;margin-bottom:20px;
+    background-image:linear-gradient(160deg, rgba(255,255,255,.45), rgba(255,255,255,0) 60%);background-color:var(--tint, #ECEBE5);}
+  .dict-thumb{flex:0 0 52px;width:52px;height:52px;border-radius:3px;}
   .dict-cats{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.06em;color:var(--taupe);margin-bottom:4px;}
   .dict-summary{font-size:12.5px;color:var(--muted);line-height:1.6;}
   .dict-status{color:var(--faint);font-size:13px;padding:24px 0;text-align:center;}
@@ -863,6 +870,7 @@ function renderDict(){
   el.replaceChildren(...FOODS.map(f=>{
     const cats = foodCats(f);
     return h("div", {class:"dict-entry"},
+      foodImage(f, "dict-thumb"),
       h("a", {class:"dict-link", href:foodHref(f.id)},
         cats.length && h("div", {class:"dict-cats", text:cats.join(" · ")}),
         h("div", {class:"dict-name", text:f.name}),
@@ -878,6 +886,37 @@ async function addFoodToBasket(id){
   await save();
   renderDict(); renderList();
   if(currentFoodId===id) renderFood(id);
+}
+
+/* ---------- 식재료 이미지 ---------- */
+// 사진이 없으면 첫 번째 분류의 은은한 색 배경만 보여줌. 사진이 있으면 그 위에 덮음
+const CATEGORY_TINT = {
+  "과일": "#F3E4E4",
+  "채소": "#E6EDE1",
+  "곡물": "#F1EADA",
+  "콩·견과": "#EDE4D8",
+  "유제품·달걀": "#F2EEE2",
+  "육류": "#F1E2DC",
+  "수산물": "#E2EAEF",
+  "발효식품": "#EBE5EE",
+  "기타": "#ECEBE5",
+};
+function safeImageSrc(src){
+  if(typeof src!=="string" || !src) return null;
+  if(/^https:\/\//.test(src)) return src;
+  if(/^[a-z]+:/i.test(src) || src.startsWith("//")) return null;  // 상대 경로만 허용
+  return src;
+}
+function foodImage(f, cls){
+  const box = h("div", {class:"food-img " + cls});
+  box.style.setProperty("--tint", CATEGORY_TINT[foodCats(f)[0]] || CATEGORY_TINT["기타"]);
+  const src = safeImageSrc(f.image && f.image.src);
+  if(src){
+    const img = h("img", {src, alt:(f.image.alt || f.name), loading:"lazy", decoding:"async"});
+    img.onerror = ()=> img.remove();  // 사진을 못 불러오면 색 배경만 남김
+    box.append(img);
+  }
+  return box;
 }
 
 /* ---------- 식재료 상세 ---------- */
@@ -942,10 +981,18 @@ function highlightsSection(f){
   }));
 }
 
+function choosingSection(f){
+  const xs = list(f.choosing).filter(x=>x && (x.label || x.method || x.caution));
+  if(!xs.length) return null;
+  return section("고르는법", xs.map(x=>h("div", {class:"food-item"},
+    x.label && itemHead(x.label),
+    kv("방법", x.method), kv("주의", x.caution))));
+}
+
 function storageSection(f){
   const xs = list(f.storage).filter(x=>x && (x.label || x.method || x.duration || x.caution));
   if(!xs.length) return null;
-  return section("고르기와 보관", xs.map(x=>h("div", {class:"food-item"},
+  return section("보관방법", xs.map(x=>h("div", {class:"food-item"},
     x.label && itemHead(x.label),
     kv("방법", x.method), kv("기간", x.duration), kv("주의", x.caution))));
 }
@@ -1009,6 +1056,7 @@ function renderFood(id){
   const months = f.season ? fmtMonths(f.season.months) : "";
   const seasonText = [months && "제철 " + months, f.season && f.season.note].filter(Boolean).join(" · ");
   box.replaceChildren(
+    foodImage(f, "food-hero"),
     cats.length ? h("p", {class:"food-cats", text:cats.join(" · ")}) : "",
     h("h2", {class:"food-name", text:f.name}),
     seasonText && h("p", {class:"food-season", text:seasonText}),
@@ -1016,6 +1064,7 @@ function renderFood(id){
     addButton(f),
     nutritionSection(f),
     highlightsSection(f),
+    choosingSection(f),
     storageSection(f),
     howToEatSection(f),
     pairingsSection(f),
@@ -1047,6 +1096,7 @@ function route(){
   const id = routeFoodId();
   if(id){
     currentFoodId = id;
+    updateBackLabel();
     renderFood(id);
     showView("food");
     window.scrollTo(0, 0);
@@ -1056,11 +1106,25 @@ function route(){
   }
 }
 
-// depth: 앱 안에서 상세로 들어온 횟수. 0이면 「← 사전」을 눌러도 앱 밖으로 나가지 않게 함
+// 상세로 들어갈 때 history.state에 직전 화면(from)을 남김: {food:id} 또는 {tab:name}
+// depth는 앱 안에서 쌓인 상세 화면 수. 0이면(주소로 바로 들어온 경우) 뒤로가기가 앱 밖으로 나가지 않게 사전으로 보냄
 function openFood(id){
   const depth = (history.state && history.state.depth) || 0;
-  history.pushState({depth: depth + 1}, "", foodHref(id));
+  const from = currentFoodId ? {food: currentFoodId} : {tab: lastTab};
+  history.pushState({depth: depth + 1, from}, "", foodHref(id));
   route();
+}
+
+const TAB_LABEL = {pick:"뽑기", basket:"바구니", dict:"사전", account:"계정"};
+function updateBackLabel(){ document.getElementById("btn-food-back").textContent = "← " + backLabel(); }
+function backLabel(){
+  const st = history.state;
+  if(!st || !(st.depth > 0) || !st.from) return "사전";
+  if(st.from.food){
+    const f = FOOD_BY_ID.get(st.from.food);
+    return f ? f.name : "이전";
+  }
+  return TAB_LABEL[st.from.tab] || "이전";
 }
 
 window.addEventListener("popstate", route);
@@ -1118,7 +1182,7 @@ document.addEventListener("click", (e)=>{
   if(linkFoods()) save();
   renderDict();
   renderList();
-  if(currentFoodId) renderFood(currentFoodId);
+  if(currentFoodId){ updateBackLabel(); renderFood(currentFoodId); }
   if(currentPick) renderPickCard(currentPick);
 })();
 

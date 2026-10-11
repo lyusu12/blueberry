@@ -5,9 +5,12 @@
 ## 규칙
 
 - **코드를 수정하면 `sw.js`의 `CACHE_NAME` 버전을 반드시 함께 올릴 것.**
-  (예: `meokkitlist-v6` → `meokkitlist-v7`)
+  (예: `moondeuk-v1` → `moondeuk-v2`)
   서비스워커가 cache-first라서, 버전을 올리지 않으면 설치된 앱에 수정 사항이 반영되지 않는다.
   **`foods.json`(사전 데이터)만 고친 경우에도 마찬가지로 올린다.**
+- **localStorage 키 `meokkit_items_v2`와 Firestore 컬렉션 `meokkit_users`는 이름을 바꾸지 않는다.**
+  예전 앱 이름(먹킷리스트)의 흔적이지만, 바꾸면 기존 사용자 데이터를 못 읽는다.
+  Firebase 설정의 `meokkit-12b18`도 실제 프로젝트 ID라 바꾸지 않는다.
 
 ## 사전 데이터 (`foods.json`)
 
@@ -33,7 +36,9 @@
     "protein": {...}, "fat": {...}, "saturatedFat": {...}, "sodium": { "value": 1, "unit": "mg" }
   },
   "highlights": [{ "nutrient": "비타민 K", "amount": 19.3, "unit": "µg", "dv": 27, "role": "하는 일" }],
-  "storage":    [{ "label": "냉장", "method": "방법", "duration": "기간", "caution": "주의사항" }],
+  "image":      { "src": "images/blueberry.jpg", "alt": "설명" },   // 없으면 분류 색 배경만 표시
+  "choosing":   [{ "method": "고르는 방법", "caution": "주의사항" }],              // 「고르는법」 섹션 (label은 선택)
+  "storage":    [{ "label": "냉장", "method": "방법", "duration": "기간", "caution": "주의사항" }],  // 「보관방법」 섹션. 상온·냉장·냉동 등 여러 개
   "howToEat":   [{ "title": "요거트 볼", "body": "간단한 조리법" }],
   "pairings":   [{ "target": "oat", "targetName": "오트밀", "reason": "왜 좋은지",
                    "evidence": "confirmed", "basis": "food", "refs": [1] }],
@@ -49,6 +54,9 @@
 - `pairings[].target`은 다른 항목의 `id`. 사전에 아직 없는 식재료면 `targetName`을 텍스트로 보여준다.
 - `refs`는 같은 항목의 `references[].no`를 가리킨다 (항목마다 1번부터).
 - 분류 목록: 과일 / 채소 / 곡물 / 콩·견과 / 유제품·달걀 / 육류 / 수산물 / 발효식품 / 기타
+  (첫 번째 분류가 사진이 없을 때의 배경색을 정한다. 색은 `index.html`의 `CATEGORY_TINT`)
+- `image.src`는 상대 경로(예: `images/blueberry.jpg`) 또는 https 주소. 사진을 못 불러오면 색 배경으로 돌아간다.
+- 상세 화면 섹션 순서와 이름은 고정: 영양성분 / 두드러지는 영양소 / 고르는법 / 보관방법 / 먹는 법 / 궁합 / 속설 / 참고한 자료
 
 ## 바구니 항목 (`items`, localStorage + Firestore)
 
