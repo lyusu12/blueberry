@@ -38,7 +38,7 @@
   "highlights": [{ "nutrient": "비타민 K", "amount": 19.3, "unit": "µg", "dv": 27, "role": "하는 일" }],
   "image":      { "src": "images/blueberry.jpg", "alt": "설명" },   // 없으면 분류 색 배경만 표시
   "choosing":   [{ "method": "고르는 방법", "caution": "주의사항" }],              // 「고르는법」 섹션 (label은 선택)
-  "storage":    [{ "label": "냉장", "method": "방법", "duration": "기간", "caution": "주의사항" }],  // 「보관방법」 섹션. 상온·냉장·냉동 등 여러 개
+  "storage":    [{ "label": "냉장", "method": "방법", "duration": "기간", "caution": "주의사항" }],  // 「보관 팁」 섹션. 상온·냉장·냉동 등 여러 개
   "howToEat":   [{ "title": "요거트 볼", "body": "간단한 조리법" }],
   "pairings":   [{ "target": "oat", "targetName": "오트밀", "reason": "왜 좋은지",
                    "evidence": "confirmed", "basis": "food", "refs": [1] }],
@@ -56,10 +56,18 @@
 - 분류 목록: 과일 / 채소 / 곡물 / 콩·견과 / 유제품·달걀 / 육류 / 수산물 / 발효식품 / 기타
   (첫 번째 분류가 사진이 없을 때의 배경색을 정한다. 색은 `index.html`의 `CATEGORY_TINT`)
 - `image.src`는 상대 경로(예: `images/blueberry.jpg`) 또는 https 주소. 사진을 못 불러오면 색 배경으로 돌아간다.
-- 상세 화면 섹션 순서와 이름은 고정: 영양성분 / 두드러지는 영양소 / 고르는법 / 보관방법 / 먹는 법 / 궁합 / 속설 / 참고한 자료
+- 영양성분·두드러지는 영양소를 뺀 섹션은 접히는 카드(`foldSection`): 처음엔 요약만, 누르면 자세히. 참고한 자료는 요약 없이 제목만
+- 상세 화면 섹션 순서와 이름은 고정: 영양성분 / 두드러지는 영양소 / 고르는법 / 보관 팁 / 먹는 법 / 잘 어울리는 음식 / 속설 / 참고한 자료
 
 ## 바구니 항목 (`items`, localStorage + Firestore)
 
 `{ id, name, cat, memo, lastEaten, foodId?, nutri? }`
 - `foodId`가 있으면 사전에서 정보를 읽어서 보여준다 (복사하지 않음).
 - `nutri`({kcal,key,note})는 사전과 연결 안 된 직접 입력 항목용. 예전 버전 앱 호환을 위해 지우지 않는다.
+
+## 홈 화면
+
+- 「오늘의 발견」: 날짜로 정해지는 사전 항목 1개 (하루 동안 같음)
+- 「요즘 제철」: `season.months`에 이번 달이 들어 있는 항목만. 없으면 안내 문구
+- 「자주 본 식재료」: 상세 화면을 연 횟수(이 기기의 localStorage `moondeuk_views`) 순. 기록이 없으면 「사전 둘러보기」로 사전 앞쪽 5개
+- 디자인 색·간격은 `index.html` 맨 위 `:root` 변수에 모여 있음 (딥퍼플 `--primary` #514568, 크림 `--bg` #FAF8F4)
