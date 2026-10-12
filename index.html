@@ -66,7 +66,12 @@
   .view.active{display:block;}
   @keyframes fade{from{opacity:0;}to{opacity:1;}}
 
-  .page-head{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin:8px 0 20px;}
+  .page-head{display:flex;align-items:flex-start;gap:12px;margin:8px 0 20px;}
+  .page-head-text{flex:1;min-width:0;padding-top:4px;}
+  .menu-btn{
+    flex:0 0 auto;width:44px;height:44px;border-radius:50%;border:none;cursor:pointer;
+    background:var(--primary-light);color:var(--primary);display:flex;align-items:center;justify-content:center;
+  }
   .page-title{font-size:26px;font-weight:700;letter-spacing:-.02em;line-height:1.25;margin:0;}
   .page-sub{font-size:14px;color:var(--muted);line-height:1.6;margin:6px 0 0;}
 
@@ -107,7 +112,7 @@
   .thumb .initial{font-size:20px;}
 
   /* ===== 홈 ===== */
-  .home-top{display:flex;align-items:center;justify-content:space-between;min-height:44px;}
+  .home-top{display:flex;align-items:center;gap:12px;min-height:44px;margin-top:8px;}
   #home-today{margin-top:24px;}
   .brand{font-size:26px;font-weight:700;letter-spacing:-.03em;margin:0;color:var(--ink);}
   .home-intro{position:relative;margin:18px 0 20px;}
@@ -261,8 +266,10 @@
 
   /* ===== 식재료 상세 ===== */
   .view-food{padding:0 0 calc(96px);position:relative;}
+  /* 다른 화면의 ≡ 버튼과 같은 자리: 위 (안전 영역 + 20 + 8)px, 왼쪽 화면 여백 */
+  .food-topbar{position:absolute;z-index:5;top:calc(var(--safe-top) + 28px);left:var(--gutter);display:flex;gap:8px;}
+  .food-topbar .menu-btn{background:#fff;color:var(--ink);box-shadow:0 2px 10px rgba(41,40,58,.08);}
   .food-back{
-    position:absolute;z-index:5;top:calc(var(--safe-top) + 12px);left:16px;
     width:44px;height:44px;padding:0;display:flex;align-items:center;justify-content:center;
     border:none;border-radius:50%;background:#fff;color:var(--ink);
     cursor:pointer;box-shadow:0 2px 10px rgba(41,40,58,.08);
@@ -270,7 +277,7 @@
   .food-hero{height:calc(var(--safe-top) + 310px);}
   .food-hero .initial{font-size:96px;color:rgba(41,40,58,.22);margin-top:var(--safe-top);}
   .hero-save{
-    position:absolute;z-index:2;top:calc(var(--safe-top) + 12px);right:16px;
+    position:absolute;z-index:2;top:calc(var(--safe-top) + 28px);right:var(--gutter);
     width:44px;height:44px;min-height:0;padding:0;border-radius:50%;
     display:flex;align-items:center;justify-content:center;
     background:rgba(255,255,255,.9);color:var(--ink);box-shadow:0 2px 10px rgba(41,40,58,.08);
@@ -396,11 +403,65 @@
   }
   .food-cta .btn{width:100%;min-height:52px;border-radius:16px;box-shadow:0 8px 20px rgba(81,69,104,.22);}
 
-  /* ===== 계정 ===== */
-  .account-card{padding:20px;margin-bottom:16px;}
-  .account-status-label{font-size:13px;color:var(--muted);margin:0 0 4px;}
-  .account-status-value{font-size:17px;font-weight:600;margin:0 0 12px;overflow-wrap:anywhere;}
-  .account-desc{font-size:14px;color:var(--text-2);line-height:1.7;margin:0 0 20px;}
+  /* ===== 설정 ===== */
+  .set-label{font-size:13px;font-weight:600;color:var(--muted);margin:24px 4px 8px;}
+  .page-head + .set-label{margin-top:4px;}
+  .set-group{padding:2px 16px;}
+  .set-row{display:flex;align-items:center;gap:12px;min-height:64px;padding:12px 0;}
+  .set-row + .set-row{border-top:1px solid var(--line);}
+  .set-ic{flex:0 0 36px;height:36px;border-radius:50%;background:var(--primary-light);color:var(--primary);display:flex;align-items:center;justify-content:center;}
+  .set-body{flex:1;min-width:0;}
+  .set-title{font-size:15px;font-weight:600;}
+  .set-sub{font-size:13px;color:var(--text-2);margin-top:2px;line-height:1.5;}
+  .set-sub.faint{color:var(--muted);overflow-wrap:anywhere;}
+  .set-note{font-size:13px;color:var(--muted);margin:8px 4px 0;}
+  .btn-sm{min-height:36px;padding:0 14px;font-size:13px;border-radius:12px;flex:0 0 auto;}
+
+  /* ===== 사전 분류·제철 칩 ===== */
+  .chips.months{margin-top:-8px;}
+  .chips.months .chip{min-height:32px;padding:0 12px;font-size:13px;}
+  .chips.months .chip.active{background:var(--primary-light);border-color:var(--primary-light);color:var(--primary);}
+
+  /* ===== 사이드 메뉴 ===== */
+  .drawer-backdrop{position:fixed;inset:0;z-index:100;background:rgba(41,40,58,.38);opacity:0;pointer-events:none;transition:opacity .25s;}
+  .drawer-backdrop.open{opacity:1;pointer-events:auto;}
+  .drawer{
+    position:fixed;z-index:101;top:0;bottom:0;left:max(0px, calc(50vw - 240px));width:min(80vw, 320px);
+    display:flex;flex-direction:column;background:var(--bg);border-radius:0 24px 24px 0;
+    box-shadow:10px 0 32px rgba(41,40,58,.14);
+    padding:var(--safe-top) 0 var(--safe-bottom);
+    transform:translateX(-105%);visibility:hidden;
+    transition:transform .28s cubic-bezier(.2,.8,.3,1), visibility 0s linear .28s;
+  }
+  .drawer.open{transform:none;visibility:visible;transition:transform .28s cubic-bezier(.2,.8,.3,1), visibility 0s;}
+  .drawer-head{display:flex;align-items:center;gap:12px;padding:22px 16px 18px 20px;}
+  .drawer-logo{width:52px;height:52px;border-radius:16px;flex:0 0 auto;}
+  .drawer-title{flex:1;min-width:0;}
+  .drawer-name{font-size:20px;font-weight:700;letter-spacing:-.02em;}
+  .drawer-tag{font-size:12.5px;color:var(--muted);line-height:1.5;margin-top:2px;}
+  .drawer-close{align-self:flex-start;width:40px;height:40px;border:none;background:none;border-radius:50%;color:var(--text-2);cursor:pointer;display:flex;align-items:center;justify-content:center;}
+  .drawer-nav{flex:1;overflow-y:auto;overscroll-behavior:contain;padding:4px 12px 24px;}
+  .m-item{
+    display:flex;align-items:center;gap:12px;width:100%;min-height:50px;padding:0 12px;
+    border:none;background:none;border-radius:14px;cursor:pointer;text-align:left;
+    font-size:15.5px;font-weight:500;color:var(--ink);
+  }
+  .m-item > .ic{color:var(--text-2);}
+  .m-item:active{background:rgba(81,69,104,.06);}
+  .m-item[aria-current="page"]{background:var(--primary-light);color:var(--primary);font-weight:600;}
+  .m-item[aria-current="page"] > .ic, .m-item.has-current > .ic{color:var(--primary);}
+  .m-item.has-current{color:var(--primary);}
+  .m-label{flex:1;min-width:0;}
+  .m-chev{color:var(--muted);transform:rotate(90deg);transition:transform .2s;}
+  .m-item[aria-expanded="true"] .m-chev{transform:rotate(-90deg);}
+  .m-count{font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums;}
+  .m-sub{padding:2px 0 6px;}
+  .m-item.depth-1{min-height:42px;padding-left:46px;font-size:14.5px;font-weight:400;color:var(--text-2);position:relative;}
+  .m-item.depth-1::before{content:"";position:absolute;left:28px;top:50%;width:4px;height:4px;margin-top:-2px;border-radius:50%;background:#C4C1CB;}
+  .m-item.depth-1[aria-current="page"]{color:var(--primary);font-weight:600;}
+  .m-item.depth-1[aria-current="page"]::before{background:var(--primary);}
+  .m-item.depth-2{min-height:40px;padding-left:64px;font-size:14px;}
+  .m-divider{height:1px;background:var(--line);margin:10px 12px;}
 
   /* ===== 바텀 시트 ===== */
   .sheet-backdrop{position:fixed;inset:0;background:rgba(41,40,58,.32);z-index:90;display:none;}
@@ -469,7 +530,7 @@
 
   <!-- ===== HOME VIEW ===== -->
   <section class="view active" id="view-home">
-    <div class="home-top"><h1 class="brand">문득</h1></div>
+    <div class="home-top"><button class="menu-btn" data-menu-open aria-label="메뉴 열기" aria-controls="drawer" aria-expanded="false"><svg class="ic" viewBox="0 0 24 24"><path d="M4.5 7h15M4.5 12h15M4.5 17h15"/></svg></button><h1 class="brand">문득</h1></div>
     <div class="home-intro">
       <p class="home-hello">오늘은 뭐가<br>문득 떠올랐나요?<svg class="ic sm fill spark" viewBox="0 0 24 24"><path d="M12 3c.6 4.2 2.8 6.4 7 7-4.2.6-6.4 2.8-7 7-.6-4.2-2.8-6.4-7-7 4.2-.6 6.4-2.8 7-7z"/></svg></p>
       <p class="home-desc">지금, 맛있는 식재료로 새로운 한 끼를 만나보세요.</p>
@@ -491,13 +552,13 @@
 
       <div class="sec-head">
         <h2 id="home-season-title">요즘 제철</h2>
-        <button class="more-link" data-goto="dict">전체보기<svg class="ic xs" viewBox="0 0 24 24"><path d="m9.5 6 6 6-6 6"/></svg></button>
+        <button class="more-link" data-menu-go="season">전체보기<svg class="ic xs" viewBox="0 0 24 24"><path d="m9.5 6 6 6-6 6"/></svg></button>
       </div>
       <div id="home-season"></div>
 
       <div class="sec-head">
         <h2 id="home-popular-title">자주 본 식재료</h2>
-        <button class="more-link" data-goto="dict">전체보기<svg class="ic xs" viewBox="0 0 24 24"><path d="m9.5 6 6 6-6 6"/></svg></button>
+        <button class="more-link" id="home-popular-more" data-goto="dict">전체보기<svg class="ic xs" viewBox="0 0 24 24"><path d="m9.5 6 6 6-6 6"/></svg></button>
       </div>
       <div id="home-popular"></div>
     </div>
@@ -506,8 +567,9 @@
   <!-- ===== PICK VIEW ===== -->
   <section class="view" id="view-pick">
     <div class="page-head">
-      <div>
-        <h1 class="page-title">뽑기</h1>
+      <button class="menu-btn" data-menu-open aria-label="메뉴 열기" aria-controls="drawer" aria-expanded="false"><svg class="ic" viewBox="0 0 24 24"><path d="M4.5 7h15M4.5 12h15M4.5 17h15"/></svg></button>
+      <div class="page-head-text">
+        <h1 class="page-title">오늘 뭐 먹지?</h1>
         <p class="page-sub">바구니에서 하나를 골라드려요. 최근에 먹은 건 덜 나와요.</p>
       </div>
     </div>
@@ -547,7 +609,8 @@
   <!-- ===== BASKET VIEW ===== -->
   <section class="view" id="view-basket">
     <div class="page-head">
-      <div>
+      <button class="menu-btn" data-menu-open aria-label="메뉴 열기" aria-controls="drawer" aria-expanded="false"><svg class="ic" viewBox="0 0 24 24"><path d="M4.5 7h15M4.5 12h15M4.5 17h15"/></svg></button>
+      <div class="page-head-text">
         <h1 class="page-title">바구니</h1>
         <p class="page-sub" id="rec-count">0개</p>
       </div>
@@ -565,19 +628,25 @@
   <!-- ===== DICT VIEW ===== -->
   <section class="view" id="view-dict">
     <div class="page-head">
-      <div>
+      <button class="menu-btn" data-menu-open aria-label="메뉴 열기" aria-controls="drawer" aria-expanded="false"><svg class="ic" viewBox="0 0 24 24"><path d="M4.5 7h15M4.5 12h15M4.5 17h15"/></svg></button>
+      <div class="page-head-text">
         <h1 class="page-title">사전</h1>
-        <p class="page-sub">미리 정리해둔 식재료 사전이에요. 「담기」하면 내 바구니로 들어가고, 뽑기에도 포함돼요.</p>
+        <p class="page-sub">미리 정리해둔 식재료 사전이에요. 「담기」하면 내 바구니로 들어가고, 「오늘 뭐 먹지?」에도 포함돼요.</p>
       </div>
     </div>
+    <div class="chips" id="dict-chips"></div>
+    <div class="chips months" id="dict-months" hidden></div>
     <div class="dict-list" id="dict-list"><p class="dict-status">사전을 불러오는 중…</p></div>
   </section>
 
   <!-- ===== FOOD DETAIL VIEW ===== -->
   <section class="view view-food" id="view-food">
-    <button class="food-back" id="btn-food-back" aria-label="사전으로 돌아가기">
-      <svg class="ic" viewBox="0 0 24 24"><path d="m14.5 6-6 6 6 6"/></svg>
-    </button>
+    <div class="food-topbar">
+      <button class="menu-btn" data-menu-open aria-label="메뉴 열기" aria-controls="drawer" aria-expanded="false"><svg class="ic" viewBox="0 0 24 24"><path d="M4.5 7h15M4.5 12h15M4.5 17h15"/></svg></button>
+      <button class="food-back" id="btn-food-back" aria-label="사전으로 돌아가기">
+        <svg class="ic" viewBox="0 0 24 24"><path d="m14.5 6-6 6 6 6"/></svg>
+      </button>
+    </div>
     <div id="food-detail"></div>
     <div class="food-cta" id="food-cta">
       <button class="btn btn-primary" id="btn-food-recipe">
@@ -586,19 +655,38 @@
     </div>
   </section>
 
-  <!-- ===== ACCOUNT VIEW ===== -->
-  <section class="view" id="view-account">
-    <div class="page-head"><h1 class="page-title">계정</h1></div>
-    <div class="account-card card">
-      <p class="account-status-label">동기화 상태</p>
-      <p class="account-status-value" id="account-status-value">동기화 안 됨</p>
-      <p class="account-desc">
-        Google 계정으로 로그인하면 지금 이 기기의 기록이 클라우드에 저장되고,
-        같은 계정으로 로그인한 다른 기기와 실시간으로 동기화돼요.
-      </p>
-      <button class="btn btn-primary btn-wide" id="btn-login">Google 로그인</button>
+  <!-- ===== DISHES VIEW (음식·레시피) ===== -->
+  <section class="view" id="view-dishes">
+    <div class="page-head">
+      <button class="menu-btn" data-menu-open aria-label="메뉴 열기" aria-controls="drawer" aria-expanded="false"><svg class="ic" viewBox="0 0 24 24"><path d="M4.5 7h15M4.5 12h15M4.5 17h15"/></svg></button>
+      <div class="page-head-text">
+        <h1 class="page-title">음식·레시피</h1>
+        <p class="page-sub">완성된 음식과 레시피를 종류별로 모아둘 곳이에요.</p>
+      </div>
     </div>
-    <p class="page-sub">로그인하지 않으면 기록은 이 기기의 브라우저에만 저장돼요.</p>
+    <div class="chips" id="dish-chips"></div>
+    <div id="dish-list"></div>
+  </section>
+
+  <!-- ===== SETTINGS VIEW (계정 포함) ===== -->
+  <section class="view" id="view-settings">
+    <div class="page-head"><button class="menu-btn" data-menu-open aria-label="메뉴 열기" aria-controls="drawer" aria-expanded="false"><svg class="ic" viewBox="0 0 24 24"><path d="M4.5 7h15M4.5 12h15M4.5 17h15"/></svg></button><div class="page-head-text"><h1 class="page-title">설정</h1></div></div>
+
+    <p class="set-label">계정</p>
+    <div class="card set-group">
+      <div class="set-row">
+        <span class="set-ic"><svg class="ic sm" viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="3.5"/><path d="M5 20c1.2-3.6 4-5.5 7-5.5s5.8 1.9 7 5.5"/></svg></span>
+        <div class="set-body">
+          <div class="set-title" id="account-status-value">로그인 안 됨</div>
+          <div class="set-sub" id="account-sub">로그인하면 다른 기기에서도 기록이 이어져요</div>
+          <div class="set-sub faint" id="account-email" hidden></div>
+        </div>
+        <button class="btn btn-sm btn-primary" id="btn-login">로그인</button>
+      </div>
+    </div>
+    <p class="set-note">로그인하지 않으면 기록은 이 기기에만 저장돼요.</p>
+
+    <!-- 설정 항목은 <p class="set-label">묶음 이름</p> + <div class="card set-group"> 안에 .set-row를 추가하는 식으로 늘림 -->
   </section>
 
 </div>
@@ -609,20 +697,31 @@
     <button class="active" data-tab="home">
       <svg class="ic" viewBox="0 0 24 24"><path d="M4 10.5 12 4l8 6.5V19a1 1 0 0 1-1 1h-4.5v-5.5h-5V20H5a1 1 0 0 1-1-1z"/></svg><span class="tab-label">홈</span>
     </button>
-    <button data-tab="pick">
-      <svg class="ic" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="4"/><circle cx="9" cy="9" r=".6"/><circle cx="12" cy="12" r=".6"/><circle cx="15" cy="15" r=".6"/></svg><span class="tab-label">뽑기</span>
+    <button data-tab="dict">
+      <svg class="ic" viewBox="0 0 24 24"><path d="M5 18.5V5.5A1.5 1.5 0 0 1 6.5 4H19v13H6.5A1.5 1.5 0 0 0 5 18.5zm0 0A1.5 1.5 0 0 0 6.5 20H19"/></svg><span class="tab-label">사전</span>
     </button>
     <button data-tab="basket">
       <svg class="ic" viewBox="0 0 24 24"><path d="M4.5 9.5h15l-1.4 8.7a2 2 0 0 1-2 1.8H7.9a2 2 0 0 1-2-1.8z"/><path d="M8.5 9.5 12 4.5l3.5 5"/></svg><span class="tab-label">바구니</span>
     </button>
-    <button data-tab="dict">
-      <svg class="ic" viewBox="0 0 24 24"><path d="M5 18.5V5.5A1.5 1.5 0 0 1 6.5 4H19v13H6.5A1.5 1.5 0 0 0 5 18.5zm0 0A1.5 1.5 0 0 0 6.5 20H19"/></svg><span class="tab-label">사전</span>
-    </button>
-    <button data-tab="account">
-      <svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="3.5"/><path d="M5 20c1.2-3.6 4-5.5 7-5.5s5.8 1.9 7 5.5"/></svg><span class="tab-label">계정</span>
+    <button data-tab="settings">
+      <svg class="ic" viewBox="0 0 24 24"><path d="M12 8.6a3.4 3.4 0 1 0 0 6.8 3.4 3.4 0 0 0 0-6.8z"/><path d="M19.4 13.4a7.6 7.6 0 0 0 0-2.8l2-1.5-2-3.4-2.3.9a7.6 7.6 0 0 0-2.5-1.4L14.2 2.8h-4.4l-.4 2.4a7.6 7.6 0 0 0-2.5 1.4l-2.3-.9-2 3.4 2 1.5a7.6 7.6 0 0 0 0 2.8l-2 1.5 2 3.4 2.3-.9a7.6 7.6 0 0 0 2.5 1.4l.4 2.4h4.4l.4-2.4a7.6 7.6 0 0 0 2.5-1.4l2.3.9 2-3.4z"/></svg><span class="tab-label">설정</span>
     </button>
   </div>
 </nav>
+
+<!-- ===== 사이드 메뉴 (햄버거 버튼으로 열림, 화면 위에 겹쳐 뜸) ===== -->
+<div class="drawer-backdrop" id="drawer-backdrop"></div>
+<aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="메뉴" inert>
+  <div class="drawer-head">
+    <img class="drawer-logo" src="icon-192.png" alt="">
+    <div class="drawer-title">
+      <div class="drawer-name">문득</div>
+      <div class="drawer-tag">오늘도, 좋은 식재료와<br>새로운 발견을</div>
+    </div>
+    <button class="drawer-close" id="drawer-close" aria-label="메뉴 닫기"><svg class="ic" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+  </div>
+  <nav class="drawer-nav" id="drawer-nav" aria-label="전체 메뉴"></nav>
+</aside>
 
 <!-- ===== Add-item sheet ===== -->
 <div class="sheet-backdrop" id="sheet-backdrop"></div>
@@ -702,14 +801,21 @@ async function pushToCloud(){
   catch(e){ console.warn("클라우드 저장 실패", e); }
 }
 
-function setAccountUI(text, btnText){
-  document.getElementById("account-status-value").textContent = text;
-  document.getElementById("btn-login").textContent = btnText;
+// 설정 > 계정 줄 표시. 이메일은 어느 계정인지 알 수 있게 작게만
+function setAccountUI(user){
+  document.getElementById("account-status-value").textContent = user ? "로그인됨" : "로그인 안 됨";
+  document.getElementById("account-sub").textContent = user ? "기록이 다른 기기와 자동으로 이어지고 있어요" : "로그인하면 다른 기기에서도 기록이 이어져요";
+  const email = document.getElementById("account-email");
+  email.textContent = user && user.email ? user.email : "";
+  email.hidden = !(user && user.email);
+  const btn = document.getElementById("btn-login");
+  btn.textContent = user ? "로그아웃" : "로그인";
+  btn.classList.toggle("btn-primary", !user);
 }
 
 async function onLogin(user){
   currentUser = user;
-  setAccountUI("동기화 중 · " + (user.email || ""), "로그아웃");
+  setAccountUI(user);
 
   const snap = await getDoc(userDocRef(user.uid));
   if(snap.exists() && Array.isArray(snap.data().items) && snap.data().items.length > 0){
@@ -740,7 +846,7 @@ async function onLogin(user){
 function onLogout(){
   currentUser = null;
   if(unsubscribeSnapshot){ unsubscribeSnapshot(); unsubscribeSnapshot = null; }
-  setAccountUI("동기화 안 됨", "Google 로그인");
+  setAccountUI(null);
 }
 
 document.getElementById("btn-login").addEventListener("click", async ()=>{
@@ -886,6 +992,14 @@ const ICON_PATHS = {
   sparkle: '<path d="M12 3c.6 4.2 2.8 6.4 7 7-4.2.6-6.4 2.8-7 7-.6-4.2-2.8-6.4-7-7 4.2-.6 6.4-2.8 7-7z"/>',
   leaf: '<path d="M6 18C6 10 11 6 19 5c0 8-4 13-12 13z"/><path d="M6 18 13 11"/>',
   arrow: '<path d="M5 12h14M13 6l6 6-6 6"/>',
+  home: '<path d="M4 10.5 12 4l8 6.5V19a1 1 0 0 1-1 1h-4.5v-5.5h-5V20H5a1 1 0 0 1-1-1z"/>',
+  dice: '<rect x="4" y="4" width="16" height="16" rx="4"/><circle cx="9" cy="9" r=".6"/><circle cx="12" cy="12" r=".6"/><circle cx="15" cy="15" r=".6"/>',
+  calendar: '<rect x="4" y="5.5" width="16" height="14.5" rx="2.5"/><path d="M4 10h16M8.5 3.5v4M15.5 3.5v4"/>',
+  basket: '<path d="M4.5 9.5h15l-1.4 8.7a2 2 0 0 1-2 1.8H7.9a2 2 0 0 1-2-1.8z"/><path d="M8.5 9.5 12 4.5l3.5 5"/>',
+  user: '<circle cx="12" cy="8.5" r="3.5"/><path d="M5 20c1.2-3.6 4-5.5 7-5.5s5.8 1.9 7 5.5"/>',
+  pot: '<path d="M4.5 10h15v4.5a5.5 5.5 0 0 1-5.5 5.5h-4a5.5 5.5 0 0 1-5.5-5.5z"/><path d="M2.5 10h19M9.5 7c0-1.2 1-1.6 1-2.8M14 7c0-1.2 1-1.6 1-2.8"/>',
+  flame: '<path d="M12 21a6 6 0 0 0 6-6c0-3.6-2.6-5.6-4.2-8.2-.5 2-1.5 3-2.9 3.5.1-2.3-.5-4.4-.4-6.8C7.3 5.6 6 9.4 6 15a6 6 0 0 0 6 6z"/>',
+  gear: '<path d="M12 8.6a3.4 3.4 0 1 0 0 6.8 3.4 3.4 0 0 0 0-6.8z"/><path d="M19.4 13.4a7.6 7.6 0 0 0 0-2.8l2-1.5-2-3.4-2.3.9a7.6 7.6 0 0 0-2.5-1.4L14.2 2.8h-4.4l-.4 2.4a7.6 7.6 0 0 0-2.5 1.4l-2.3-.9-2 3.4 2 1.5a7.6 7.6 0 0 0 0 2.8l-2 1.5 2 3.4 2.3-.9a7.6 7.6 0 0 0 2.5 1.4l.4 2.4h4.4l.4-2.4a7.6 7.6 0 0 0 2.5-1.4l2.3.9 2-3.4z"/>',
   drop: '<path d="M12 3.5c3 3.6 5.5 6.6 5.5 9.9a5.5 5.5 0 0 1-11 0c0-3.3 2.5-6.3 5.5-9.9z"/>',
   hexagon: '<path d="M12 3.5 19.5 8v8L12 20.5 4.5 16V8z"/>',
   star: '<path d="m12 4 2.4 4.9 5.4.8-3.9 3.8.9 5.4L12 16.4l-4.8 2.5.9-5.4-3.9-3.8 5.4-.8z"/>',
@@ -1169,6 +1283,57 @@ function addButton(f){
   return h("button", {class:"dict-add", "data-added":already ? "1" : null, "data-food":f.id, text:already ? "담음" : "담기"});
 }
 
+// 사전 필터: {type:"all"} 전체 / {type:"cat", cat} 분류 / {type:"season", month} 그달 제철
+// 사이드 메뉴의 「식재료 > 채소」, 「제철 식재료」가 이 필터를 바꿔서 사전 화면을 보여줌
+const CATEGORY_ORDER = ["채소", "과일", "육류", "생선·해산물", "곡물", "콩·견과", "유제품·달걀", "발효식품", "기타"];
+let dictFilter = {type:"all"};
+// 사전에 완성 음식(kind:"dish")이 들어오면 「음식·레시피」 쪽에 보이고, 식재료 목록에서는 빠짐
+function ingredients(){ return FOODS.filter(f=>f.kind!=="dish"); }
+function presentCategories(){
+  const xs = ingredients();
+  const known = CATEGORY_ORDER.filter(c=>xs.some(f=>foodCats(f).includes(c)));
+  const extra = [...new Set(xs.flatMap(foodCats))].filter(c=>!CATEGORY_ORDER.includes(c));
+  return known.concat(extra);
+}
+function countCategory(c){ return ingredients().filter(f=>foodCats(f).includes(c)).length; }
+// 이 기기에서 상세를 연 횟수 순 (홈 「자주 본 식재료」와 같은 기준)
+function viewedFoods(){
+  const views = loadViews();
+  return FOODS.filter(f=>isNum(views[f.id]) && views[f.id]>0).sort((a, b)=>views[b.id] - views[a.id]);
+}
+function filteredFoods(){
+  const xs = ingredients();
+  if(dictFilter.type==="cat") return xs.filter(f=>foodCats(f).includes(dictFilter.cat));
+  if(dictFilter.type==="season") return xs.filter(f=>inSeason(f, dictFilter.month));
+  if(dictFilter.type==="viewed") return viewedFoods();
+  return xs;
+}
+function setDictFilter(filter){
+  dictFilter = filter.type==="season" ? {type:"season", month:filter.month || thisMonth()} : {...filter};
+  renderDict();
+}
+function renderDictChips(){
+  const chip = (label, active, filter)=>{
+    const b = h("button", {class:"chip" + (active ? " active" : ""), text:label});
+    b.onclick = ()=> setDictFilter(filter);
+    return b;
+  };
+  const t = dictFilter.type;
+  document.getElementById("dict-chips").replaceChildren(
+    chip("전체", t==="all", {type:"all"}),
+    chip("제철", t==="season", {type:"season"}),
+    chip("인기", t==="viewed", {type:"viewed"}),
+    ...presentCategories().map(c=>chip(c, t==="cat" && dictFilter.cat===c, {type:"cat", cat:c})));
+  const months = document.getElementById("dict-months");
+  months.hidden = t!=="season";
+  if(t==="season"){
+    months.replaceChildren(...Array.from({length:12}, (_, i)=>chip(`${i+1}월`, dictFilter.month===i+1, {type:"season", month:i+1})));
+    // 고른 달이 화면 밖에 있으면 가운데쯤으로 끌어옴
+    const on = months.querySelector(".active");
+    requestAnimationFrame(()=>{ months.scrollLeft = on.offsetLeft - months.clientWidth/2 + on.offsetWidth/2; });
+  }
+}
+
 function renderDict(){
   const el = document.getElementById("dict-list");
   if(!foodsLoaded) return;
@@ -1176,7 +1341,16 @@ function renderDict(){
     el.replaceChildren(h("p", {class:"dict-status", text:"사전을 불러오지 못했어요. 네트워크 연결을 확인해주세요."}));
     return;
   }
-  el.replaceChildren(...FOODS.map(f=>{
+  renderDictChips();
+  const shown = filteredFoods();
+  if(!shown.length){
+    el.replaceChildren(h("p", {class:"soft-empty", text: dictFilter.type==="season"
+      ? `${dictFilter.month}월 제철로 정리된 식재료가 아직 없어요. 사전에 제철 정보가 채워지면 여기에 보여요.`
+      : dictFilter.type==="viewed" ? "아직 열어본 식재료가 없어요. 식재료를 둘러보면 많이 본 순서로 여기에 모여요."
+      : "이 분류에는 아직 식재료가 없어요."}));
+    return;
+  }
+  el.replaceChildren(...shown.map(f=>{
     const cats = foodCats(f);
     return h("div", {class:"dict-entry card"},
       h("a", {class:"dict-link", href:foodHref(f.id)},
@@ -1187,6 +1361,29 @@ function renderDict(){
           f.summary && h("div", {class:"dict-summary", text:f.summary}))),
       addButton(f));
   }));
+}
+
+/* ---------- 음식·레시피 ---------- */
+// 사전 항목 중 kind:"dish"인 것을 cuisine(한식·양식…)별로 보여줌. 비어 있으면 비워둠
+const CUISINES = ["한식", "양식", "중식", "일식", "간식·디저트"];
+let dishFilter = "all";
+function dishes(){ return FOODS.filter(f=>f.kind==="dish"); }
+function setDishFilter(c){ dishFilter = c || "all"; renderDishes(); }
+function renderDishes(){
+  const chips = document.getElementById("dish-chips");
+  chips.replaceChildren(...["all", ...CUISINES].map(c=>{
+    const b = h("button", {class:"chip" + (dishFilter===c ? " active" : ""), text:c==="all" ? "전체" : c});
+    b.onclick = ()=> setDishFilter(c);
+    return b;
+  }));
+  const el = document.getElementById("dish-list");
+  if(!foodsLoaded){ el.replaceChildren(h("p", {class:"dict-status", text:"불러오는 중…"})); return; }
+  const shown = dishes().filter(f=>dishFilter==="all" || f.cuisine===dishFilter);
+  if(shown.length){
+    el.replaceChildren(h("div", {class:"card rows"}, shown.map(f=>foodRow(f))));
+    return;
+  }
+  el.replaceChildren(...(dishFilter!=="all" ? [h("div", {class:"card rows"}, recipeRow(dishFilter))] : []));
 }
 
 async function addFoodToBasket(id){
@@ -1208,7 +1405,7 @@ const CATEGORY_TINT = {
   "콩·견과": "#EFE5D9",
   "유제품·달걀": "#F4EFE3",
   "육류": "#F3E2D7",
-  "수산물": "#E1EAF0",
+  "생선·해산물": "#E1EAF0",
   "발효식품": "#EAE4F1",
   "기타": "#EFECE7",
 };
@@ -1247,15 +1444,17 @@ function countView(id){
 }
 
 // 날짜마다 정해지는 오늘의 식재료 n개 (하루 동안은 같은 것, 서로 겹치지 않게)
+// 홈 맨 위에 크게 보이는 자리라 검증을 마친(checkedAt이 있는) 항목만 씀
 function todayFoods(n){
-  if(!FOODS.length) return [];
+  const pool = FOODS.filter(f=>f.checkedAt);
+  if(!pool.length) return [];
   const d = new Date();
   const key = d.getFullYear()*10000 + (d.getMonth()+1)*100 + d.getDate();
-  const start = (Math.imul(key, 2654435761) >>> 0) % FOODS.length;
-  const step = Math.max(1, Math.floor(FOODS.length / n));
+  const start = (Math.imul(key, 2654435761) >>> 0) % pool.length;
+  const step = Math.max(1, Math.floor(pool.length / n));
   const picked = [];
   for(let i=0; i<n; i++){
-    const f = FOODS[(start + i*step) % FOODS.length];
+    const f = pool[(start + i*step) % pool.length];
     if(!picked.includes(f)) picked.push(f);
   }
   return picked;
@@ -1299,7 +1498,8 @@ function renderHome(){
       [...dots.children].forEach((d, i)=>d.classList.toggle("on", i===idx));
     }, {passive:true});
   }
-  todayBox.replaceChildren(track, dots || "");
+  if(picks.length) todayBox.replaceChildren(track, dots || "");
+  else todayBox.replaceChildren();
 
   // 요즘 제철: 이번 달이 season.months에 들어 있는 항목만
   const month = thisMonth();
@@ -1318,9 +1518,10 @@ function renderHome(){
   }
 
   // 자주 본 식재료: 이 기기에서 연 횟수 순. 아직 본 게 없으면 사전 앞쪽 몇 개를 순위 없이
-  const views = loadViews();
-  const ranked = FOODS.filter(f=>isNum(views[f.id]) && views[f.id]>0)
-    .sort((a, b)=>views[b.id] - views[a.id]).slice(0, 5);
+  const ranked = viewedFoods().slice(0, 5);
+  const more = document.getElementById("home-popular-more");
+  if(ranked.length){ more.dataset.menuGo = "viewed"; delete more.dataset.goto; }
+  else { more.dataset.goto = "dict"; delete more.dataset.menuGo; }
   document.getElementById("home-popular-title").textContent = ranked.length ? "자주 본 식재료" : "사전 둘러보기";
   const rows = ranked.length ? ranked.map((f, i)=>foodRow(f, i+1)) : FOODS.slice(0, 5).map(f=>foodRow(f));
   popBox.replaceChildren(h("div", {class:"card rows"}, rows));
@@ -1614,10 +1815,13 @@ document.getElementById("btn-food-recipe").onclick = ()=>{
 // 탭은 클래스만 바꾸고, 식재료 상세만 #food/{id} 주소를 써서 뒤로가기가 되게 함
 let currentFoodId = null;
 let lastTab = "home";
+let currentView = "home";
 
 function showView(name){
+  currentView = name;
   if(name!=="food") lastTab = name;
   if(name==="home") renderHome();
+  if(name==="dishes") renderDishes();
   const tab = name==="food" ? lastTab : name;
   document.querySelectorAll(".view").forEach(v=>v.classList.toggle("active", v.id==="view-"+name));
   document.querySelectorAll("nav.tabbar button").forEach(b=>b.classList.toggle("active", b.dataset.tab===tab));
@@ -1653,7 +1857,7 @@ function openFood(id){
   route();
 }
 
-const TAB_LABEL = {home:"홈", pick:"뽑기", basket:"바구니", dict:"사전", account:"계정"};
+const TAB_LABEL = {home:"홈", pick:"오늘 뭐 먹지?", basket:"바구니", dict:"사전", dishes:"음식·레시피", settings:"설정"};
 // 버튼에는 화살표만 보이고, 어디로 돌아가는지는 화면 낭독기용 이름(aria-label)과 툴팁으로 남김
 function updateBackLabel(){
   const label = backLabel();
@@ -1689,8 +1893,114 @@ function goTab(tab){
   window.scrollTo(0, 0);
 }
 document.querySelectorAll("nav.tabbar button").forEach(btn=>{
-  btn.onclick = ()=> goTab(btn.dataset.tab);
+  // 하단 「사전」은 항상 전체 목록부터
+  btn.onclick = ()=> navigate({tab:btn.dataset.tab, filter: btn.dataset.tab==="dict" ? {type:"all"} : null});
 });
+
+// go = {tab, filter?}. 사이드 메뉴·하단 탭·「전체보기」가 모두 여기로 옴
+function navigate(go){
+  if(go.filter) setDictFilter(go.filter);
+  if(go.dish) setDishFilter(go.dish);
+  goTab(go.tab);
+}
+
+/* ---------- 사이드 메뉴 ---------- */
+// 메뉴는 아래 데이터(MENU)로만 정의함. 항목을 늘릴 땐 여기만 고치면 됨
+//   id: 고유 이름 / label: 표시 이름 / icon: ICON_PATHS 이름
+//   go: 누르면 갈 곳 {tab, filter?(사전), dish?(음식·레시피)}  /  children: 하위 메뉴 (배열 또는 사전 데이터로 만드는 함수)
+const MENU = [
+  {id:"home", label:"홈", icon:"home", go:{tab:"home"}},
+  {id:"foods", label:"식재료", icon:"leaf", children: ()=>[
+    {id:"foods-all", label:"전체", count:ingredients().length, go:{tab:"dict", filter:{type:"all"}}},
+    ...presentCategories().map(c=>({id:"cat-" + c, label:c, count:countCategory(c), go:{tab:"dict", filter:{type:"cat", cat:c}}})),
+  ]},
+  {id:"dishes", label:"음식·레시피", icon:"pot", children: ()=>[
+    {id:"dish-all", label:"전체", go:{tab:"dishes", dish:"all"}},
+    ...CUISINES.map(c=>({id:"dish-" + c, label:c, go:{tab:"dishes", dish:c}})),
+  ]},
+  {id:"season", label:"제철 식재료", icon:"calendar", go:{tab:"dict", filter:{type:"season"}}},
+  {id:"viewed", label:"인기 식재료", icon:"flame", go:{tab:"dict", filter:{type:"viewed"}}},
+  {id:"pick", label:"오늘 뭐 먹지?", icon:"dice", go:{tab:"pick"}},
+  {divider:true},
+  {id:"basket", label:"바구니", icon:"basket", go:{tab:"basket"}},
+  {id:"settings", label:"설정", icon:"gear", go:{tab:"settings"}},
+];
+// 처음엔 접어둠 (「오늘 뭐 먹지?」 같은 주요 항목이 밀려나지 않게). 지금 보는 하위 항목이 있으면 자동으로 펼침
+const menuOpenGroups = new Set();
+let menuIndex = new Map();
+
+// 지금 보고 있는 화면이 이 메뉴인지 (사전이면 필터 종류까지 비교)
+function isMenuActive(go){
+  if(!go || go.tab!==currentView) return false;
+  if(go.tab==="dishes") return (go.dish || "all")===dishFilter;
+  if(go.tab!=="dict") return true;
+  const f = go.filter || {type:"all"};
+  return f.type===dictFilter.type && (f.type!=="cat" || f.cat===dictFilter.cat);
+}
+
+function menuNode(n, depth){
+  if(n.divider) return h("div", {class:"m-divider", role:"separator"});
+  menuIndex.set(n.id, n);
+  const kids = typeof n.children==="function" ? n.children() : n.children;
+  const label = h("span", {class:"m-label", text:n.label});
+  if(kids && kids.length){
+    if(kids.some(k=>isMenuActive(k.go))) menuOpenGroups.add(n.id);
+    const open = menuOpenGroups.has(n.id);
+    const subId = "menu-sub-" + n.id;
+    return h("div", {class:"m-group"},
+      h("button", {class:`m-item depth-${depth}` + (kids.some(k=>isMenuActive(k.go)) ? " has-current" : ""),
+          "data-menu-toggle":n.id, "aria-expanded":String(open), "aria-controls":subId},
+        n.icon && icon(n.icon, "sm"), label, icon("chevron", "xs m-chev")),
+      h("div", {class:"m-sub", id:subId, hidden:!open}, kids.map(k=>menuNode(k, depth + 1))));
+  }
+  return h("button", {class:`m-item depth-${depth}`, "data-menu-go":n.id, "aria-current":isMenuActive(n.go) ? "page" : null},
+    n.icon && icon(n.icon, "sm"), label,
+    n.count!=null && h("span", {class:"m-count", text:String(n.count)}));
+}
+function renderMenu(){
+  menuIndex = new Map();
+  document.getElementById("drawer-nav").replaceChildren(...MENU.map(n=>menuNode(n, 0)));
+}
+function toggleMenuGroup(btn){
+  const id = btn.dataset.menuToggle;
+  const open = !menuOpenGroups.has(id);
+  if(open) menuOpenGroups.add(id); else menuOpenGroups.delete(id);
+  btn.setAttribute("aria-expanded", String(open));
+  document.getElementById("menu-sub-" + id).hidden = !open;
+}
+
+const drawer = document.getElementById("drawer");
+const drawerBackdrop = document.getElementById("drawer-backdrop");
+let drawerReturnFocus = null;
+function setMenuButtons(open){ document.querySelectorAll("[data-menu-open]").forEach(b=>b.setAttribute("aria-expanded", String(open))); }
+function openDrawer(){
+  renderMenu();
+  drawerReturnFocus = document.activeElement;
+  drawer.inert = false;
+  drawer.classList.add("open");
+  drawerBackdrop.classList.add("open");
+  // 메뉴가 열려 있는 동안 뒤 화면은 스크롤·포커스가 안 되게
+  document.body.style.overflow = "hidden";
+  document.querySelector(".app").inert = true;
+  document.querySelector("nav.tabbar").inert = true;
+  setMenuButtons(true);
+  setTimeout(()=>document.getElementById("drawer-close").focus(), 50);
+}
+// navigating=true면 다른 화면으로 가는 중이라 원래 버튼으로 포커스를 돌려놓지 않음
+function closeDrawer(navigating){
+  if(!drawer.classList.contains("open")) return;
+  drawer.classList.remove("open");
+  drawerBackdrop.classList.remove("open");
+  drawer.inert = true;
+  document.body.style.overflow = "";
+  document.querySelector(".app").inert = false;
+  document.querySelector("nav.tabbar").inert = false;
+  setMenuButtons(false);
+  if(!navigating && drawerReturnFocus) drawerReturnFocus.focus();
+}
+document.getElementById("drawer-close").onclick = ()=> closeDrawer();
+drawerBackdrop.onclick = ()=> closeDrawer();
+document.addEventListener("keydown", (e)=>{ if(e.key==="Escape") closeDrawer(); });
 
 document.addEventListener("click", (e)=>{
   const add = e.target.closest(".dict-add[data-food]");
@@ -1699,7 +2009,16 @@ document.addEventListener("click", (e)=>{
     return;
   }
   const go = e.target.closest("[data-goto]");
-  if(go){ goTab(go.dataset.goto); return; }
+  if(go){ navigate({tab:go.dataset.goto, filter: go.dataset.goto==="dict" ? {type:"all"} : null}); return; }
+  const menuGo = e.target.closest("[data-menu-go]");
+  if(menuGo){
+    const node = menuIndex.get(menuGo.dataset.menuGo);
+    if(node && node.go){ closeDrawer(true); navigate(node.go); }
+    return;
+  }
+  const menuToggle = e.target.closest("[data-menu-toggle]");
+  if(menuToggle){ toggleMenuGroup(menuToggle); return; }
+  if(e.target.closest("[data-menu-open]")){ openDrawer(); return; }
   const link = e.target.closest('a[href^="#food/"]');
   if(link){
     e.preventDefault();
@@ -1725,6 +2044,7 @@ document.addEventListener("click", (e)=>{
   renderListChips();
   renderList();
   renderHome();
+  renderMenu();
   route();
 
   // 바구니·뽑기는 바로 쓰고, 사전은 foods.json이 도착하면 그림
@@ -1733,6 +2053,7 @@ document.addEventListener("click", (e)=>{
   renderDict();
   renderList();
   renderHome();
+  renderMenu();
   renderSearch();
   if(currentFoodId){ updateBackLabel(); renderFood(currentFoodId); }
   if(currentPick) renderPickCard(currentPick);
