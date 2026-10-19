@@ -36,7 +36,8 @@
     "protein": {...}, "fat": {...}, "saturatedFat": {...}, "sodium": { "value": 1, "unit": "mg" }
   },
   "highlights": [{ "nutrient": "비타민 K", "amount": 19.3, "unit": "µg", "dv": 27, "role": "하는 일" }],
-  "image":      { "src": "images/blueberry.jpg", "alt": "설명" },   // 없으면 분류 색 배경만 표시
+  "image":      { "src": "images/blueberry.jpg", "alt": "설명" },       // 사진: 상세 위쪽·오늘의 발견 (크게)
+  "icon":       { "src": "images/blueberry-icon.png", "alt": "설명" },  // 배경 없이 오린 그림: 목록 썸네일·요즘 제철 카드 (작게)
   "choosing":   [{ "method": "고르는 방법", "caution": "주의사항" }],              // 「고르는법」 섹션 (label은 선택)
   "storage":    [{ "label": "냉장", "method": "방법", "duration": "기간", "caution": "주의사항" }],  // 「보관 팁」 섹션. 상온·냉장·냉동 등 여러 개
   "howToEat":   [{ "title": "요거트 볼", "body": "간단한 조리법" }],
@@ -55,7 +56,8 @@
 - `refs`는 같은 항목의 `references[].no`를 가리킨다 (항목마다 1번부터).
 - 분류 목록: 과일 / 채소 / 곡물 / 콩·견과 / 유제품·달걀 / 육류 / 생선·해산물 / 발효식품 / 기타
   (첫 번째 분류가 사진이 없을 때의 배경색을 정한다. 색은 `index.html`의 `CATEGORY_TINT`)
-- `image.src`는 상대 경로(예: `images/blueberry.jpg`) 또는 https 주소. 사진을 못 불러오면 색 배경으로 돌아간다.
+- `image`·`icon`의 `src`는 상대 경로(예: `images/blueberry.jpg`) 또는 https 주소. 자리에 맞는 게 없으면 다른 하나로 대신하고, 둘 다 없거나 못 불러오면 분류 색 + 첫 글자.
+  사진은 정사각형·가로 1200px 이하 jpg, 아이콘은 배경 투명 png 400px 정도로 줄여서 `images/`에 넣는다.
 - 영양성분·두드러지는 영양소를 뺀 섹션은 접히는 카드(`foldSection`): 처음엔 요약만, 누르면 자세히. 참고한 자료는 요약 없이 제목만
 - 상세 화면 섹션 순서와 이름은 고정: 영양성분 / 두드러지는 영양소 / 고르는법 / 보관 팁 / 먹는 법 / 잘 어울리는 음식 / 속설 / 참고한 자료
 

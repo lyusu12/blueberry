@@ -25,6 +25,8 @@
         "note": "국내산 노지 기준. 냉동은 연중"
       },
       "summary": "씻어서 그대로 집어먹을 수 있고, 얼려두면 오래 두고 쓴다. 손이 덜 가는 과일.",
+      "image": { "src": "images/blueberry.jpg", "alt": "크림색 그릇에 담긴 블루베리와 민트 잎" },
+      "icon": { "src": "images/blueberry-icon.png", "alt": "블루베리 다섯 알과 잎" },
       "nutrition": {
         "energy": {
           "value": 57,

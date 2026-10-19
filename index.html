@@ -108,6 +108,7 @@
   .food-img{position:relative;overflow:hidden;background:var(--tint, #EFECE7);display:flex;align-items:center;justify-content:center;}
   .food-img .initial{font-weight:700;color:rgba(41,40,58,.42);line-height:1;user-select:none;}
   .food-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;}
+  .food-img.has-icon img{object-fit:contain;padding:6%;}  /* 오린 그림은 잘리지 않게 여백을 두고 */
   .thumb{flex:0 0 auto;width:52px;height:52px;border-radius:14px;}
   .thumb .initial{font-size:20px;}
 
@@ -149,6 +150,10 @@
     -webkit-mask-image:linear-gradient(to right, transparent 0%, #000 38%);mask-image:linear-gradient(to right, transparent 0%, #000 38%);}
   .today .today-art{background:transparent;}  /* 사진이 없으면 보라 바탕에 첫 글자만 은은하게 */
   .today-art .initial{font-size:88px;color:rgba(255,255,255,.14);margin-left:24%;}
+  /* 사진이 있으면 카드 전체에 깔고, 왼쪽 글자 쪽만 어둡게 덮어 글씨가 잘 보이게 */
+  .today-art.has-photo{width:100%;-webkit-mask-image:none;mask-image:none;}
+  .today-art.has-photo::after{content:"";position:absolute;inset:0;
+    background:linear-gradient(90deg, rgba(41,40,58,.86) 0%, rgba(41,40,58,.62) 38%, rgba(41,40,58,.08) 72%, rgba(41,40,58,0) 100%);}
   .today-text{position:relative;z-index:1;max-width:64%;padding:20px;display:flex;flex-direction:column;}
   .today-badge{align-self:flex-start;display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:500;padding:5px 11px;border-radius:999px;background:rgba(255,255,255,.18);}
   .today-name{font-size:24px;font-weight:700;letter-spacing:-.02em;margin:14px 0 6px;line-height:1.25;}
@@ -169,6 +174,8 @@
   }
   .season-card .food-img{width:64px;height:64px;border-radius:50%;margin:2px auto 10px;background:rgba(255,255,255,.55);}
   .season-card .initial{font-size:24px;}
+  .season-card .food-img.has-icon{background:transparent;border-radius:0;width:72px;height:72px;margin:-2px auto 6px;}
+  .season-card .food-img.has-icon img{padding:4%;}
   .season-card .nm{font-size:14px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
   .season-card .sub{font-size:12px;color:var(--text-2);margin-top:2px;}
   .soft-empty{font-size:14px;color:var(--muted);line-height:1.6;padding:18px 18px;background:var(--surface);border:1px dashed var(--line);border-radius:var(--r-card);}
@@ -1415,14 +1422,25 @@ function safeImageSrc(src){
   if(/^[a-z]+:/i.test(src) || src.startsWith("//")) return null;  // 상대 경로만 허용
   return src;
 }
-function foodImage(f, cls){
+// 식재료마다 그림 두 종류:
+//   image = 사진 (그릇에 담긴 장면 등) → 크게 보이는 자리: 상세 화면 위쪽, 오늘의 발견
+//   icon  = 배경 없이 오린 단순한 그림(PNG) → 작게 보이는 자리: 목록 썸네일, 요즘 제철 카드
+// 자리에 맞는 게 없으면 다른 하나로 대신하고, 둘 다 없으면 분류 색 + 첫 글자
+function pickImage(f, kind){
+  const photo = f.image && safeImageSrc(f.image.src) ? {...f.image, type:"photo"} : null;
+  const ic = f.icon && safeImageSrc(f.icon.src) ? {...f.icon, type:"icon"} : null;
+  return kind==="photo" ? (photo || ic) : (ic || photo);
+}
+function foodImage(f, cls, kind = "icon"){
   const box = h("div", {class:"food-img " + cls, "aria-hidden":"true"},
     h("span", {class:"initial", text:Array.from(f.name)[0] || ""}));
   box.style.setProperty("--tint", foodTint(f));
-  const src = safeImageSrc(f.image && f.image.src);
-  if(src){
-    const img = h("img", {src, alt:(f.image.alt || f.name), loading:"lazy", decoding:"async"});
-    img.onerror = ()=> img.remove();  // 사진을 못 불러오면 색 배경만 남김
+  const pic = pickImage(f, kind);
+  if(pic){
+    const flag = "has-" + pic.type;
+    box.classList.add(flag);
+    const img = h("img", {src:safeImageSrc(pic.src), alt:(pic.alt || f.name), loading: cls==="food-hero" ? "eager" : "lazy", decoding:"async"});
+    img.onerror = ()=>{ img.remove(); box.classList.remove(flag); };  // 못 불러오면 색 배경만 남김
     box.append(img);
   }
   return box;
@@ -1483,7 +1501,7 @@ function renderHome(){
   // 오늘의 발견: 옆으로 넘기는 카드 3장 + 아래 점
   const picks = todayFoods(3);
   const track = h("div", {class:"today-track"}, picks.map(t=>h("a", {class:"today", href:foodHref(t.id)},
-    foodImage(t, "today-art"),
+    foodImage(t, "today-art", "photo"),
     h("div", {class:"today-text"},
       h("span", {class:"today-badge"}, icon("sparkle", "xs fill"), "오늘의 발견"),
       h("div", {class:"today-name", text:t.name}),
@@ -1768,7 +1786,7 @@ function renderFood(id){
   const seasonText = [months && "제철 " + months, f.season && f.season.note].filter(Boolean).join(" · ");
   const added = isInBasket(f);
 
-  const hero = foodImage(f, "food-hero");
+  const hero = foodImage(f, "food-hero", "photo");
   hero.removeAttribute("aria-hidden");
   hero.append(h("button", {class:"dict-add hero-save", "data-food":f.id, "data-added":added ? "1" : null,
       "aria-label":added ? "바구니에 담겨 있음" : "바구니에 담기", title:added ? "바구니에 담겨 있음" : "바구니에 담기"},

@@ -1,5 +1,5 @@
 // 문득 — 오프라인 캐싱용 서비스워커
-const CACHE_NAME = "moondeuk-v11";
+const CACHE_NAME = "moondeuk-v12";
 const ASSETS = [
   "./",
   "./index.html",
@@ -11,7 +11,11 @@ const ASSETS = [
 
 self.addEventListener("install", (e) => {
   e.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => cache.addAll(ASSETS))
+    // cache: "reload" — 브라우저가 들고 있던 옛 파일 말고 항상 서버에서 새로 받아 담음
+    // (안 그러면 버전을 올려도 GitHub Pages의 10분 캐시 때문에 옛 foods.json이 들어갈 수 있음)
+    caches.open(CACHE_NAME).then((cache) =>
+      cache.addAll(ASSETS.map((url) => new Request(url, { cache: "reload" })))
+    )
   );
   self.skipWaiting();
 });
