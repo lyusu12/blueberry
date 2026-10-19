@@ -136,7 +136,6 @@
   .search-results{margin-top:16px;}
   .search-results .note{font-size:13px;font-weight:600;color:var(--text-2);margin:18px 2px 8px;}
   .search-results .note:first-child{margin-top:0;}
-  .recipe-thumb{--tint:var(--primary-light);color:var(--primary);}
 
   /* 오늘의 발견 */
   .today-track{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 calc(var(--gutter) * -1);padding:4px var(--gutter) 14px;scrollbar-width:none;scroll-padding:0 var(--gutter);}
@@ -1383,7 +1382,7 @@ function renderDishes(){
     el.replaceChildren(h("div", {class:"card rows"}, shown.map(f=>foodRow(f))));
     return;
   }
-  el.replaceChildren(...(dishFilter!=="all" ? [h("div", {class:"card rows"}, recipeRow(dishFilter))] : []));
+  el.replaceChildren();
 }
 
 async function addFoodToBasket(id){
@@ -1554,14 +1553,6 @@ function itemRow(it){
   thumb.style.setProperty("--tint", BASKET_TINT[it.cat] || CATEGORY_TINT["기타"]);
   return h("div", {class:"row-link"}, thumb, body);
 }
-function recipeRow(q){
-  const query = `${q.trim()} 레시피`;
-  return h("a", {class:"row-link", target:"_blank", rel:"noopener",
-      href:"https://www.youtube.com/results?search_query=" + encodeURIComponent(query)},
-    h("div", {class:"food-img thumb recipe-thumb", "aria-hidden":"true"}, icon("utensils", "")),
-    h("div", {class:"row-body"}, h("div", {class:"row-name", text:`'${q.trim()}' 레시피`}), h("div", {class:"row-sub", text:"유튜브에서 찾아보기"})),
-    icon("chevron", "sm row-chev"));
-}
 function renderSearch(){
   const q = searchInput.value;
   const box = document.getElementById("search-results");
@@ -1576,7 +1567,7 @@ function renderSearch(){
     ...(!foodsLoaded ? [h("p", {class:"dict-status", text:"사전을 불러오는 중…"})] : []),
     ...group(`식재료 ${foods.length}`, foods.map(f=>foodRow(f))),
     ...group(`내 바구니 ${mine.length}`, mine.map(itemRow)),
-    ...group("레시피", [recipeRow(q)]));
+    ...(foodsLoaded && !foods.length && !mine.length ? [h("p", {class:"dict-status", text:"검색 결과가 없어요"})] : []));
 }
 searchInput.addEventListener("input", renderSearch);
 searchForm.addEventListener("submit", (e)=>{ e.preventDefault(); searchInput.blur(); });

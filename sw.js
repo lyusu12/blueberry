@@ -1,5 +1,5 @@
 // 문득 — 오프라인 캐싱용 서비스워커
-const CACHE_NAME = "moondeuk-v9";
+const CACHE_NAME = "moondeuk-v11";
 const ASSETS = [
   "./",
   "./index.html",
