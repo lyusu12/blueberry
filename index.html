@@ -16,7 +16,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&family=Fraunces:opsz,wght,SOFT@9..144,600,100&display=swap" rel="stylesheet">
 <style>
   /* ===== 디자인 토큰 ===== */
   :root{
@@ -113,9 +113,11 @@
   .thumb .initial{font-size:20px;}
 
   /* ===== 홈 ===== */
-  .home-top{display:flex;align-items:center;gap:12px;min-height:44px;margin-top:8px;}
+  .home-top{position:relative;display:flex;align-items:center;gap:12px;min-height:44px;margin-top:8px;}
   #home-today{margin-top:24px;}
-  .brand{font-size:26px;font-weight:700;letter-spacing:-.03em;margin:0;color:var(--ink);}
+  /* 영어 로고 「Blueberry」: Fraunces(부드러운 세리프), 딥퍼플. 홈에선 맨 위 가운데 */
+  .logo{font-family:"Fraunces",Georgia,serif;font-weight:600;font-variation-settings:"SOFT" 100;letter-spacing:-.01em;color:var(--primary);line-height:1;}
+  .brand{font-size:30px;margin:0;position:absolute;left:50%;transform:translateX(-50%);white-space:nowrap;}
   .home-intro{position:relative;margin:18px 0 20px;}
   .home-hello{font-size:23px;font-weight:600;line-height:1.45;letter-spacing:-.02em;margin:0;position:relative;z-index:1;}
   .home-desc{font-size:14px;color:var(--text-2);margin:8px 0 0;position:relative;z-index:1;}
@@ -443,7 +445,7 @@
   .drawer-head{display:flex;align-items:center;gap:12px;padding:22px 16px 18px 20px;}
   .drawer-logo{width:52px;height:52px;border-radius:16px;flex:0 0 auto;}
   .drawer-title{flex:1;min-width:0;}
-  .drawer-name{font-size:20px;font-weight:700;letter-spacing:-.02em;}
+  .drawer-name{font-size:24px;}
   .drawer-tag{font-size:12.5px;color:var(--muted);line-height:1.5;margin-top:2px;}
   .drawer-close{align-self:flex-start;width:40px;height:40px;border:none;background:none;border-radius:50%;color:var(--text-2);cursor:pointer;display:flex;align-items:center;justify-content:center;}
   .drawer-nav{flex:1;overflow-y:auto;overscroll-behavior:contain;padding:4px 12px 24px;}
@@ -536,7 +538,7 @@
 
   <!-- ===== HOME VIEW ===== -->
   <section class="view active" id="view-home">
-    <div class="home-top"><button class="menu-btn" data-menu-open aria-label="메뉴 열기" aria-controls="drawer" aria-expanded="false"><svg class="ic" viewBox="0 0 24 24"><path d="M4.5 7h15M4.5 12h15M4.5 17h15"/></svg></button><h1 class="brand">블루베리</h1></div>
+    <div class="home-top"><button class="menu-btn" data-menu-open aria-label="메뉴 열기" aria-controls="drawer" aria-expanded="false"><svg class="ic" viewBox="0 0 24 24"><path d="M4.5 7h15M4.5 12h15M4.5 17h15"/></svg></button><h1 class="brand logo" aria-label="블루베리">Blueberry</h1></div>
     <div class="home-intro">
       <p class="home-hello">오늘은 뭐가<br>문득 떠올랐나요?<svg class="ic sm fill spark" viewBox="0 0 24 24"><path d="M12 3c.6 4.2 2.8 6.4 7 7-4.2.6-6.4 2.8-7 7-.6-4.2-2.8-6.4-7-7 4.2-.6 6.4-2.8 7-7z"/></svg></p>
       <p class="home-desc">지금, 맛있는 식재료로 새로운 한 끼를 만나보세요.</p>
@@ -721,7 +723,7 @@
   <div class="drawer-head">
     <img class="drawer-logo" src="icon-192.png" alt="">
     <div class="drawer-title">
-      <div class="drawer-name">블루베리</div>
+      <div class="drawer-name logo" aria-label="블루베리">Blueberry</div>
       <div class="drawer-tag">오늘도, 좋은 식재료와<br>새로운 발견을</div>
     </div>
     <button class="drawer-close" id="drawer-close" aria-label="메뉴 닫기"><svg class="ic" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
