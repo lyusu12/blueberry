@@ -1,4 +1,6 @@
-# 문득
+# 블루베리 (구 문득 · 먹킷리스트)
+
+앱 이름은 「블루베리」(2026-10-22 변경). 저장소·주소(`lyusu12/moondeuk`), 캐시 이름(`moondeuk-vN`), localStorage `moondeuk_views`는 예전 이름 그대로 둔다 (바꾸면 주소가 바뀌거나 기록이 끊김).
 
 빌드 없는 단일 파일 PWA (`index.html`, `foods.json`, `manifest.json`, `sw.js`, 아이콘).
 

@@ -1,5 +1,5 @@
-// 문득 — 오프라인 캐싱용 서비스워커
-const CACHE_NAME = "moondeuk-v12";
+// 블루베리(구 문득) — 오프라인 캐싱용 서비스워커
+const CACHE_NAME = "moondeuk-v13";
 const ASSETS = [
   "./",
   "./index.html",
