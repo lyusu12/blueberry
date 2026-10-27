@@ -20,7 +20,7 @@
   (예: `moondeuk-v1` → `moondeuk-v2`)
   서비스워커가 cache-first라서, 버전을 올리지 않으면 설치된 앱에 수정 사항이 반영되지 않는다.
   **`foods.json`(사전 데이터)만 고친 경우에도 마찬가지로 올린다.**
-- **localStorage 키 `meokkit_items_v2`와 Firestore 컬렉션 `meokkit_users`는 이름을 바꾸지 않는다.**
+- **localStorage 키 `meokkit_items_v2`·`meokkit_deleted_v1`과 Firestore 컬렉션 `meokkit_users`는 이름을 바꾸지 않는다.**
   예전 앱 이름(먹킷리스트)의 흔적이지만, 바꾸면 기존 사용자 데이터를 못 읽는다.
   Firebase 설정의 `meokkit-12b18`도 실제 프로젝트 ID라 바꾸지 않는다.
 
@@ -75,7 +75,9 @@
 
 ## 바구니 항목 (`items`, localStorage + Firestore)
 
-`{ id, name, cat, memo, lastEaten, foodId?, nutri? }`
+`{ id, name, cat, memo, lastEaten, foodId?, nutri?, updatedAt? }`
+- `updatedAt`: 항목을 만들거나 바꾼 시각. **항목을 바꾸는 코드는 반드시 이 값도 갱신**해야 기기끼리 합칠 때 반영된다. 지울 땐 `removeItem(id)`를 써서 「지웠음」 기록(`deleted`, localStorage `meokkit_deleted_v1`)을 남긴다
+- 동기화는 덮어쓰기가 아니라 `mergeItems`로 합친다. 저장된 목록이 아예 없을 때만 예시(`seedData`)를 만든다
 - `foodId`가 있으면 사전에서 정보를 읽어서 보여준다 (복사하지 않음).
 - `nutri`({kcal,key,note})는 사전과 연결 안 된 직접 입력 항목용. 예전 버전 앱 호환을 위해 지우지 않는다.
 

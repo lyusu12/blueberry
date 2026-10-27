@@ -775,15 +775,10 @@
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <script type="module">
-/* ---------- Firebase 초기화 (동기화용) ---------- */
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-import {
-  getAuth, GoogleAuthProvider, signInWithPopup, signInWithRedirect, getRedirectResult, signOut, onAuthStateChanged
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-import {
-  getFirestore, doc, setDoc, getDoc, onSnapshot, enableIndexedDbPersistence
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
-
+/* ---------- Firebase 동기화 ----------
+   Firebase 코드는 인터넷에서 받아오므로 앱 시작과 떼어 둠.
+   못 받아와도(오프라인) 앱은 이 기기 기록으로 그대로 돌아가고, 연결되면 그때 동기화를 시작함 */
+const FB = "https://www.gstatic.com/firebasejs/10.12.2/";
 const firebaseConfig = {
   apiKey: "AIzaSyDFzbfUa-aOKedO6bW34kY_MoZq_-F8igU",
   authDomain: "meokkit-12b18.firebaseapp.com",
@@ -792,84 +787,171 @@ const firebaseConfig = {
   messagingSenderId: "285975056864",
   appId: "1:285975056864:web:a0e126fade2d4511b95b85"
 };
-const fbApp = initializeApp(firebaseConfig);
-const auth = getAuth(fbApp);
-const db = getFirestore(fbApp);
-try{ enableIndexedDbPersistence(db); }catch(e){}
+let fb = null;        // 불러온 Firebase 함수들
+let fbLoading = null;
+let auth = null, db = null;
 
 let currentUser = null;
 let unsubscribeSnapshot = null;
-let applyingRemote = false;
+let syncReady = false; // 클라우드 기록을 한 번 읽어 합친 뒤에만 올림 (읽기 전에 올리면 클라우드 기록을 덮어씀)
 
-function userDocRef(uid){ return doc(db, "meokkit_users", uid); }
+function startSync(){
+  if(fb) return Promise.resolve(true);
+  if(fbLoading) return fbLoading;
+  fbLoading = (async ()=>{
+    try{
+      const [app, authMod, fs] = await Promise.all([
+        import(FB + "firebase-app.js"), import(FB + "firebase-auth.js"), import(FB + "firebase-firestore.js"),
+      ]);
+      fb = { ...authMod, ...fs };
+      const fbApp = app.initializeApp(firebaseConfig);
+      auth = fb.getAuth(fbApp);
+      db = fb.getFirestore(fbApp);
+      try{ fb.enableIndexedDbPersistence(db); }catch(e){}
+      fb.getRedirectResult(auth).catch(()=>{});
+      fb.onAuthStateChanged(auth, (user)=>{ if(user) onLogin(user); else onLogout(); });
+      return true;
+    }catch(e){
+      console.warn("Firebase를 불러오지 못함", e);
+      fbLoading = null;
+      setSyncStatus("unavailable");
+      return false;
+    }
+  })();
+  return fbLoading;
+}
+// 인터넷이 돌아오면 동기화를 다시 시도
+window.addEventListener("online", ()=>{
+  if(!fb) startSync();
+  else if(currentUser && !syncReady) onLogin(currentUser);
+});
+
+function userDocRef(uid){ return fb.doc(db, "meokkit_users", uid); }
+
+/* 두 목록 합치기: 같은 항목은 나중에 바꾼 쪽(updatedAt)을, 지운 항목은 양쪽 다 지움.
+   updatedAt이 없는 항목(예시, 예전 버전에서 만든 것)은 상대에게도 있을 때만 남김
+   — 예전처럼 클라우드 기록이 기준이 되고, 새 기기의 예시가 클라우드로 섞여 들어가지 않음 */
+function mergeItems(localItems, localDel, remoteItems, remoteDel){
+  const del = { ...remoteDel };
+  for(const [id, t] of Object.entries(localDel)) if(!(del[id] >= t)) del[id] = t;
+  const remoteById = new Map(remoteItems.map(it=>[it.id, it]));
+  const localIds = new Set(localItems.map(it=>it.id));
+  const out = [];
+  for(const it of localItems){
+    const r = remoteById.get(it.id);
+    if(!r && !it.updatedAt) continue;
+    out.push(r && (r.updatedAt||0) >= (it.updatedAt||0) ? r : it);
+  }
+  for(const r of remoteItems) if(!localIds.has(r.id)) out.push(r);
+  // 지운 기록보다 나중에 바뀐 게 아니면 지움. 지운 기록은 반년 지나면 정리
+  const kept = out.filter(it=>!(del[it.id] >= (it.updatedAt||0)));
+  const old = Date.now() - 180*24*60*60*1000;
+  for(const id of Object.keys(del)) if(del[id] < old) delete del[id];
+  return { items: kept, deleted: del };
+}
+// Firestore는 칸 순서를 바꿔서 돌려주므로 칸 이름 순으로 정렬해 비교
+const canon = (v)=> Array.isArray(v) ? v.map(canon)
+  : v && typeof v === "object" ? Object.fromEntries(Object.keys(v).sort().map(k=>[k, canon(v[k])])) : v;
+const sameData = (a, b)=> JSON.stringify(canon(a)) === JSON.stringify(canon(b));
+
+// 클라우드 기록을 이 기기 기록과 합쳐 반영. 클라우드와 달라진 게 있으면 true
+function applyRemote(data){
+  const remoteItems = Array.isArray(data.items) ? data.items : [];
+  const remoteDel = data.deleted && typeof data.deleted === "object" ? data.deleted : {};
+  const merged = mergeItems(items, deleted, remoteItems, remoteDel);
+  items = merged.items;
+  deleted = merged.deleted;
+  linkFoods();
+  localStorage.setItem(STORE_KEY, JSON.stringify(items));
+  localStorage.setItem(DELETED_KEY, JSON.stringify(deleted));
+  renderAll();
+  return !sameData(items, remoteItems) || !sameData(deleted, remoteDel);
+}
 
 async function pushToCloud(){
-  if(!currentUser || applyingRemote) return;
-  try{ await setDoc(userDocRef(currentUser.uid), { items, updatedAt: Date.now() }); }
-  catch(e){ console.warn("클라우드 저장 실패", e); }
+  if(!currentUser || !syncReady) return;
+  try{
+    await fb.setDoc(userDocRef(currentUser.uid), { items, deleted, updatedAt: Date.now() });
+  }catch(e){
+    console.warn("클라우드 저장 실패", e);
+    setSyncStatus("error");
+  }
 }
 
 // 설정 > 계정 줄 표시. 이메일은 어느 계정인지 알 수 있게 작게만
 function setAccountUI(user){
   document.getElementById("account-status-value").textContent = user ? "로그인됨" : "로그인 안 됨";
-  document.getElementById("account-sub").textContent = user ? "기록이 다른 기기와 자동으로 이어지고 있어요" : "로그인하면 다른 기기에서도 기록이 이어져요";
   const email = document.getElementById("account-email");
   email.textContent = user && user.email ? user.email : "";
   email.hidden = !(user && user.email);
   const btn = document.getElementById("btn-login");
   btn.textContent = user ? "로그아웃" : "로그인";
   btn.classList.toggle("btn-primary", !user);
+  setSyncStatus(user ? "loading" : "off");
+}
+// 동기화가 실제로 어떤 상태인지 계정 줄 아래에 표시
+function setSyncStatus(state){
+  const text = {
+    off: "로그인하면 다른 기기에서도 기록이 이어져요",
+    loading: "기록을 불러오는 중이에요",
+    ok: "기록이 다른 기기와 자동으로 이어지고 있어요",
+    error: "기록을 맞추지 못했어요. 인터넷이 연결되면 다시 시도해요",
+    unavailable: "인터넷에 연결되지 않아 이 기기 기록만 보여요",
+  }[state];
+  if(state === "unavailable" && currentUser) return;
+  document.getElementById("account-sub").textContent = text;
 }
 
 async function onLogin(user){
   currentUser = user;
+  syncReady = false;
   setAccountUI(user);
+  if(unsubscribeSnapshot){ unsubscribeSnapshot(); unsubscribeSnapshot = null; }
 
-  const snap = await getDoc(userDocRef(user.uid));
-  if(snap.exists() && Array.isArray(snap.data().items) && snap.data().items.length > 0){
-    applyingRemote = true;
-    items = snap.data().items;
-    save();
-    applyingRemote = false;
-    if(linkFoods()) save();
-    renderAll();
-  } else {
-    await pushToCloud();
+  let snap;
+  try{ snap = await fb.getDoc(userDocRef(user.uid)); }
+  catch(e){
+    console.warn("클라우드 읽기 실패", e);
+    setSyncStatus("error");
+    return;
   }
+  if(currentUser !== user) return;
 
-  if(unsubscribeSnapshot) unsubscribeSnapshot();
-  unsubscribeSnapshot = onSnapshot(userDocRef(user.uid), (docSnap)=>{
-    if(!docSnap.exists()) return;
-    const remoteItems = docSnap.data().items;
-    if(!Array.isArray(remoteItems)) return;
-    applyingRemote = true;
-    items = remoteItems;
-    localStorage.setItem(STORE_KEY, JSON.stringify(items));
-    applyingRemote = false;
-    if(linkFoods()) save();
-    renderAll();
+  // 클라우드에 기록이 없으면(처음 로그인) 이 기기 기록을 그대로 올림
+  syncReady = true;
+  if(snap.exists()) applyRemote(snap.data());
+  await pushToCloud();
+  setSyncStatus("ok");
+
+  unsubscribeSnapshot = fb.onSnapshot(userDocRef(user.uid), (docSnap)=>{
+    if(!docSnap.exists() || docSnap.metadata.hasPendingWrites) return;
+    if(applyRemote(docSnap.data())) pushToCloud();
+    setSyncStatus("ok");
+  }, (e)=>{
+    console.warn("실시간 동기화 끊김", e);
+    syncReady = false;
+    setSyncStatus("error");
   });
 }
 
 function onLogout(){
   currentUser = null;
+  syncReady = false;
   if(unsubscribeSnapshot){ unsubscribeSnapshot(); unsubscribeSnapshot = null; }
   setAccountUI(null);
 }
 
 document.getElementById("btn-login").addEventListener("click", async ()=>{
-  if(currentUser){ await signOut(auth); return; }
-  const provider = new GoogleAuthProvider();
+  if(!(await startSync())){ toast("인터넷 연결을 확인해주세요"); return; }
+  if(currentUser){ await fb.signOut(auth); return; }
+  const provider = new fb.GoogleAuthProvider();
   try{
-    await signInWithPopup(auth, provider);
+    await fb.signInWithPopup(auth, provider);
   }catch(e){
-    try{ await signInWithRedirect(auth, provider); }
+    try{ await fb.signInWithRedirect(auth, provider); }
     catch(e2){ alert("로그인에 실패했어요. 사파리 설정에서 팝업 차단을 확인해주세요."); }
   }
 });
-
-getRedirectResult(auth).catch(()=>{});
-onAuthStateChanged(auth, (user)=>{ if(user) onLogin(user); else onLogout(); });
 
 
 /* ---------- 사전 데이터 (foods.json에서 불러옴) ---------- */
@@ -936,7 +1018,7 @@ function linkFoods(){
   items.forEach(it=>{
     if(it.foodId) return;
     const f = findFoodByName(it.name);
-    if(f){ it.foodId = f.id; changed = true; }
+    if(f){ it.foodId = f.id; if(it.updatedAt) it.updatedAt = Date.now(); changed = true; }
   });
   return changed;
 }
@@ -1043,14 +1125,29 @@ let listFilter = "all";
 let currentPick = null;
 
 const STORE_KEY = "meokkit_items_v2";
+// 지운 항목의 id와 지운 시각. 다른 기기에서 지운 항목이 되살아나지 않게 동기화할 때 같이 보냄
+const DELETED_KEY = "meokkit_deleted_v1";
+let deleted = {};
+
+// 저장된 목록이 아예 없을 때(처음 연 기기)만 예시를 만든다. 빈 목록은 사용자가 비운 것이라 그대로 둠
 function load(){
-  try{ items = JSON.parse(localStorage.getItem(STORE_KEY)) || seedData(); }
-  catch(e){ items = seedData(); }
-  if(items.length===0) items = seedData();
+  let saved = null;
+  try{ saved = JSON.parse(localStorage.getItem(STORE_KEY)); }catch(e){}
+  if(Array.isArray(saved)) items = saved;
+  else {
+    items = seedData();
+    localStorage.setItem(STORE_KEY, JSON.stringify(items));
+  }
+  try{ deleted = JSON.parse(localStorage.getItem(DELETED_KEY)) || {}; }catch(e){ deleted = {}; }
 }
 function save(){
   localStorage.setItem(STORE_KEY, JSON.stringify(items));
+  localStorage.setItem(DELETED_KEY, JSON.stringify(deleted));
   pushToCloud();
+}
+function removeItem(id){
+  items = items.filter(x=>x.id!==id);
+  deleted[id] = Date.now();
 }
 function renderAll(){
   renderList();
@@ -1181,7 +1278,7 @@ function recipeLinks(name){
 document.getElementById("btn-roll").onclick = roll;
 document.getElementById("btn-ate").onclick = async ()=>{
   if(!currentPick) return;
-  currentPick.lastEaten = Date.now();
+  currentPick.lastEaten = currentPick.updatedAt = Date.now();
   await save();
   roll();
 };
@@ -1214,7 +1311,7 @@ document.getElementById("btn-add").onclick = async ()=>{
   const name = nameEl.value.trim();
   if(!name) return;
 
-  const item = {id:crypto.randomUUID(), name, cat:catEl.value, memo:memoEl.value.trim(), lastEaten:0};
+  const item = {id:crypto.randomUUID(), name, cat:catEl.value, memo:memoEl.value.trim(), lastEaten:0, updatedAt:Date.now()};
   const kcalVal = kcalEl.value.trim(), keyVal = keyEl.value.trim(), noteVal = noteEl.value.trim();
   if(kcalVal || keyVal || noteVal){
     item.nutri = { kcal: kcalVal || "-", key: keyVal || "-", note: noteVal || "-" };
@@ -1279,7 +1376,7 @@ function renderList(){
 document.getElementById("entry-list").addEventListener("click", async (e)=>{
   const del = e.target.closest("[data-del]");
   const nut = e.target.closest("[data-nut]");
-  if(del){ items = items.filter(x=>x.id!==del.dataset.del); await save(); renderList(); renderDict(); }
+  if(del){ removeItem(del.dataset.del); await save(); renderList(); renderDict(); }
   if(nut){ document.getElementById("nb-"+nut.dataset.nut).classList.toggle("open"); }
 });
 
@@ -1397,7 +1494,7 @@ function renderDishes(){
 async function addFoodToBasket(id){
   const f = FOOD_BY_ID.get(id);
   if(!f || isInBasket(f)) return;
-  items.push({id:crypto.randomUUID(), name:f.name, cat:"식재료", memo:"", lastEaten:0, foodId:f.id});
+  items.push({id:crypto.randomUUID(), name:f.name, cat:"식재료", memo:"", lastEaten:0, foodId:f.id, updatedAt:Date.now()});
   await save();
   renderDict(); renderList();
   if(currentFoodId===id) renderFood(id);
@@ -2057,6 +2154,7 @@ document.addEventListener("click", (e)=>{
   renderHome();
   renderMenu();
   route();
+  startSync();
 
   // 바구니·뽑기는 바로 쓰고, 사전은 foods.json이 도착하면 그림
   await loadFoods();
