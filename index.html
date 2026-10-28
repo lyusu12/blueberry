@@ -1158,18 +1158,11 @@ function renderAll(){
   renderDict();
   document.getElementById("rec-count").textContent = fmtCount(items.length);
 }
+// 예시는 사전에 있고 검증을 마친(checkedAt) 항목으로만 구성
 function seedData(){
   return [
     {id:crypto.randomUUID(), name:"블루베리", cat:"식재료", memo:"", lastEaten:0, foodId:"blueberry"},
     {id:crypto.randomUUID(), name:"그릭요거트", cat:"식재료", memo:"", lastEaten:0, foodId:"greek-yogurt"},
-    {id:crypto.randomUUID(), name:"닭가슴살", cat:"식재료", memo:"", lastEaten:0, foodId:"chicken-breast"},
-    {id:crypto.randomUUID(), name:"마라탕", cat:"요리", memo:"광명동 그 집", lastEaten:0},
-    {id:crypto.randomUUID(), name:"김치찌개", cat:"요리", memo:"", lastEaten:0},
-    {id:crypto.randomUUID(), name:"연어 스테이크", cat:"요리", memo:"", lastEaten:0, foodId:"salmon"},
-    {id:crypto.randomUUID(), name:"청국장 정식", cat:"요리", memo:"", lastEaten:0, foodId:"cheonggukjang"},
-    {id:crypto.randomUUID(), name:"동네 파스타집", cat:"식당", memo:"", lastEaten:0},
-    {id:crypto.randomUUID(), name:"삼산 초밥집", cat:"식당", memo:"", lastEaten:0},
-    {id:crypto.randomUUID(), name:"다운동 삼겹살집", cat:"식당", memo:"", lastEaten:0},
   ];
 }
 
