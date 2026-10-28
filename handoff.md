@@ -1,7 +1,7 @@
 # 블루베리 앱 (구 문득) — 인수인계
 
 > 새 대화를 열면 이 파일부터 읽게 할 것. 작업이 한 단계 끝날 때마다 Claude가 최신으로 고친다.
-> 마지막 갱신: 2026-10-27
+> 마지막 갱신: 2026-10-28
 
 ## 지금 상태
 
@@ -16,7 +16,8 @@
 - **배포 주소**: lyusu12.github.io/moondeuk
 - **GitHub**: lyusu12/moondeuk
 - **Firebase**: 프로젝트 ID `meokkit-12b18` (Google 로그인 + Firestore 동기화)
-- **작업 환경**: 데스크톱 맥 + 맥북, 두 컴퓨터 모두 폴더는 `~/Documents/moondeuk`
+- **작업 환경**: 데스크톱 맥 + 맥북, 두 컴퓨터 모두 폴더는 `~/Documents/blueberry` (2026-10-28 맥북에서 `moondeuk` → `blueberry`로 이름 바꿈. GitHub 주소는 그대로 `moondeuk`)
+  - **데스크톱 맥에서 할 일 (한 번만)**: Claude 대화를 닫고 Finder에서 `문서/moondeuk` 폴더 이름을 `blueberry`로 바꾼 뒤, `blueberry` 폴더로 새 대화를 열기. 왼쪽 목록의 옛 「moondeuk」 대화는 보관(아카이브)
 - **작업 도구**: Claude 데스크톱 앱의 Code 탭 (Claude Code). 대화·결정과 실제 작업을 한곳에서 함
 
 ## 앱의 방향
@@ -142,7 +143,7 @@
 - **시작**: `git pull` → 이 문서 읽기 → 사용자에게 짧게 요약 (CLAUDE.md에도 같은 규칙)
 - **끝**: 이 문서 갱신 → 커밋·푸시. 커밋 안 된 채로 컴퓨터를 옮기지 않기 (옮기면 다른 쪽에서 그 작업이 안 보임)
 - 두 컴퓨터에서 동시에 같은 파일을 고치지 않기
-- 맥북에 처음 받을 때(한 번만): `git clone https://github.com/lyusu12/moondeuk.git ~/Documents/moondeuk`
+- 맥북에 처음 받을 때(한 번만): `git clone https://github.com/lyusu12/moondeuk.git ~/Documents/blueberry`
   - 맥북에서 처음 푸시할 때 GitHub 로그인이 필요할 수 있음 → 그때 Claude가 안내
 - (덤) 데스크톱 대화는 Remote Control이 켜져 있어 claude.ai/code에서도 볼 수 있음. 데스크톱이 켜져 있을 때만 되는 보조 수단
 
