@@ -77,7 +77,7 @@
 
 `{ id, name, cat, memo, lastEaten, foodId?, nutri?, updatedAt? }`
 - `updatedAt`: 항목을 만들거나 바꾼 시각. **항목을 바꾸는 코드는 반드시 이 값도 갱신**해야 기기끼리 합칠 때 반영된다. 지울 땐 `removeItem(id)`를 써서 「지웠음」 기록(`deleted`, localStorage `blueberry_deleted`)을 남긴다
-- 동기화는 덮어쓰기가 아니라 `mergeItems`로 합친다. 저장된 목록이 아예 없을 때만 예시(`seedData`)를 만든다. 예시는 사전에 있고 검증을 마친 항목만 넣는다
+- 동기화는 덮어쓰기가 아니라 `mergeItems`로 합친다. 저장된 목록이 아예 없을 때만 예시(`seedData`)를 만든다. 예시는 사전에 있고 검증을 마친 항목만 넣는다. 예시 id는 `seed-{사전 id}`로 고정. `updatedAt`도 없고 `seed-` id도 아닌 항목은 옛 예시로 보고 `dropOldSeeds`가 걸러낸다
 - `foodId`가 있으면 사전에서 정보를 읽어서 보여준다 (복사하지 않음).
 - `nutri`({kcal,key,note})는 사전과 연결 안 된 직접 입력 항목용. 예전 버전 앱 호환을 위해 지우지 않는다.
 

@@ -856,7 +856,8 @@ const sameData = (a, b)=> JSON.stringify(canon(a)) === JSON.stringify(canon(b));
 
 // 클라우드 기록을 이 기기 기록과 합쳐 반영. 클라우드와 달라진 게 있으면 true
 function applyRemote(data){
-  const remoteItems = Array.isArray(data.items) ? data.items : [];
+  const rawRemote = Array.isArray(data.items) ? data.items : [];
+  const remoteItems = dropOldSeeds(rawRemote);
   const remoteDel = data.deleted && typeof data.deleted === "object" ? data.deleted : {};
   const merged = mergeItems(items, deleted, remoteItems, remoteDel);
   items = merged.items;
@@ -865,7 +866,7 @@ function applyRemote(data){
   localStorage.setItem(STORE_KEY, JSON.stringify(items));
   localStorage.setItem(DELETED_KEY, JSON.stringify(deleted));
   renderAll();
-  return !sameData(items, remoteItems) || !sameData(deleted, remoteDel);
+  return !sameData(items, rawRemote) || !sameData(deleted, remoteDel);
 }
 
 async function pushToCloud(){
@@ -1137,12 +1138,14 @@ function load(){
   }
   let saved = null;
   try{ saved = JSON.parse(localStorage.getItem(STORE_KEY)); }catch(e){}
-  if(Array.isArray(saved)) items = saved;
-  else {
-    items = seedData();
-    localStorage.setItem(STORE_KEY, JSON.stringify(items));
-  }
+  items = Array.isArray(saved) ? dropOldSeeds(saved) : seedData();
+  localStorage.setItem(STORE_KEY, JSON.stringify(items));
   try{ deleted = JSON.parse(localStorage.getItem(DELETED_KEY)) || {}; }catch(e){ deleted = {}; }
+}
+// 옛 예시(무작위 id라 기기마다 따로 생겼던 마라탕·다운동 삼겹살집 등) 걸러내기.
+// 사용자가 담은 항목은 늘 updatedAt이 있고, 지금 예시는 id가 seed-로 시작함. 둘 다 아니면 옛 예시
+function dropOldSeeds(list){
+  return list.filter(it=> it && (it.updatedAt || String(it.id).startsWith("seed-")));
 }
 function save(){
   localStorage.setItem(STORE_KEY, JSON.stringify(items));
