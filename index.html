@@ -944,7 +944,17 @@ function onLogout(){
 
 document.getElementById("btn-login").addEventListener("click", async ()=>{
   if(!(await startSync())){ toast("인터넷 연결을 확인해주세요"); return; }
-  if(currentUser){ await fb.signOut(auth); return; }
+  if(currentUser){
+    await fb.signOut(auth);
+    // 이 기기의 바구니를 처음 상태로 되돌림. 안 그러면 다른 계정으로 로그인할 때 앞 계정 항목이 섞여 올라감
+    // (기록은 클라우드에 남아 있어 같은 계정으로 다시 로그인하면 돌아옴)
+    items = seedData();
+    deleted = {};
+    localStorage.setItem(STORE_KEY, JSON.stringify(items));
+    localStorage.setItem(DELETED_KEY, JSON.stringify(deleted));
+    renderAll();
+    return;
+  }
   const provider = new fb.GoogleAuthProvider();
   // 매번 계정 고르는 창을 띄움. 안 그러면 로그아웃해도 전에 쓴 계정으로 바로 들어가서 다른 계정을 고를 수 없음
   provider.setCustomParameters({ prompt: "select_account" });
