@@ -780,12 +780,12 @@
    못 받아와도(오프라인) 앱은 이 기기 기록으로 그대로 돌아가고, 연결되면 그때 동기화를 시작함 */
 const FB = "https://www.gstatic.com/firebasejs/10.12.2/";
 const firebaseConfig = {
-  apiKey: "AIzaSyDFzbfUa-aOKedO6bW34kY_MoZq_-F8igU",
-  authDomain: "meokkit-12b18.firebaseapp.com",
-  projectId: "meokkit-12b18",
-  storageBucket: "meokkit-12b18.firebasestorage.app",
-  messagingSenderId: "285975056864",
-  appId: "1:285975056864:web:a0e126fade2d4511b95b85"
+  apiKey: "AIzaSyBZiNdwjWID25T3KeL22VxLTpJJCUC-uWY",
+  authDomain: "blueberry-2c687.firebaseapp.com",
+  projectId: "blueberry-2c687",
+  storageBucket: "blueberry-2c687.firebasestorage.app",
+  messagingSenderId: "523517875946",
+  appId: "1:523517875946:web:fac95b71fb9a0e5f8ca993"
 };
 let fb = null;        // 불러온 Firebase 함수들
 let fbLoading = null;
@@ -826,7 +826,7 @@ window.addEventListener("online", ()=>{
   else if(currentUser && !syncReady) onLogin(currentUser);
 });
 
-function userDocRef(uid){ return fb.doc(db, "meokkit_users", uid); }
+function userDocRef(uid){ return fb.doc(db, "blueberry_users", uid); }
 
 /* 두 목록 합치기: 같은 항목은 나중에 바꾼 쪽(updatedAt)을, 지운 항목은 양쪽 다 지움.
    updatedAt이 없는 항목(예시, 예전 버전에서 만든 것)은 상대에게도 있을 때만 남김
@@ -1124,13 +1124,17 @@ let pickFilter = "all";
 let listFilter = "all";
 let currentPick = null;
 
-const STORE_KEY = "meokkit_items_v2";
+const STORE_KEY = "blueberry_items";
 // 지운 항목의 id와 지운 시각. 다른 기기에서 지운 항목이 되살아나지 않게 동기화할 때 같이 보냄
-const DELETED_KEY = "meokkit_deleted_v1";
+const DELETED_KEY = "blueberry_deleted";
 let deleted = {};
 
 // 저장된 목록이 아예 없을 때(처음 연 기기)만 예시를 만든다. 빈 목록은 사용자가 비운 것이라 그대로 둠
 function load(){
+  // 예전 이름(먹킷리스트·문득) 시절 기록은 새로 시작하면서 버림 (2026-10-28 결정)
+  for(const k of ["meokkit_items_v2", "meokkit_deleted_v1", "moondeuk_views"]){
+    try{ localStorage.removeItem(k); }catch(e){}
+  }
   let saved = null;
   try{ saved = JSON.parse(localStorage.getItem(STORE_KEY)); }catch(e){}
   if(Array.isArray(saved)) items = saved;
@@ -1547,7 +1551,7 @@ function foodImage(f, cls, kind = "icon"){
 
 /* ---------- 홈 ---------- */
 // 상세 화면을 연 횟수 (이 기기에서만). 「자주 본 식재료」 순위에 씀
-const VIEWS_KEY = "moondeuk_views";
+const VIEWS_KEY = "blueberry_views";
 function loadViews(){
   try{ const v = JSON.parse(localStorage.getItem(VIEWS_KEY)); return v && typeof v==="object" ? v : {}; }
   catch(e){ return {}; }

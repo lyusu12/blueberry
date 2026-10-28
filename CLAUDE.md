@@ -1,6 +1,7 @@
-# 블루베리 (구 문득 · 먹킷리스트)
+# 블루베리
 
-앱 이름은 「블루베리」(2026-10-22 변경). 저장소·주소(`lyusu12/moondeuk`), 캐시 이름(`moondeuk-vN`), localStorage `moondeuk_views`는 예전 이름 그대로 둔다 (바꾸면 주소가 바뀌거나 기록이 끊김).
+저장소 `lyusu12/blueberry`, 주소 lyusu12.github.io/blueberry, Firebase 프로젝트 `blueberry-2c687`.
+2026-10-28에 옛 이름(문득·먹킷리스트)을 모두 걷어내고 새로 시작했다 (옛 기록은 버림).
 
 ## 작업 시작과 끝 (컴퓨터 두 대: 데스크톱 맥 + 맥북)
 
@@ -17,12 +18,11 @@
 ## 규칙
 
 - **코드를 수정하면 `sw.js`의 `CACHE_NAME` 버전을 반드시 함께 올릴 것.**
-  (예: `moondeuk-v1` → `moondeuk-v2`)
+  (예: `blueberry-v16` → `blueberry-v17`)
   서비스워커가 cache-first라서, 버전을 올리지 않으면 설치된 앱에 수정 사항이 반영되지 않는다.
   **`foods.json`(사전 데이터)만 고친 경우에도 마찬가지로 올린다.**
-- **localStorage 키 `meokkit_items_v2`·`meokkit_deleted_v1`과 Firestore 컬렉션 `meokkit_users`는 이름을 바꾸지 않는다.**
-  예전 앱 이름(먹킷리스트)의 흔적이지만, 바꾸면 기존 사용자 데이터를 못 읽는다.
-  Firebase 설정의 `meokkit-12b18`도 실제 프로젝트 ID라 바꾸지 않는다.
+- **localStorage 키 `blueberry_items`·`blueberry_deleted`·`blueberry_views`와 Firestore 컬렉션 `blueberry_users`는 이름을 바꾸지 않는다.**
+  바꾸면 기존 사용자 데이터를 못 읽는다. Firestore 보안 규칙도 `blueberry_users/{uid}`(본인만 읽기·쓰기) 기준이다.
 
 ## 사전 데이터 (`foods.json`)
 
@@ -76,7 +76,7 @@
 ## 바구니 항목 (`items`, localStorage + Firestore)
 
 `{ id, name, cat, memo, lastEaten, foodId?, nutri?, updatedAt? }`
-- `updatedAt`: 항목을 만들거나 바꾼 시각. **항목을 바꾸는 코드는 반드시 이 값도 갱신**해야 기기끼리 합칠 때 반영된다. 지울 땐 `removeItem(id)`를 써서 「지웠음」 기록(`deleted`, localStorage `meokkit_deleted_v1`)을 남긴다
+- `updatedAt`: 항목을 만들거나 바꾼 시각. **항목을 바꾸는 코드는 반드시 이 값도 갱신**해야 기기끼리 합칠 때 반영된다. 지울 땐 `removeItem(id)`를 써서 「지웠음」 기록(`deleted`, localStorage `blueberry_deleted`)을 남긴다
 - 동기화는 덮어쓰기가 아니라 `mergeItems`로 합친다. 저장된 목록이 아예 없을 때만 예시(`seedData`)를 만든다
 - `foodId`가 있으면 사전에서 정보를 읽어서 보여준다 (복사하지 않음).
 - `nutri`({kcal,key,note})는 사전과 연결 안 된 직접 입력 항목용. 예전 버전 앱 호환을 위해 지우지 않는다.
@@ -92,5 +92,5 @@
 
 - 「오늘의 발견」: 날짜로 정해지는 **검증 완료(`checkedAt`) 항목** 최대 3개 (하루 동안 같음)
 - 「요즘 제철」: `season.months`에 이번 달이 들어 있는 항목만. 없으면 안내 문구
-- 「자주 본 식재료」: 상세 화면을 연 횟수(이 기기의 localStorage `moondeuk_views`) 순. 기록이 없으면 「사전 둘러보기」로 사전 앞쪽 5개
+- 「자주 본 식재료」: 상세 화면을 연 횟수(이 기기의 localStorage `blueberry_views`) 순. 기록이 없으면 「사전 둘러보기」로 사전 앞쪽 5개
 - 디자인 색·간격은 `index.html` 맨 위 `:root` 변수에 모여 있음 (딥퍼플 `--primary` #514568, 크림 `--bg` #FAF8F4)
