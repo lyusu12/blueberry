@@ -1158,11 +1158,12 @@ function renderAll(){
   renderDict();
   document.getElementById("rec-count").textContent = fmtCount(items.length);
 }
-// 예시는 사전에 있고 검증을 마친(checkedAt) 항목으로만 구성
+// 예시는 사전에 있고 검증을 마친(checkedAt) 항목으로만 구성.
+// id를 고정해 두어야 여러 기기(폰 앱·사파리·컴퓨터)에서 만든 예시가 같은 항목으로 합쳐지고, 한 곳에서 지우면 다른 곳에서도 지워짐
 function seedData(){
   return [
-    {id:crypto.randomUUID(), name:"블루베리", cat:"식재료", memo:"", lastEaten:0, foodId:"blueberry"},
-    {id:crypto.randomUUID(), name:"그릭요거트", cat:"식재료", memo:"", lastEaten:0, foodId:"greek-yogurt"},
+    {id:"seed-blueberry", name:"블루베리", cat:"식재료", memo:"", lastEaten:0, foodId:"blueberry"},
+    {id:"seed-greek-yogurt", name:"그릭요거트", cat:"식재료", memo:"", lastEaten:0, foodId:"greek-yogurt"},
   ];
 }
 
