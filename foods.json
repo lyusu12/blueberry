@@ -212,6 +212,8 @@
         "발효식품"
       ],
       "summary": "요거트에서 물(유청)을 걸러내 꾸덕하게 만든 것. 같은 양에 단백질이 일반 요거트의 2.5배쯤 들어 있다.",
+      "image": { "src": "images/greek-yogurt.jpg", "alt": "유리 그릇에 담긴 꾸덕한 그릭요거트와 나무 숟가락" },
+      "icon": { "src": "images/greek-yogurt-icon.png", "alt": "나무 숟가락에 뜬 그릭요거트" },
       "nutrition": {
         "energy": {
           "value": 97,
