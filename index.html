@@ -1071,8 +1071,9 @@ function thisMonth(){ return new Date().getMonth() + 1; }
 function inSeason(f, month){ return !!(f.season && list(f.season.months).includes(month)); }
 
 /* 「 」 괄호가 줄 끝에 혼자 남거나 줄 맨 앞에 혼자 오지 않게, 괄호와 붙은 글자 사이에
-   줄을 못 바꾸는 표시(U+2060, 눈에 안 보임)를 넣음. 괄호째 다음 줄로 내려감 */
-function glue(s){ return String(s).replace(/([「『])/g, "$1⁠").replace(/([」』])/g, "⁠$1"); }
+   줄을 못 바꾸는 표시(U+2060, 눈에 안 보임)를 넣음. 괄호째 다음 줄로 내려감.
+   가운뎃점(·) 뒤에는 줄을 바꿔도 되는 표시(U+200B)를 넣음. 「A·B」가 한 덩어리로 통째 내려가 윗줄이 비지 않게 */
+function glue(s){ return String(s).replace(/([「『])/g, "$1⁠").replace(/([」』])/g, "⁠$1").replace(/·/g, "·​"); }
 
 /* DOM 헬퍼: 텍스트는 항상 텍스트 노드로 넣음 (사용자 입력이 HTML로 해석되지 않게) */
 function h(tag, props, ...children){
