@@ -55,7 +55,7 @@
 
 | 구분 | 방법 | 기간 | 주의 |
 |---|---|---|---|
-| 냉장 | 뚜껑을 닫아 냉장 보관, 덜어 먹을 땐 깨끗한 숟가락으로 | 1~2주 (구입일부터) | 냉장고 밖(4℃ 이상)에 2시간 넘게 둔 것은 버린다 |
+| 냉장 | 뚜껑을 꼭 닫아 냉장 보관하고, 덜어 먹을 땐 깨끗한 숟가락으로. 뜯기 전엔 포장에 적힌 소비기한까지 두어도 된다 | 뜯은 뒤 1주 안 | 뜯은 뒤엔 소비기한이 남아 있어도 되도록 빨리 먹는다. 냉장고 밖(4℃ 이상)에 2시간 넘게 둔 것은 버린다 |
 | 냉동 | 밀폐 용기에 넣어 얼림 | 1~2개월 | 맛과 식감이 유지되는 기간이다. 녹이면 물이 생기고 결이 거칠어지니 그대로 떠먹기보다 스무디나 반죽에 쓰는 게 낫다 |
 | 위에 고인 맑은 물 | 버리지 말고 저어서 먹는다 | — | 상한 게 아니라 우유 성분인 유청이다. 용기가 부풀었거나 곰팡이, 이상한 냄새가 나면 버린다 |
 
@@ -97,7 +97,7 @@
 5. Eales 외, 요거트 섭취와 체중 관리에 관한 체계적 문헌고찰, Int J Obes, 2016 — 관찰 연구는 일관, 시험은 불확실 — https://doi.org/10.1038/ijo.2015.202
 6. Douglas 외, 단백질 함량이 다른 요거트 간식과 식욕, Appetite, 2013 — 고단백 그릭요거트가 배고픔을 줄임 / Ortinau 외, Nutrition Journal, 2013 — 일반 요거트와 차이 없음 — https://doi.org/10.1186/1475-2891-12-71
 7. 미국 FDA, 요거트와 제2형 당뇨 위험 감소에 관한 제한적 건강 표시 허용, 2024 — https://www.fda.gov/food/hfp-constituent-updates/fda-announces-qualified-health-claim-yogurt-and-reduced-risk-type-2-diabetes
-8. 미국 농무부 FoodKeeper — 요거트 냉장 1~2주, 냉동 1~2개월 (냉동 기간은 품질 기준) — https://www.foodsafety.gov/keep-food-safe/foodkeeper-app / 미국 농무부 식품안전검사국, 비상시 식품 안전 — 4℃ 넘게 2시간 이상 둔 요거트는 버림 — https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/keeping-food-safe-during
+8. 미국 농무부 FoodKeeper — 요거트 냉장 1~2주, 냉동 1~2개월 (냉동 기간은 품질 기준), 포장에 적힌 날짜는 뜯지 않은 상태 기준 — https://www.foodsafety.gov/keep-food-safe/foodkeeper-app / 미국 농무부 식품안전검사국, 비상시 식품 안전 — 4℃ 넘게 2시간 이상 둔 요거트는 버림 — https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/keeping-food-safe-during
 9. Lang 외, α-카제인이 쥐의 블루베리 안토시아닌 흡수에 미치는 영향, J Agric Food Chem, 2021 — 우유 단백질의 보호 효과
 10. Serafini 외, 우유와 함께 섭취한 블루베리의 항산화 활성, Free Radic Biol Med, 2009 — 사람에서 흡수가 줄어든 결과
 11. 미네소타주 보건부 WIC 영양 자료 — 요거트 위에 고이는 물은 유청이며 저어 먹어도 안전 — https://www.health.state.mn.us/docs/people/wic/localagency/wedupdate/moyr/2016/topic/0413yogurt.pdf
