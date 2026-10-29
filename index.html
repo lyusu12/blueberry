@@ -586,7 +586,7 @@
     <div class="pick-stage" id="pick-stage">
       <div class="pick-empty" id="pick-empty">
         아직 등록된 항목이 없어요.
-        <span class="hint">「바구니」 탭에서 먼저 몇 개 채워보세요.</span>
+        <span class="hint">「&#8288;바구니&#8288;」 탭에서 먼저 몇 개 채워보세요.</span>
       </div>
 
       <div class="pick-card card" id="pick-card">
@@ -639,7 +639,7 @@
       <button class="menu-btn" data-menu-open aria-label="메뉴 열기" aria-controls="drawer" aria-expanded="false"><svg class="ic" viewBox="0 0 24 24"><path d="M4.5 7h15M4.5 12h15M4.5 17h15"/></svg></button>
       <div class="page-head-text">
         <h1 class="page-title">사전</h1>
-        <p class="page-sub">미리 정리해둔 식재료 사전이에요. 「담기」하면 내 바구니로 들어가고, 「오늘 뭐 먹지?」에도 포함돼요.</p>
+        <p class="page-sub">미리 정리해둔 식재료 사전이에요. 「&#8288;담기&#8288;」하면 내 바구니로 들어가고, 「&#8288;오늘 뭐 먹지?&#8288;」에도 포함돼요.</p>
       </div>
     </div>
     <div class="chips" id="dict-chips"></div>
@@ -1070,19 +1070,23 @@ function josa(word, withFinal, withoutFinal){
 function thisMonth(){ return new Date().getMonth() + 1; }
 function inSeason(f, month){ return !!(f.season && list(f.season.months).includes(month)); }
 
+/* 「 」 괄호가 줄 끝에 혼자 남거나 줄 맨 앞에 혼자 오지 않게, 괄호와 붙은 글자 사이에
+   줄을 못 바꾸는 표시(U+2060, 눈에 안 보임)를 넣음. 괄호째 다음 줄로 내려감 */
+function glue(s){ return String(s).replace(/([「『])/g, "$1⁠").replace(/([」』])/g, "⁠$1"); }
+
 /* DOM 헬퍼: 텍스트는 항상 텍스트 노드로 넣음 (사용자 입력이 HTML로 해석되지 않게) */
 function h(tag, props, ...children){
   const el = document.createElement(tag);
   for(const [k, v] of Object.entries(props || {})){
     if(v==null || v===false) continue;
     if(k==="class") el.className = v;
-    else if(k==="text") el.textContent = v;
+    else if(k==="text") el.textContent = glue(v);
     else if(k.includes("-")) el.setAttribute(k, v);
     else el[k] = v;
   }
   for(const c of children.flat(Infinity)){
     if(c==null || c===false || c==="") continue;
-    el.append(c instanceof Node ? c : String(c));
+    el.append(c instanceof Node ? c : glue(c));
   }
   return el;
 }
