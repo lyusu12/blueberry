@@ -385,6 +385,7 @@
   .badge{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:500;padding:3px 9px;border-radius:999px;white-space:nowrap;background:var(--bg);color:var(--text-2);}
   .badge::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor;}
   .badge.ev-confirmed{background:var(--sage-light);color:#4F6B4A;}
+  .badge.ev-similar{background:#E3ECEE;color:#3E6470;}
   .badge.ev-mixed{background:#F6EBD6;color:#7E5D20;}
   .badge.ev-unknown{background:#EFECE7;color:var(--text-2);}
   .badge.ev-false{background:#F5E1DC;color:#93432F;}
@@ -975,6 +976,7 @@ let foodsLoaded = false;
 
 const EVIDENCE = {
   confirmed: "연구로 확인됨",
+  similar: "비슷한 연구로 확인됨",
   mixed: "결과가 엇갈림",
   unknown: "밝혀진 바 없음",
   false: "사실과 다름",
