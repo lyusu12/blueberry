@@ -78,7 +78,7 @@
 **고구마에는 베타카로틴이 많다** — 근거: 사실과 다름 / 기준: 식품 / 참고자료 1
 > 속이 주황색인 품종 이야기다. 우리가 흔히 먹는 밤고구마는 100g에 32µg으로 거의 없다. 호박고구마는 896µg, 속이 진한 주황색인 「주황미」는 9,826µg이다. 미국 자료의 고구마는 대부분 주황색 품종이라 베타카로틴이 많게 나온다.
 
-**고구마를 먹으면 변비가 풀린다** — 근거: 연구로 확인됨 / 기준: 식품 / 참고자료 11, 12, 15
+**고구마를 먹으면 변비가 풀린다** — 근거: 연구로 확인됨 / 기준: 식품 / 참고자료 10, 11, 12
 > 항암 치료를 받는 백혈병 환자 120명을 두 무리로 나눠, 한쪽만 고구마를 하루 200g씩 먹게 한 실험(중국, 2016)에서 고구마를 먹은 쪽의 변비가 줄었다. 식이섬유가 변비에 도움이 된다는 것도 여러 실험을 모은 분석(2022)에서 확인됐다. 변비에 좋은 이유는 독소가 빠져서가 아니라 식이섬유가 하는 일 때문이다. 식이섬유는 물을 머금어 대변을 부드럽고 크게 만들고, 장 속 세균이 이것을 분해(발효)하면서 생긴 물질이 장으로 물을 끌어들이고 장의 움직임을 빠르게 한다. 다만 고구마로 일반인을 대상으로 한 실험은 아직 없고, 고구마의 식이섬유(100g에 2.4g)는 이 분석에서 효과가 나온 양보다 적은 편이다. 물을 충분히 같이 마시는 게 좋다.
 
 **고구마는 혈당을 천천히 올린다** — 근거: 결과가 엇갈림 / 기준: 식품 / 참고자료 3, 4
@@ -99,18 +99,13 @@
 2. 식품 등의 표시·광고에 관한 법률 시행규칙 별표 5, 1일 영양성분 기준치 — https://www.law.go.kr/LSW/flDownload.do?flSeq=42533782&bylClsCd=110201
 3. 김도연 외, 탄수화물 간식류 식품 및 조리방법에 따른 혈당지수 및 혈당부하지수, 한국식품영양과학회지, 2015 — 건강한 남성 60명, 군고구마 90.9·찐고구마 70.8 — https://doi.org/10.3746/jkfn.2015.44.1.014
 4. Bahado-Singh 외, 자메이카 고구마 10품종의 조리법과 혈당지수, J Nutr Metab, 2011 — 삶은 것 41~50, 구운 것 79~94 — https://doi.org/10.1155/2011/584832
-5. 흰 고구마 가루 식품으로 끼니를 대신한 무작위 시험, 대만 직장인 58명, 8주, 2019 — https://pubmed.ncbi.nlm.nih.gov/30646532/
-6. Truong 외, 미국 상업용 고구마 품종의 잎·뿌리 페놀산 함량, J Food Sci, 2007 — 껍질 > 통째 > 속살, 껍질째 간 것과 벗긴 것은 차이 없음 — https://ars.usda.gov/ARSUserFiles/60701000/Sweetpotato%20Publications/S124.pdf
-7. 농촌진흥청 농사로, 고구마에 대한 빅데이터 분석 — 저장 13~16℃, 냉해 10℃, 냉장·냉동 보관을 가장 피해야 함, 싹 난 고구마는 독성 없음 — https://www.rda.go.kr/middlePopOpenPopNongsaroDBView.do?no=1075 / 농촌진흥청 농사로, 고구마 수확 후 관리기술 — 저장 적온 12~15℃, 수확 시기, 출하 규격 — https://www.rda.go.kr/middlePopOpenPopNongsaroDBView.do?no=1226
-8. 미국 농무부 식품안전검사국, 남은 음식과 식품 안전 — 익힌 음식 냉장 3~4일, 냉동 3~4개월 — https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/leftovers-and-food-safety
-9. Wolever 외, 탄수화물 식사에 단백질을 더했을 때의 식후 혈당·인슐린 반응: 체계적 문헌고찰과 메타분석, J Nutr, 2024 — https://doi.org/10.1016/j.tjnut.2024.07.011
-10. Wamalwa 외, 리조푸스 곰팡이에 감염된 고구마의 멀쩡해 보이는 부위에 쌓인 독성 이포메아마론, J Agric Food Chem, 2015 — https://doi.org/10.1021/jf504702z
-11. Zou 외, 항암 치료 중인 백혈병 환자의 변비를 고구마로 개선, Cancer Nursing, 2016 — 무작위 시험 120명, 하루 200g — https://doi.org/10.1097/NCC.0000000000000257
-12. van der Schoot 외, 성인 만성 변비에 대한 식이섬유 보충 효과: 무작위 시험의 체계적 문헌고찰·메타분석, Am J Clin Nutr, 2022 — https://doi.org/10.1093/ajcn/nqac184
-13. Klein·Kiat, 독소 제거와 체중 관리를 위한 해독 식단: 근거 검토, J Hum Nutr Diet, 2015 — https://doi.org/10.1111/jhn.12286
-14. Meerman·Brown, 살이 빠질 때 지방은 어디로 가는가, BMJ, 2014 — 대부분 이산화탄소로 숨을 통해 나감 — https://doi.org/10.1136/bmj.g7257
-15. Gui 외, 식단이 변비를 덜고 배변을 돕는가: 작용 원리 검토, Food Res Int, 2025 — 식이섬유가 대변 양을 늘리고 물을 붙잡으며, 세균 발효로 생긴 물질이 장 통과를 빠르게 함 — https://doi.org/10.1016/j.foodres.2025.117714
-16. Suarez 외, 사람 방귀 냄새의 원인 가스 규명, Gut, 1998 — 건강한 16명, 냄새의 주원인은 황화수소 등 황 가스 — https://doi.org/10.1136/gut.43.1.100
-17. Yao 외, 대장에서의 단백질 발효와 건강 영향에 관한 검토, Aliment Pharmacol Ther, 2016 — 고단백·저탄수 식단에서 황화수소 증가, 식이섬유·저항성 전분이 단백질 발효를 줄일 수 있음 — https://doi.org/10.1111/apt.13456
+5. Truong 외, 미국 상업용 고구마 품종의 잎·뿌리 페놀산 함량, J Food Sci, 2007 — 껍질 > 통째 > 속살, 껍질째 간 것과 벗긴 것은 차이 없음 — https://ars.usda.gov/ARSUserFiles/60701000/Sweetpotato%20Publications/S124.pdf
+6. 농촌진흥청 농사로, 고구마에 대한 빅데이터 분석 — 저장 13~16℃, 냉해 10℃, 냉장·냉동 보관을 가장 피해야 함, 싹 난 고구마는 독성 없음 — https://www.rda.go.kr/middlePopOpenPopNongsaroDBView.do?no=1075 / 농촌진흥청 농사로, 고구마 수확 후 관리기술 — 저장 적온 12~15℃, 수확 시기, 출하 규격 — https://www.rda.go.kr/middlePopOpenPopNongsaroDBView.do?no=1226
+7. 미국 농무부 식품안전검사국, 남은 음식과 식품 안전 — 익힌 음식 냉장 3~4일, 냉동 3~4개월 — https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/leftovers-and-food-safety
+8. Wolever 외, 탄수화물 식사에 단백질을 더했을 때의 식후 혈당·인슐린 반응: 체계적 문헌고찰과 메타분석, J Nutr, 2024 — https://doi.org/10.1016/j.tjnut.2024.07.011
+9. Wamalwa 외, 리조푸스 곰팡이에 감염된 고구마의 멀쩡해 보이는 부위에 쌓인 독성 이포메아마론, J Agric Food Chem, 2015 — https://doi.org/10.1021/jf504702z
+10. Zou 외, 항암 치료 중인 백혈병 환자의 변비를 고구마로 개선, Cancer Nursing, 2016 — 무작위 시험 120명, 하루 200g — https://doi.org/10.1097/NCC.0000000000000257
+11. van der Schoot 외, 성인 만성 변비에 대한 식이섬유 보충 효과: 무작위 시험의 체계적 문헌고찰·메타분석, Am J Clin Nutr, 2022 — https://doi.org/10.1093/ajcn/nqac184
+12. Gui 외, 식단이 변비를 덜고 배변을 돕는가: 작용 원리 검토, Food Res Int, 2025 — 식이섬유가 대변 양을 늘리고 물을 붙잡으며, 세균 발효로 생긴 물질이 장 통과를 빠르게 함 — https://doi.org/10.1016/j.foodres.2025.117714
 
-(참고) 조승우 한약사 출연 영상, 지식인사이드, 「30일 동안 고구마를 매일 먹었더니…」 — https://www.youtube.com/watch?v=iVw0TFacjD4 — 변비·해독·다이어트·혈당·껍질·공복·김치 이야기를 위 자료로 하나씩 확인함. 앱의 참고한 자료에는 넣지 않음
+(참고) 조승우 한약사 출연 영상, 지식인사이드, 「30일 동안 고구마를 매일 먹었더니…」 — https://www.youtube.com/watch?v=iVw0TFacjD4 — 변비·해독·방귀·다이어트·혈당·껍질·공복·김치 이야기를 하나씩 확인함 (해독·방귀·다이어트 속설은 사용자 결정으로 뺌). 앱의 참고한 자료에는 넣지 않음
