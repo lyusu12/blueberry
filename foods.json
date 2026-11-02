@@ -694,7 +694,7 @@
       "pairings": [
         {
           "target": "greek-yogurt",
-          "evidence": "similar",
+          "evidence": "confirmed",
           "basis": "food",
           "refs": [
             8
@@ -703,7 +703,7 @@
         },
         {
           "targetName": "레몬수",
-          "evidence": "similar",
+          "evidence": "confirmed",
           "basis": "food",
           "refs": [
             24,
