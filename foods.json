@@ -571,6 +571,14 @@
         "note": "보통 9월 하순~10월 중순에 캔다. 저장해 둔 것은 겨울·봄에도 나온다"
       },
       "summary": "쪄도 굽기만 해도 간식이 되고, 같은 무게면 밥과 열량이 비슷한 탄수화물 식품.",
+      "image": {
+        "src": "images/sweet-potato.jpg",
+        "alt": "나무 도마 위 반으로 가른 군고구마와 노란 속살"
+      },
+      "icon": {
+        "src": "images/sweet-potato-icon.png",
+        "alt": "자주색 껍질 고구마 두 개와 잎"
+      },
       "nutrition": {
         "energy": {
           "value": 147,
