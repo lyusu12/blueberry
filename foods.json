@@ -938,6 +938,14 @@
         "곡물"
       ],
       "summary": "오트밀로 끓여도, 밥에 섞어도 되는 곡물. 물에 녹는 식이섬유(베타글루칸)가 콜레스테롤을 낮추는 것으로 확인됐다.",
+      "image": {
+        "src": "images/oat.jpg",
+        "alt": "얼룩무늬 그릇에 담긴 오트밀과 나무 스쿱"
+      },
+      "icon": {
+        "src": "images/oat-icon.png",
+        "alt": "쌓아 놓은 오트밀과 귀리 잎"
+      },
       "nutrition": {
         "energy": {
           "value": 388,
