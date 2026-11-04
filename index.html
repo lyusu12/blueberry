@@ -1033,6 +1033,26 @@ function linkFoods(){
     const f = findFoodByName(it.name);
     if(f){ it.foodId = f.id; if(it.updatedAt) it.updatedAt = Date.now(); changed = true; }
   });
+  return mergeSameFood() || changed;
+}
+// 같은 사전 항목에 연결된 바구니 항목(예: 「귀리」와 「오트밀」)은 하나로 합침.
+// 사전 이름으로 된 것을 남기고, 메모는 이어 붙이고, 먹은 날은 더 최근 것을 씀
+function mergeSameFood(){
+  const groups = new Map();
+  items.forEach(it=>{ if(it.foodId) groups.set(it.foodId, [...(groups.get(it.foodId) || []), it]); });
+  let changed = false;
+  for(const [foodId, xs] of groups){
+    if(xs.length < 2) continue;
+    const f = FOOD_BY_ID.get(foodId);
+    const keep = xs.find(it=>f && it.name===f.name) || xs[0];
+    const memos = [...new Set(xs.map(it=>(it.memo || "").trim()).filter(Boolean))];
+    keep.memo = memos.join(" / ");
+    keep.lastEaten = Math.max(...xs.map(it=>it.lastEaten || 0));
+    if(f) keep.name = f.name;
+    keep.updatedAt = Date.now();
+    xs.filter(it=>it!==keep).forEach(it=>removeItem(it.id));
+    changed = true;
+  }
   return changed;
 }
 
@@ -1336,7 +1356,11 @@ document.getElementById("btn-add").onclick = async ()=>{
   } else {
     // 영양 정보를 안 적었고 이름이 사전에 있으면 사전과 연결
     const f = findFoodByName(name);
-    if(f) item.foodId = f.id;
+    if(f){
+      // 이미 같은 사전 항목이 바구니에 있으면 새로 만들지 않음 (예: 「귀리」가 있는데 「오트밀」을 담을 때)
+      if(isInBasket(f)){ toast(`이미 바구니에 「${f.name}」이(가) 있어요`); closeSheet(); return; }
+      item.foodId = f.id;
+    }
   }
 
   items.push(item);
