@@ -340,9 +340,10 @@
   .hl:nth-child(3n+3) .hl-ic{background:#F6EDE3;color:#9A6B4C;}
   .hl-body{flex:1;min-width:0;}
   .hl-top{display:flex;justify-content:space-between;align-items:baseline;gap:10px;}
-  .hl-name{font-size:15px;font-weight:600;}
+  .hl-name{font-size:15px;font-weight:600;min-width:0;}
+  .hl-val{white-space:nowrap;flex:0 0 auto;}
   .hl-amt{font-size:14px;font-weight:500;white-space:nowrap;font-variant-numeric:tabular-nums;}
-  .hl-dv{font-size:12px;color:var(--muted);text-align:right;}
+  .hl-dv{font-size:12px;color:var(--muted);}
   .hl-role{font-size:13px;color:var(--text-2);line-height:1.6;margin:3px 0 0;}
 
   .food-item{padding:14px 0;}
@@ -1819,9 +1820,10 @@ function highlightsSection(f){
       h("div", {class:"hl-body"},
         h("div", {class:"hl-top"},
           h("span", {class:"hl-name", text:x.nutrient}),
-          (amt || dv) && h("span", null,
-            amt && h("div", {class:"hl-amt", text:amt}),
-            dv && h("div", {class:"hl-dv", text:dv}))),
+          // 함량 옆에 (기준치 %)를 붙여 한 줄로 → 설명이 이름 바로 아래에 붙음
+          (amt || dv) && h("span", {class:"hl-val"},
+            amt && h("span", {class:"hl-amt", text:amt}),
+            dv && h("span", {class:"hl-dv", text:amt ? ` (${dv})` : dv}))),
         x.role && h("p", {class:"hl-role", text:x.role})));
   }));
 }
