@@ -473,22 +473,277 @@
     {
       "id": "salmon",
       "name": "연어",
+      "aliases": [
+        "생연어",
+        "대서양연어",
+        "노르웨이연어",
+        "연어구이",
+        "연어 스테이크"
+      ],
       "categories": [
         "생선·해산물"
       ],
-      "summary": "혈중 중성지방을 낮추고 만성 염증을 줄이며, 두뇌 인지 기능에도 도움돼요",
+      "summary": "오메가3가 많고 수은은 적은 생선. 일주일에 한두 번 구워 먹으면 심장 건강에 도움이 된다.",
       "nutrition": {
         "energy": {
-          "value": 206,
+          "value": 208,
           "unit": "kcal"
+        },
+        "carbohydrate": {
+          "value": 0,
+          "unit": "g"
+        },
+        "sugars": {
+          "value": 0,
+          "unit": "g"
+        },
+        "fiber": {
+          "value": 0,
+          "unit": "g"
+        },
+        "protein": {
+          "value": 20.4,
+          "unit": "g"
+        },
+        "fat": {
+          "value": 13.4,
+          "unit": "g"
+        },
+        "saturatedFat": {
+          "value": 3.05,
+          "unit": "g"
+        },
+        "sodium": {
+          "value": 59,
+          "unit": "mg"
         }
       },
       "highlights": [
         {
-          "nutrient": "오메가3 지방산"
+          "nutrient": "오메가3(EPA·DHA)",
+          "amount": 2,
+          "unit": "g",
+          "role": "심장과 혈관 건강에 관여하고, DHA는 뇌와 눈의 재료가 된다. 우리 몸에서 거의 만들지 못해 음식으로 채운다."
+        },
+        {
+          "nutrient": "비타민B12",
+          "amount": 3.2,
+          "unit": "µg",
+          "dv": 135,
+          "role": "적혈구를 만들고 신경을 지키는 데 쓰인다."
+        },
+        {
+          "nutrient": "비타민D",
+          "amount": 11,
+          "unit": "µg",
+          "dv": 110,
+          "role": "칼슘 흡수를 돕는다. 음식으로 채우기 어려운 비타민인데 연어에는 많은 편이다."
+        },
+        {
+          "nutrient": "니아신",
+          "amount": 8.7,
+          "unit": "mg",
+          "dv": 58,
+          "role": "음식에서 에너지를 꺼내 쓰는 데 필요하다."
+        },
+        {
+          "nutrient": "셀레늄",
+          "amount": 24,
+          "unit": "µg",
+          "dv": 44,
+          "role": "세포가 손상되는 것을 막는 효소의 재료가 된다."
+        },
+        {
+          "nutrient": "단백질",
+          "amount": 20.4,
+          "unit": "g",
+          "dv": 37,
+          "role": "근육·피부·효소를 만드는 재료."
+        },
+        {
+          "nutrient": "콜린",
+          "amount": 78.5,
+          "unit": "mg",
+          "role": "기억에 관여하는 신경전달물질(아세틸콜린)의 재료가 된다."
         }
       ],
-      "checkedAt": null
+      "choosing": [
+        {
+          "method": "살을 눌렀을 때 탄력 있게 돌아오는 것",
+          "caution": "눌린 자국이 남으면 신선하지 않다"
+        },
+        {
+          "method": "냄새가 신선하고 순한 것",
+          "caution": "시큼하거나 암모니아 냄새가 나면 고르지 않는다"
+        }
+      ],
+      "storage": [
+        {
+          "label": "냉장",
+          "method": "잘 싸서 4℃ 이하 냉장고에",
+          "duration": "2일 안",
+          "caution": "그 안에 못 먹으면 바로 냉동한다"
+        },
+        {
+          "label": "냉동",
+          "method": "공기가 닿지 않게 꼭 싸서 얼림",
+          "caution": "녹일 때는 냉장실에서 천천히"
+        },
+        {
+          "label": "익힌 연어",
+          "method": "식혀서 밀폐 용기에 담아 냉장",
+          "duration": "3~4일",
+          "caution": "오래 둘 거면 냉동(3~4개월)"
+        }
+      ],
+      "howToEat": [
+        {
+          "title": "연어구이",
+          "body": "소금은 적게, 후추를 살짝 뿌려 굽는다. 껍질 쪽부터 중불에 4~5분, 뒤집어 뚜껑을 덮고 3~4분. 속까지 불투명해지고 포크로 결대로 갈라지면 다 익은 것이다 (가운데 63℃)"
+        },
+        {
+          "title": "에어프라이어",
+          "body": "200℃에서 10~12분(두께 2~3cm 기준). 가장 간편하다"
+        },
+        {
+          "title": "연어 덮밥",
+          "body": "구운 연어를 밥에 얹고 간장·채소를 곁들임"
+        },
+        {
+          "title": "레몬즙 곁들이기",
+          "body": "레몬즙을 살짝 뿌리면 맛이 산뜻해진다"
+        }
+      ],
+      "pairings": [
+        {
+          "target": "greek-yogurt",
+          "evidence": "confirmed",
+          "basis": "food",
+          "refs": [
+            13
+          ],
+          "reason": "비타민D는 장에서 칼슘이 흡수되도록 돕는다. 연어에는 비타민D가, 그릭요거트에는 칼슘이 많아 서로 부족한 쪽을 채운다. 구운 연어 샐러드에 요거트 소스를 곁들이면 된다. 연어와 요거트를 함께 먹인 실험은 아니다."
+        }
+      ],
+      "myths": [
+        {
+          "claim": "연어는 심장에 좋다",
+          "evidence": "confirmed",
+          "basis": "food",
+          "refs": [
+            4
+          ],
+          "explanation": "미국심장협회는 2018년 연구를 검토해, 튀기지 않은 생선을 일주일에 1~2번 먹으면 심부전, 관상동맥 질환, 심정지, 뇌경색 위험이 줄어든다고 권고했다. 특히 연어처럼 기름진 생선을 꼽았다. 튀기면 이 효과를 기대하기 어렵다."
+        },
+        {
+          "claim": "연어는 수은이 많다",
+          "evidence": "false",
+          "basis": "food",
+          "refs": [
+            5
+          ],
+          "explanation": "미국 식품의약국(FDA)은 연어를 수은이 적은 「가장 좋은 선택」으로 분류하고, 임신부도 이 무리의 생선을 일주일에 2~3번 먹을 수 있다고 안내한다. 수은이 많아 주의할 생선은 상어, 황새치, 청새치, 눈다랑어처럼 크고 오래 사는 생선이다."
+        },
+        {
+          "claim": "양식 연어는 오염돼서 자연산보다 나쁘다",
+          "evidence": "mixed",
+          "basis": "food",
+          "refs": [
+            1,
+            6,
+            7
+          ],
+          "explanation": "2004년 연구에서 양식 연어의 PCB 같은 오염 물질이 자연산보다 많게 나와 크게 알려졌다. 다만 당시에도 미국 기준치를 넘지는 않았다. 이후 사료 기준이 강화됐고, 미국 워싱턴주 보건부는 후속 연구들이 위험을 확인하지 못했으며 양식과 자연산 모두 안전한 식품이라는 것이 과학자와 규제 기관의 합의라고 설명한다. 오메가3는 양식이 오히려 많다(100g에 EPA·DHA 약 2g 대 1.4g). 양식이 더 기름지기 때문이다."
+        },
+        {
+          "claim": "연어는 회로 먹어야 영양이 좋다",
+          "evidence": "false",
+          "basis": "food",
+          "refs": [
+            1
+          ],
+          "explanation": "날것과 구운 것의 영양 차이는 크지 않다. 미국 농무부 자료로 100g을 비교하면 오메가3(EPA·DHA)는 생것 약 2.0g, 구운 것 약 2.2g이고, 비타민D는 11µg과 13µg이다. 구우면 물이 빠져 같은 무게에 영양이 조금 더 진해진다. 튀기지만 않으면 입맛대로 먹으면 된다."
+        },
+        {
+          "claim": "한 번 얼린 연어회는 임신 중에도 괜찮다",
+          "evidence": "false",
+          "basis": "food",
+          "refs": [
+            8,
+            9,
+            10
+          ],
+          "explanation": "얼리면 기생충은 죽지만 세균까지 없어지는 것은 아니다. 미국 식품의약국은 임신부에게 날생선을 피하라고 하고, 영국 국민보건서비스(NHS)도 한 번 얼린 것이라도 날생선 초밥은 피하라고 안내한다. 훈제 연어도 뜨겁게 익혀 먹지 않는다면 피하라고 한다. 임신 중이 아니라면 양식 연어는 기생충 위험이 낮은 편이다. 사료를 먹고 자라 먹이로 옮는 기생충이 잘 생기지 않기 때문이다."
+        }
+      ],
+      "references": [
+        {
+          "no": 1,
+          "source": "미국 농무부 식품 데이터베이스(FoodData Central) — 대서양 연어 양식 생것(175167), 양식 구운 것(175168), 자연산 생것(173686)의 영양성분",
+          "url": "https://fdc.nal.usda.gov/food-details/175167/nutrients"
+        },
+        {
+          "no": 2,
+          "source": "식품 등의 표시·광고에 관한 법률 시행규칙 별표 5, 1일 영양성분 기준치",
+          "url": "https://www.law.go.kr/LSW/flDownload.do?flSeq=42533782&bylClsCd=110201"
+        },
+        {
+          "no": 3,
+          "source": "농촌진흥청 국가표준식품성분표 DB 10.4 — 연어 생것(비교용)",
+          "url": "https://www.nics.go.kr/food/kfi/fct/fctFoodSrch/list"
+        },
+        {
+          "no": 4,
+          "source": "Rimm 외, 미국심장협회 과학 자문: 수산물 섭취와 심혈관 질환, Circulation, 2018",
+          "url": "https://doi.org/10.1161/CIR.0000000000000574"
+        },
+        {
+          "no": 5,
+          "source": "미국 식품의약국(FDA)·환경보호청(EPA), 생선 섭취 안내 — 연어는 「가장 좋은 선택」",
+          "url": "https://www.fda.gov/food/consumers/advice-about-eating-fish"
+        },
+        {
+          "no": 6,
+          "source": "Hites 외, 양식 연어의 유기 오염 물질 세계 평가, Science, 2004 — 약 700마리",
+          "url": "https://doi.org/10.1126/science.1091447"
+        },
+        {
+          "no": 7,
+          "source": "미국 워싱턴주 보건부, 양식 연어와 자연산 연어",
+          "url": "https://doh.wa.gov/community-and-environment/food/fish/farmed-salmon"
+        },
+        {
+          "no": 8,
+          "source": "미국 식품의약국(FDA), 임신부를 위한 식품 안전: 고기·가금류·해산물 — 날생선 피하기, 63℃까지 익히기",
+          "url": "https://www.fda.gov/food/people-risk-foodborne-illness/meat-poultry-seafood-food-safety-moms-be"
+        },
+        {
+          "no": 9,
+          "source": "영국 국민보건서비스(NHS), 임신 중 피할 음식 — 얼린 것이어도 날생선 초밥 피하기, 훈제 연어는 뜨겁게 익혀서",
+          "url": "https://www.nhs.uk/pregnancy/keeping-well/foods-to-avoid/"
+        },
+        {
+          "no": 10,
+          "source": "미국 식품의약국(FDA), 수산물 위해 관리 지침 — 사료로 키운 양식 어류의 기생충, 냉동으로 기생충 제거",
+          "url": "https://fda.gov/media/80777/download"
+        },
+        {
+          "no": 11,
+          "source": "미국 식품의약국(FDA), 신선·냉동 수산물 안전하게 고르고 먹기 — 냄새·탄력, 냉장 2일",
+          "url": "https://www.fda.gov/food/buy-store-serve-safe-food/selecting-and-serving-fresh-and-frozen-seafood-safely"
+        },
+        {
+          "no": 12,
+          "source": "미국 농무부 식품안전검사국, 남은 음식과 식품 안전 — 익힌 음식 냉장 3~4일, 냉동 3~4개월",
+          "url": "https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/leftovers-and-food-safety"
+        },
+        {
+          "no": 13,
+          "source": "미국 국립보건원 식이보충제국(NIH ODS), 비타민D 자료 — 장에서 칼슘 흡수를 도움",
+          "url": "https://ods.od.nih.gov/factsheets/VitaminD-HealthProfessional/"
+        }
+      ],
+      "checkedAt": "2026-11-07"
     },
     {
       "id": "spinach",
