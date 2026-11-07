@@ -783,6 +783,14 @@
         "note": "노지에서 겨울을 나는 시금치 기준. 하우스 재배는 연중 나온다"
       },
       "summary": "비타민K·비타민C·엽산이 많은 초록잎 채소. 나물로, 국으로, 샐러드로 두루 먹는다.",
+      "image": {
+        "src": "images/spinach.jpg",
+        "alt": "바구니에 담긴 물방울 맺힌 시금치"
+      },
+      "icon": {
+        "src": "images/spinach-icon.png",
+        "alt": "시금치 몇 잎"
+      },
       "nutrition": {
         "energy": {
           "value": 29,
