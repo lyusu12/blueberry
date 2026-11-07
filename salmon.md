@@ -56,7 +56,7 @@
 | 구분 | 방법 | 기간 | 주의 |
 |---|---|---|---|
 | 냉장 | 잘 싸서 4℃ 이하 냉장고에 | 2일 안 | 그 안에 못 먹으면 바로 냉동한다 |
-| 냉동 | 공기가 닿지 않게 꼭 싸서 얼림 | — | 녹일 때는 냉장실에서 천천히 |
+| 냉동 | 공기가 닿지 않게 꼭 싸서 얼림 | 2~3개월 | 맛이 유지되는 기간이다. 녹일 때는 냉장실에서 천천히 |
 | 익힌 연어 | 식혀서 밀폐 용기에 담아 냉장 | 3~4일 | 오래 둘 거면 냉동(3~4개월) |
 
 ## 먹는 법
@@ -105,5 +105,6 @@
 11. 미국 식품의약국(FDA), 신선·냉동 수산물 안전하게 고르고 먹기 — 냄새·탄력, 냉장 2일 — https://www.fda.gov/food/buy-store-serve-safe-food/selecting-and-serving-fresh-and-frozen-seafood-safely
 12. 미국 농무부 식품안전검사국, 남은 음식과 식품 안전 — 익힌 음식 냉장 3~4일, 냉동 3~4개월 — https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/leftovers-and-food-safety
 13. 미국 국립보건원 식이보충제국(NIH ODS), 비타민D 자료 — 장에서 칼슘 흡수를 도움 — https://ods.od.nih.gov/factsheets/VitaminD-HealthProfessional/
+14. 미국 식품안전 정보 포털(FoodSafety.gov), 냉장·냉동 보관 기간표 — 연어 같은 기름진 생선은 냉동 2~3개월(맛 기준) — https://www.foodsafety.gov/food-safety-charts/cold-food-storage-charts
 
 (참고) 서울대병원tv, 이경실 교수(가정의학과), 「연어는 이렇게 먹어야지…」 — https://www.youtube.com/watch?v=pt6rUGFaFPg — 요거트와 함께, 회와 구이의 차이, 소금 적게, 콜린을 반영. 오메가3 영양제 속설은 사용자 결정으로 뺌. 앱의 참고한 자료에는 넣지 않음

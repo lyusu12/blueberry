@@ -595,7 +595,8 @@
         {
           "label": "냉동",
           "method": "공기가 닿지 않게 꼭 싸서 얼림",
-          "caution": "녹일 때는 냉장실에서 천천히"
+          "duration": "2~3개월",
+          "caution": "맛이 유지되는 기간이다. 녹일 때는 냉장실에서 천천히"
         },
         {
           "label": "익힌 연어",
@@ -749,6 +750,11 @@
           "no": 13,
           "source": "미국 국립보건원 식이보충제국(NIH ODS), 비타민D 자료 — 장에서 칼슘 흡수를 도움",
           "url": "https://ods.od.nih.gov/factsheets/VitaminD-HealthProfessional/"
+        },
+        {
+          "no": 14,
+          "source": "미국 식품안전 정보 포털(FoodSafety.gov), 냉장·냉동 보관 기간표 — 연어 같은 기름진 생선은 냉동 2~3개월(맛 기준)",
+          "url": "https://www.foodsafety.gov/food-safety-charts/cold-food-storage-charts"
         }
       ],
       "checkedAt": "2026-11-07"
