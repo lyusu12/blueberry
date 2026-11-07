@@ -70,7 +70,7 @@
 
 ## 잘 어울리는 음식
 
-**그릭요거트** — 근거: 연구로 확인됨 / 기준: 식품 / 참고자료 14
+**그릭요거트** — 근거: 연구로 확인됨 / 기준: 식품 / 참고자료 13
 > 비타민D는 장에서 칼슘이 흡수되도록 돕는다. 연어에는 비타민D가, 그릭요거트에는 칼슘이 많아 서로 부족한 쪽을 채운다. 구운 연어 샐러드에 요거트 소스를 곁들이면 된다. 연어와 요거트를 함께 먹인 실험은 아니다.
 
 ## 속설
@@ -84,13 +84,10 @@
 **양식 연어는 오염돼서 자연산보다 나쁘다** — 근거: 결과가 엇갈림 / 기준: 식품 / 참고자료 1, 6, 7
 > 2004년 연구에서 양식 연어의 PCB 같은 오염 물질이 자연산보다 많게 나와 크게 알려졌다. 다만 당시에도 미국 기준치를 넘지는 않았다. 이후 사료 기준이 강화됐고, 미국 워싱턴주 보건부는 후속 연구들이 위험을 확인하지 못했으며 양식과 자연산 모두 안전한 식품이라는 것이 과학자와 규제 기관의 합의라고 설명한다. 오메가3는 양식이 오히려 많다(100g에 EPA·DHA 약 2g 대 1.4g). 양식이 더 기름지기 때문이다.
 
-**양식 연어는 색소를 먹여 붉게 만든다** — 근거: 연구로 확인됨 / 기준: 식품 / 참고자료 8
-> 맞다. 자연산 연어는 새우·크릴을 먹으며 그 속의 아스타잔틴이라는 색소로 붉어진다. 양식 연어는 이런 먹이가 없어서 사료에 같은 색소를 넣는다. 넣지 않으면 살이 회백색이 된다. 살에 물감을 칠하는 것은 아니다.
-
 **연어는 회로 먹어야 영양이 좋다** — 근거: 사실과 다름 / 기준: 식품 / 참고자료 1
 > 날것과 구운 것의 영양 차이는 크지 않다. 미국 농무부 자료로 100g을 비교하면 오메가3(EPA·DHA)는 생것 약 2.0g, 구운 것 약 2.2g이고, 비타민D는 11µg과 13µg이다. 구우면 물이 빠져 같은 무게에 영양이 조금 더 진해진다. 튀기지만 않으면 입맛대로 먹으면 된다.
 
-**한 번 얼린 연어회는 임신 중에도 괜찮다** — 근거: 사실과 다름 / 기준: 식품 / 참고자료 9, 10, 11
+**한 번 얼린 연어회는 임신 중에도 괜찮다** — 근거: 사실과 다름 / 기준: 식품 / 참고자료 8, 9, 10
 > 얼리면 기생충은 죽지만 세균까지 없어지는 것은 아니다. 미국 식품의약국은 임신부에게 날생선을 피하라고 하고, 영국 국민보건서비스(NHS)도 한 번 얼린 것이라도 날생선 초밥은 피하라고 안내한다. 훈제 연어도 뜨겁게 익혀 먹지 않는다면 피하라고 한다. 임신 중이 아니라면 양식 연어는 기생충 위험이 낮은 편이다. 사료를 먹고 자라 먹이로 옮는 기생충이 잘 생기지 않기 때문이다.
 
 ## 참고한 자료
@@ -102,12 +99,11 @@
 5. 미국 식품의약국(FDA)·환경보호청(EPA), 생선 섭취 안내 — 연어는 「가장 좋은 선택」 — https://www.fda.gov/food/consumers/advice-about-eating-fish
 6. Hites 외, 양식 연어의 유기 오염 물질 세계 평가, Science, 2004 — 약 700마리 — https://doi.org/10.1126/science.1091447
 7. 미국 워싱턴주 보건부, 양식 연어와 자연산 연어 — https://doh.wa.gov/community-and-environment/food/fish/farmed-salmon
-8. ASC(양식관리협의회), 연어의 색은 어떻게 생기나 — 아스타잔틴. 업계 인증 단체 자료 — https://asc-aqua.org/blog/how-does-salmon-get-its-colour
-9. 미국 식품의약국(FDA), 임신부를 위한 식품 안전: 고기·가금류·해산물 — 날생선 피하기, 63℃까지 익히기 — https://www.fda.gov/food/people-risk-foodborne-illness/meat-poultry-seafood-food-safety-moms-be
-10. 영국 국민보건서비스(NHS), 임신 중 피할 음식 — 얼린 것이어도 날생선 초밥 피하기, 훈제 연어는 뜨겁게 익혀서 — https://www.nhs.uk/pregnancy/keeping-well/foods-to-avoid/
-11. 미국 식품의약국(FDA), 수산물 위해 관리 지침 — 사료로 키운 양식 어류의 기생충, 냉동으로 기생충 제거 — https://fda.gov/media/80777/download
-12. 미국 식품의약국(FDA), 신선·냉동 수산물 안전하게 고르고 먹기 — 냄새·탄력, 냉장 2일 — https://www.fda.gov/food/buy-store-serve-safe-food/selecting-and-serving-fresh-and-frozen-seafood-safely
-13. 미국 농무부 식품안전검사국, 남은 음식과 식품 안전 — 익힌 음식 냉장 3~4일, 냉동 3~4개월 — https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/leftovers-and-food-safety
-14. 미국 국립보건원 식이보충제국(NIH ODS), 비타민D 자료 — 장에서 칼슘 흡수를 도움 — https://ods.od.nih.gov/factsheets/VitaminD-HealthProfessional/
+8. 미국 식품의약국(FDA), 임신부를 위한 식품 안전: 고기·가금류·해산물 — 날생선 피하기, 63℃까지 익히기 — https://www.fda.gov/food/people-risk-foodborne-illness/meat-poultry-seafood-food-safety-moms-be
+9. 영국 국민보건서비스(NHS), 임신 중 피할 음식 — 얼린 것이어도 날생선 초밥 피하기, 훈제 연어는 뜨겁게 익혀서 — https://www.nhs.uk/pregnancy/keeping-well/foods-to-avoid/
+10. 미국 식품의약국(FDA), 수산물 위해 관리 지침 — 사료로 키운 양식 어류의 기생충, 냉동으로 기생충 제거 — https://fda.gov/media/80777/download
+11. 미국 식품의약국(FDA), 신선·냉동 수산물 안전하게 고르고 먹기 — 냄새·탄력, 냉장 2일 — https://www.fda.gov/food/buy-store-serve-safe-food/selecting-and-serving-fresh-and-frozen-seafood-safely
+12. 미국 농무부 식품안전검사국, 남은 음식과 식품 안전 — 익힌 음식 냉장 3~4일, 냉동 3~4개월 — https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/leftovers-and-food-safety
+13. 미국 국립보건원 식이보충제국(NIH ODS), 비타민D 자료 — 장에서 칼슘 흡수를 도움 — https://ods.od.nih.gov/factsheets/VitaminD-HealthProfessional/
 
 (참고) 서울대병원tv, 이경실 교수(가정의학과), 「연어는 이렇게 먹어야지…」 — https://www.youtube.com/watch?v=pt6rUGFaFPg — 요거트와 함께, 회와 구이의 차이, 소금 적게, 콜린을 반영. 오메가3 영양제 속설은 사용자 결정으로 뺌. 앱의 참고한 자료에는 넣지 않음
