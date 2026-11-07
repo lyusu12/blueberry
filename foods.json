@@ -484,6 +484,14 @@
         "생선·해산물"
       ],
       "summary": "오메가3가 많고 수은은 적은 생선. 일주일에 한두 번 구워 먹으면 심장 건강에 도움이 된다.",
+      "image": {
+        "src": "images/salmon.jpg",
+        "alt": "검은 돌판 위 연어 필렛과 레몬, 딜"
+      },
+      "icon": {
+        "src": "images/salmon-icon.png",
+        "alt": "연어 살 세 조각"
+      },
       "nutrition": {
         "energy": {
           "value": 208,
