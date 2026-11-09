@@ -2012,26 +2012,6 @@
       "checkedAt": null
     },
     {
-      "id": "nuts",
-      "name": "견과류",
-      "categories": [
-        "콩·견과"
-      ],
-      "summary": "소량으로도 포만감이 크고, 매일 소량 섭취 시 심혈관 질환 위험을 낮춰줘요",
-      "nutrition": {
-        "energy": {
-          "value": 607,
-          "unit": "kcal"
-        }
-      },
-      "highlights": [
-        {
-          "nutrient": "불포화지방·비타민E"
-        }
-      ],
-      "checkedAt": null
-    },
-    {
       "id": "tofu",
       "name": "두부",
       "categories": [
