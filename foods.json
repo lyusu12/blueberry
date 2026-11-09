@@ -2112,27 +2112,6 @@
       "checkedAt": null
     },
     {
-      "id": "kimchi",
-      "name": "김치",
-      "categories": [
-        "채소",
-        "발효식품"
-      ],
-      "summary": "발효 과정에서 생긴 유산균이 장내 환경을 개선하고 소화를 도와요",
-      "nutrition": {
-        "energy": {
-          "value": 15,
-          "unit": "kcal"
-        }
-      },
-      "highlights": [
-        {
-          "nutrient": "유산균"
-        }
-      ],
-      "checkedAt": null
-    },
-    {
       "id": "chicken-breast",
       "name": "닭가슴살",
       "categories": [
@@ -2355,26 +2334,6 @@
       "checkedAt": null
     },
     {
-      "id": "oyster",
-      "name": "굴",
-      "categories": [
-        "생선·해산물"
-      ],
-      "summary": "아연 함량이 매우 높아 면역력 강화와 피로 회복에 효과적이에요",
-      "nutrition": {
-        "energy": {
-          "value": 81,
-          "unit": "kcal"
-        }
-      },
-      "highlights": [
-        {
-          "nutrient": "아연"
-        }
-      ],
-      "checkedAt": null
-    },
-    {
       "id": "minari",
       "name": "미나리",
       "categories": [
@@ -2390,26 +2349,6 @@
       "highlights": [
         {
           "nutrient": "베타카로틴·칼륨"
-        }
-      ],
-      "checkedAt": null
-    },
-    {
-      "id": "shrimp",
-      "name": "새우",
-      "categories": [
-        "생선·해산물"
-      ],
-      "summary": "지방 함량이 낮으면서 단백질이 풍부해 다이어트 식단에 부담이 적어요",
-      "nutrition": {
-        "energy": {
-          "value": 99,
-          "unit": "kcal"
-        }
-      },
-      "highlights": [
-        {
-          "nutrient": "저지방 고단백"
         }
       ],
       "checkedAt": null
