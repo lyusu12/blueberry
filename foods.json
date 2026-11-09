@@ -2432,6 +2432,231 @@
         }
       ],
       "checkedAt": null
+    },
+    {
+      "id": "carrot",
+      "name": "당근",
+      "aliases": [
+        "제주 당근",
+        "흙당근",
+        "세척 당근"
+      ],
+      "categories": [
+        "채소"
+      ],
+      "season": {
+        "months": [
+          12,
+          1,
+          2,
+          3,
+          4
+        ],
+        "note": "제주 겨울 당근 출하 기준. 봄당근은 5~8월, 고랭지당근은 9~10월에 나온다"
+      },
+      "summary": "베타카로틴이 많은 뿌리채소. 생으로도 좋지만 기름에 익혀 먹으면 흡수가 훨씬 잘 된다.",
+      "nutrition": {
+        "energy": {
+          "value": 31,
+          "unit": "kcal"
+        },
+        "carbohydrate": {
+          "value": 7.0,
+          "unit": "g"
+        },
+        "sugars": {
+          "value": 6.2,
+          "unit": "g"
+        },
+        "fiber": {
+          "value": 3.1,
+          "unit": "g"
+        },
+        "protein": {
+          "value": 1.0,
+          "unit": "g"
+        },
+        "fat": {
+          "value": 0.1,
+          "unit": "g"
+        },
+        "saturatedFat": {
+          "value": 0.03,
+          "unit": "g"
+        },
+        "sodium": {
+          "value": 23,
+          "unit": "mg"
+        }
+      },
+      "highlights": [
+        {
+          "nutrient": "비타민A",
+          "amount": 460,
+          "unit": "µg",
+          "dv": 66,
+          "role": "눈과 피부, 면역에 필요하다. 당근에는 몸에서 비타민A로 바뀌는 베타카로틴(100g에 5.5mg)으로 들어 있다."
+        },
+        {
+          "nutrient": "비타민K",
+          "amount": 14,
+          "unit": "µg",
+          "dv": 21,
+          "role": "피가 굳는 과정과 뼈를 만드는 데 쓰인다."
+        },
+        {
+          "nutrient": "식이섬유",
+          "amount": 3.1,
+          "unit": "g",
+          "dv": 12,
+          "role": "대변을 부드럽게 하고 장 움직임을 돕는다."
+        }
+      ],
+      "choosing": [
+        {
+          "method": "단단하고 색이 선명한 것",
+          "caution": "물렁하거나 갈라진 것은 피한다"
+        },
+        {
+          "method": "잎이 달려 있다면 잎이 싱싱한 것",
+          "caution": "굵은 것보다 작은 것이 더 연하다"
+        }
+      ],
+      "storage": [
+        {
+          "label": "냉장",
+          "method": "잎을 떼고 물기를 없앤 뒤 비닐봉지나 밀폐 용기에 넣는다",
+          "duration": "2주 안",
+          "caution": "잎이 붙어 있으면 수분을 빼앗아 금방 시든다. 시든 당근은 찬물에 담가 두면 다시 단단해진다"
+        }
+      ],
+      "howToEat": [
+        {
+          "title": "당근 볶음",
+          "body": "채 썰어 기름에 볶는다. 베타카로틴 흡수가 가장 잘 되는 방법이다"
+        },
+        {
+          "title": "생으로 스틱",
+          "body": "길게 잘라 간식으로. 견과류나 드레싱을 곁들이면 흡수가 나아진다"
+        },
+        {
+          "title": "카레·찌개·볶음밥",
+          "body": "깍둑 썰어 넣는다"
+        },
+        {
+          "title": "당근 라페",
+          "body": "채 썰어 올리브유·식초·소금에 버무린다"
+        }
+      ],
+      "pairings": [
+        {
+          "target": "egg",
+          "evidence": "confirmed",
+          "basis": "food",
+          "refs": [
+            7
+          ],
+          "reason": "당근을 넣은 생채소 샐러드에 달걀을 곁들이면 베타카로틴 같은 색소 성분의 흡수가 크게 늘었다. 건강한 남성 16명에게 당근·시금치·토마토 등을 넣은 샐러드를 달걀 없이, 또는 달걀 1.5개·3개와 함께 먹인 실험(2015)에서 달걀 3개를 넣었을 때 흡수량이 몇 배로 늘었다. 노른자의 지방이 돕는 것으로 본다. 이 연구는 미국 달걀 협회의 지원도 받았다."
+        }
+      ],
+      "myths": [
+        {
+          "claim": "당근을 먹으면 밤눈이 밝아진다",
+          "evidence": "false",
+          "basis": "food",
+          "refs": [
+            3,
+            4
+          ],
+          "explanation": "비타민A가 모자라면 어두운 곳에서 잘 안 보이는 야맹증이 생기고, 이때 당근 같은 음식이 도움이 된다. 하지만 비타민A가 충분한 사람이 당근을 더 먹는다고 시력이 더 좋아지지는 않는다. 이 말은 제2차 세계대전 때 영국이 전투기에 레이더를 쓴다는 사실을 감추려고 「조종사들이 당근을 많이 먹어서 밤에 잘 본다」고 퍼뜨린 데서 널리 알려졌다."
+        },
+        {
+          "claim": "당근은 익히거나 기름과 함께 먹어야 영양이 잘 흡수된다",
+          "evidence": "confirmed",
+          "basis": "food",
+          "refs": [
+            5,
+            6
+          ],
+          "explanation": "생당근의 베타카로틴은 단단한 세포벽에 갇혀 흡수가 잘 안 된다. 사람에게 먹여 본 실험(2012)에서 생당근의 베타카로틴 흡수율은 약 11%였지만 기름에 볶은 당근은 약 75%였다. 익혀서 으깬 당근이 생당근보다 잘 흡수됐다는 실험(2003)도 있다. 베타카로틴은 기름에 녹는 성분이라 기름이 조금만 있어도 흡수가 늘어난다. 생으로 먹을 때도 드레싱이나 견과를 곁들이면 좋다."
+        },
+        {
+          "claim": "당근을 많이 먹으면 피부가 노래진다",
+          "evidence": "confirmed",
+          "basis": "food",
+          "refs": [
+            8
+          ],
+          "explanation": "맞다. 베타카로틴이 많은 음식을 오래 많이 먹으면 손바닥·발바닥이 노랗게 될 수 있다(카로틴혈증). 해롭지 않고, 먹는 양을 줄이면 몇 주에 걸쳐 저절로 사라진다. 다만 눈의 흰자위까지 노래졌다면 황달일 수 있으니 진료를 받는다."
+        },
+        {
+          "claim": "당근을 다른 채소와 같이 갈면 비타민C가 파괴된다",
+          "evidence": "false",
+          "basis": "food",
+          "refs": [
+            9
+          ],
+          "explanation": "당근에 비타민C를 산화시키는 효소가 있어서 나온 말이다. 하지만 국내 실험(1997)에서 당근을 넣은 채소즙을 4℃에 2시간, 24시간 두었을 때도 전체 비타민C는 90~97%가 남았다. 일부가 산화형으로 바뀌었을 뿐 대부분 그대로였다. 즙은 만든 뒤 바로 마시는 것이 가장 좋다."
+        }
+      ],
+      "references": [
+        {
+          "no": 1,
+          "source": "농촌진흥청 국가표준식품성분표 DB 10.4 — 당근 뿌리 생것의 영양성분",
+          "url": "https://www.nics.go.kr/food/kfi/fct/fctFoodSrch/list"
+        },
+        {
+          "no": 2,
+          "source": "식품 등의 표시·광고에 관한 법률 시행규칙 별표 5, 1일 영양성분 기준치",
+          "url": "https://www.law.go.kr/LSW/flDownload.do?flSeq=42533782&bylClsCd=110201"
+        },
+        {
+          "no": 3,
+          "source": "미국 국립보건원 식이보충제국(NIH ODS), 비타민A 자료 — 결핍 때 야맹증",
+          "url": "https://ods.od.nih.gov/factsheets/VitaminA-HealthProfessional/"
+        },
+        {
+          "no": 4,
+          "source": "Live Science, 당근이 밤눈을 밝게 할까 — 제2차 세계대전 영국의 레이더 감추기",
+          "url": "https://www.livescience.com/38861-carrots-eyesight-myth-origins.html"
+        },
+        {
+          "no": 5,
+          "source": "당근 조리 방법이 카로티노이드 흡수에 미치는 영향(표지 동위원소 실험), Br J Nutr, 2012 — 생당근 약 11%, 볶은 당근 약 75%",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/21923982/"
+        },
+        {
+          "no": 6,
+          "source": "Livny 외, 회장루 환자에서 조리 방법이 다른 당근의 베타카로틴 흡수, Eur J Nutr, 2003 — 익혀 으깬 것 65% 대 생것 41%",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/14673607/"
+        },
+        {
+          "no": 7,
+          "source": "Kim 외, 달걀 섭취가 함께 먹은 생채소의 카로티노이드 흡수에 미치는 영향, Am J Clin Nutr, 2015 — 16명",
+          "url": "https://doi.org/10.3945/ajcn.115.111062"
+        },
+        {
+          "no": 8,
+          "source": "Medscape(eMedicine), 카로틴혈증 — 손바닥·발바닥이 노래지고 흰자위는 그대로, 해롭지 않음",
+          "url": "https://www.emedicine.com/derm/topic789.htm"
+        },
+        {
+          "no": 9,
+          "source": "이선미 외, 당근 첨가가 채소즙(녹즙)에서 비타민 C의 안정성에 미치는 영향, 한국식품영양과학회지, 1997 — 총 비타민C 90~97% 잔존",
+          "url": "https://koreascience.kr/article/JAKO199711921349533.do"
+        },
+        {
+          "no": 10,
+          "source": "메인대학교 농업 확장 프로그램, 당근 고르기·보관하기 — 잎 떼고 냉장 2주",
+          "url": "https://extension.umaine.edu/food-health/2024/11/14/carrots-101-selection-storage-and-cooking-tips-for-maximum-flavor/"
+        },
+        {
+          "no": 11,
+          "source": "한국농촌경제연구원, 당근 주산지 조직화를 통한 자율적 수급안정 방안(정책연구보고 P210), 2015 — 12월~이듬해 4월 겨울당근, 5~8월 봄당근, 9~10월 고랭지당근, 11월 가을당근 출하. 겨울 작형이 재배 면적의 약 60%",
+          "url": "https://repository.krei.re.kr/bitstream/2018.oak/21326/1/P210.pdf"
+        }
+      ],
+      "checkedAt": "2026-11-09"
     }
   ]
 }
