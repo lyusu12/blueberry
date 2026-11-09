@@ -2456,6 +2456,14 @@
         "note": "제주 겨울 당근 출하 기준. 봄당근은 5~8월, 고랭지당근은 9~10월에 나온다"
       },
       "summary": "베타카로틴이 많은 뿌리채소. 생으로도 좋지만 기름에 익혀 먹으면 흡수가 훨씬 잘 된다.",
+      "image": {
+        "src": "images/carrot.jpg",
+        "alt": "철망 바구니에 담긴 잎 달린 당근"
+      },
+      "icon": {
+        "src": "images/carrot-icon.png",
+        "alt": "잎 달린 당근 두 개"
+      },
       "nutrition": {
         "energy": {
           "value": 31,
