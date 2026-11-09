@@ -1034,7 +1034,16 @@ function linkFoods(){
     const f = findFoodByName(it.name);
     if(f){ it.foodId = f.id; if(it.updatedAt) it.updatedAt = Date.now(); changed = true; }
   });
-  return mergeSameFood() || changed;
+  const dropped = dropMissingFoods();
+  const merged = mergeSameFood();
+  return dropped || merged || changed;
+}
+// 사전에서 빠진 항목(foodId가 더 이상 없는 것)은 바구니에서도 지움.
+// 사전을 못 불러왔을 때(FOODS가 비었을 때)는 linkFoods 맨 위에서 이미 멈추므로 다 지워지지 않음
+function dropMissingFoods(){
+  const gone = items.filter(it=>it.foodId && !FOOD_BY_ID.has(it.foodId));
+  gone.forEach(it=>removeItem(it.id));
+  return gone.length > 0;
 }
 // 같은 사전 항목에 연결된 바구니 항목(예: 「귀리」와 「오트밀」)은 하나로 합침.
 // 사전 이름으로 된 것을 남기고, 메모는 이어 붙이고, 먹은 날은 더 최근 것을 씀
