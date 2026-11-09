@@ -1070,6 +1070,10 @@
         "src": "images/egg.jpg",
         "alt": "그릇에 담긴 갈색 달걀과 깨뜨린 달걀 노른자"
       },
+      "icon": {
+        "src": "images/egg-icon.png",
+        "alt": "갈색 달걀 한 개"
+      },
       "nutrition": {
         "energy": {
           "value": 145,
