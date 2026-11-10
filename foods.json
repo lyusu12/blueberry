@@ -3730,6 +3730,8 @@
         "콩·견과"
       ],
       "summary": "고소한 견과. 비타민E·마그네슘·식이섬유가 많고, 꾸준히 먹으면 나쁜 콜레스테롤이 조금 내려간다. 열량이 높아 한 줌씩 먹는다.",
+      "image": { "src": "images/almond.jpg", "alt": "대리석 위 흰 그릇에 가득 담긴 아몬드" },
+      "icon": { "src": "images/almond-icon.png", "alt": "아몬드 네 알" },
       "nutrition": {
         "energy": {
           "value": 581,
