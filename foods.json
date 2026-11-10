@@ -2301,6 +2301,8 @@
         "과일"
       ],
       "summary": "껍질만 벗기면 바로 먹는 달콤한 과일. 칼륨·마그네슘·식이섬유가 고루 조금씩 들어 있다.",
+      "image": { "src": "images/banana.jpg", "alt": "대리석 위 유리 접시에 놓인 바나나 세 개" },
+      "icon": { "src": "images/banana-icon.png", "alt": "바나나 세 개 한 송이" },
       "nutrition": {
         "energy": {
           "value": 77,
@@ -2544,6 +2546,8 @@
         "note": "하우스 토마토가 가장 많이 나오는 때 기준. 1년 내내 나오고, 여름에는 강원 지역 토마토가 나온다"
       },
       "summary": "붉은 색소 라이코펜이 많은 채소. 익히거나 기름과 함께 먹으면 라이코펜 흡수가 훨씬 잘 된다.",
+      "image": { "src": "images/tomato.jpg", "alt": "나무 접시에 담긴 토마토 세 개와 반으로 자른 토마토" },
+      "icon": { "src": "images/tomato-icon.png", "alt": "토마토 두 개와 반으로 자른 토마토" },
       "nutrition": {
         "energy": {
           "value": 19,
