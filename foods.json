@@ -2012,6 +2012,8 @@
         "note": "제주 겨울 브로콜리 출하 기준. 여름(6~10월)에는 강원 고랭지 브로콜리가 나온다"
       },
       "summary": "비타민K가 아주 많고 비타민C·식이섬유도 든 초록 꽃채소. 살짝 쪄 먹으면 영양이 덜 빠진다.",
+      "image": { "src": "images/broccoli.jpg", "alt": "나무 도마 위에 놓인 브로콜리 한 송이와 작은 송이들" },
+      "icon": { "src": "images/broccoli-icon.png", "alt": "브로콜리 송이 세 개" },
       "nutrition": {
         "energy": {
           "value": 32,
