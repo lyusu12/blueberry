@@ -549,7 +549,7 @@
 
     <form class="search" id="home-search-form" role="search">
       <svg class="ic sm" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2"/></svg>
-      <input type="search" id="home-search" placeholder="식재료, 요리, 레시피를 검색해보세요" autocomplete="off" enterkeyhint="search" aria-label="식재료, 요리, 레시피 검색">
+      <input type="search" id="home-search" placeholder="식재료나 영양소(철분 등)를 검색해보세요" autocomplete="off" enterkeyhint="search" aria-label="식재료·영양소 검색">
       <button type="button" class="search-clear" id="home-search-clear" aria-label="검색어 지우기">
         <svg class="ic sm" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg>
       </button>
@@ -1629,13 +1629,14 @@ function todayFoods(n){
   return picked;
 }
 
-function foodRow(f, rank){
+function foodRow(f, rank, subText){
+  const sub = subText || f.summary || foodCats(f).join(" · ");
   return h("a", {class:"row-link", href:foodHref(f.id)},
     rank!=null && h("span", {class:"row-rank num", text:String(rank)}),
     foodImage(f, "thumb"),
     h("div", {class:"row-body"},
       h("div", {class:"row-name", text:f.name}),
-      (f.summary || foodCats(f).length) && h("div", {class:"row-sub", text:f.summary || foodCats(f).join(" · ")})),
+      sub && h("div", {class:"row-sub", text:sub})),
     icon("chevron", "sm row-chev"));
 }
 
@@ -1696,23 +1697,66 @@ function renderHome(){
   popBox.replaceChildren(h("div", {class:"card rows"}, rows));
 }
 
-/* 홈 검색: 이름·별칭·분류·소개에서 찾음 */
+/* 홈 검색: 이름·별칭 → 영양소(두드러지는 영양소 highlights) → 분류·소개 순으로 찾음 */
 const searchForm = document.getElementById("home-search-form");
 const searchInput = document.getElementById("home-search");
+// 영양소 이름 맞추기: 띄어쓰기·대소문자 무시, 흔히 쓰는 다른 이름은 하나로 모음 (예: 철분 → 철)
+const NUTRIENT_SYNONYMS = [
+  ["철분", "철"], ["섬유질", "식이섬유"], ["리보플라빈", "비타민b2"], ["티아민", "비타민b1"],
+  ["니아신", "비타민b3"], ["피리독신", "비타민b6"], ["코발라민", "비타민b12"],
+  ["오메가-3", "오메가3"], ["omega3", "오메가3"],
+];
+function nutrientKey(v){
+  let k = String(v).toLowerCase().replace(/\s+/g, "");
+  for(const [from, to] of NUTRIENT_SYNONYMS) k = k.split(from).join(to);
+  return k;
+}
+// 「리보플라빈(비타민B2)」「식물성 단백질·철분」처럼 한 칸에 여러 이름이 있으면 나눠서 봄
+function nutrientTokens(name){
+  return String(name).split(/[·(),/]/).map(nutrientKey).filter(Boolean);
+}
+// 짧은 검색어(한 글자: 철·인 등)는 이름이 똑같을 때만, 두 글자 이상은 일부만 맞아도 찾음 (예: 비타민 → 모든 비타민)
+function nutrientHit(name, k){
+  return nutrientTokens(name).some(t=>t===k || (k.length>=2 && t.includes(k)));
+}
+// 영양소로 찾기: 검증된 항목 → 기준치 대비 %가 높은 순. 검증 전 항목은 맨 뒤
+function searchByNutrient(q, skip){
+  const k = nutrientKey(q);
+  if(!k) return [];
+  const out = [];
+  for(const f of FOODS){
+    if(skip.includes(f)) continue;
+    const hl = list(f.highlights).find(x=>x && x.nutrient && nutrientHit(x.nutrient, k));
+    if(hl) out.push({f, hl});
+  }
+  const rank = r => (r.f.checkedAt ? 0 : 1);
+  const dv = r => isNum(r.hl.dv) ? r.hl.dv : -1;
+  return out.sort((a, b)=>rank(a)-rank(b) || dv(b)-dv(a));
+}
+// 검색 결과 줄 아래에 「100g에 철 4.3mg (기준치 36%)」처럼 왜 나왔는지 보여줌
+function nutrientSub(hl, f){
+  if(!f.checkedAt) return `${hl.nutrient} · 아직 검증 전`;
+  if(!isNum(hl.amount)) return hl.nutrient;
+  const dv = isNum(hl.dv) ? ` (기준치 ${hl.dv}%)` : "";
+  return `100g에 ${hl.nutrient} ${hl.amount}${hl.unit || ""}${dv}`;
+}
 function searchFoods(q){
   const s = q.trim().toLowerCase();
   if(!s) return [];
   const hit = v => typeof v==="string" && v.toLowerCase().includes(s);
-  const byName = FOODS.filter(f=>hit(f.name) || list(f.aliases).some(hit));
-  const byOther = FOODS.filter(f=>!byName.includes(f) && (foodCats(f).some(hit) || hit(f.summary)));
-  return byName.concat(byOther);
+  const byName = FOODS.filter(f=>hit(f.name) || list(f.aliases).some(hit)).map(f=>({f}));
+  const taken = byName.map(r=>r.f);
+  const byNutrient = searchByNutrient(q, taken).map(r=>({f:r.f, sub:nutrientSub(r.hl, r.f)}));
+  taken.push(...byNutrient.map(r=>r.f));
+  const byOther = FOODS.filter(f=>!taken.includes(f) && (foodCats(f).some(hit) || hit(f.summary))).map(f=>({f}));
+  return byName.concat(byNutrient, byOther);
 }
 // 바구니 항목(요리·식당 등) 중 이름·메모가 맞는 것. 사전 결과와 같은 식재료는 빼고
 const BASKET_TINT = {"식당":"#F3E2D7", "요리":"#EAE4F1", "식재료":"#E5EDE1"};
 function searchItems(q, foods){
   const s = q.trim().toLowerCase();
   const hit = v => typeof v==="string" && v.toLowerCase().includes(s);
-  return items.filter(it=>(hit(it.name) || hit(it.memo)) && !foods.some(f=>f.id===it.foodId));
+  return items.filter(it=>(hit(it.name) || hit(it.memo)) && !foods.some(r=>r.f.id===it.foodId));
 }
 function itemRow(it){
   const f = foodOf(it);
@@ -1735,7 +1779,7 @@ function renderSearch(){
   const group = (title, rows)=> rows.length ? [h("p", {class:"note", text:title}), h("div", {class:"card rows"}, rows)] : [];
   box.replaceChildren(
     ...(!foodsLoaded ? [h("p", {class:"dict-status", text:"사전을 불러오는 중…"})] : []),
-    ...group(`식재료 ${foods.length}`, foods.map(f=>foodRow(f))),
+    ...group(`식재료 ${foods.length}`, foods.map(r=>foodRow(r.f, null, r.sub))),
     ...group(`내 바구니 ${mine.length}`, mine.map(itemRow)),
     ...(foodsLoaded && !foods.length && !mine.length ? [h("p", {class:"dict-status", text:"검색 결과가 없어요"})] : []));
 }
