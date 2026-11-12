@@ -79,6 +79,9 @@
 
 (시금치 쪽 「잘 어울리는 음식」에도 두부를 넣으면 양쪽이 이어진다.)
 
+**양배추** — 근거: 연구로 확인됨 / 기준: 식품 / 참고자료 15
+> 양배추 항목과 같은 내용. 두부·콩·시금치 같은 식물성 음식의 철분은 고기 철분보다 흡수가 잘 안 된다. 비타민C는 이런 식물성 철분이 잘 흡수되도록 돕는다(미국 국립보건원). 양배추는 100g에 비타민C가 약 29mg 들어 있어, 철분이 든 두부와 함께 먹으면 도움이 된다. 비타민C는 열에 약하니 양배추는 생으로 곁들이거나 짧게 익힌다. 양배추와 두부를 함께 먹인 실험은 아니다.
+
 ## 속설
 
 **콩을 많이 먹으면 유방암 위험이 높아진다** — 근거: 사실과 다름 / 기준: 식품 / 참고자료 4, 5, 6
@@ -112,3 +115,4 @@
 12. 미국 농무부 FoodKeeper (2015 인쇄본) — 두부 냉장: 포장 날짜 또는 뜯기 전 1주, 뜯은 뒤 2~3일 / 냉동 5개월 — https://ifdaonline.org/wp-content/uploads/2024/02/food-keeper-2015-pdf.pdf
 13. 미국 신장재단(NKF), 신장 결석 식단과 예방 — 칼슘 음식과 옥살산 음식을 한 끼에 함께 — https://www.kidney.org/kidney-topics/kidney-stone-diet-plan-and-prevention
 14. 식품안전나라, 알레르기 유발 식품 표시에 대해 알아보아요 — 표시 대상에 대두 포함 — https://www.foodsafetykorea.go.kr/portal/board/boardDetail.do?menu_no=3120&menu_grp=MENU_NEW01&bbs_no=bbs001&ntctxt_no=1091412
+15. 미국 국립보건원 식이보충제국(NIH ODS), 비타민C 자료 — 식물성 철분(비헴철)의 흡수를 도움 — https://ods.od.nih.gov/factsheets/VitaminC-HealthProfessional/
