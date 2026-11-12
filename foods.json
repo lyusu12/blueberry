@@ -3845,26 +3845,6 @@
       "checkedAt": "2026-11-10"
     },
     {
-      "id": "chicken-breast",
-      "name": "닭가슴살",
-      "categories": [
-        "육류"
-      ],
-      "summary": "지방은 적고 단백질은 풍부해 근육량 유지·다이어트 식단의 기본이 돼요",
-      "nutrition": {
-        "energy": {
-          "value": 165,
-          "unit": "kcal"
-        }
-      },
-      "highlights": [
-        {
-          "nutrient": "저지방 고단백"
-        }
-      ],
-      "checkedAt": null
-    },
-    {
       "id": "quinoa",
       "name": "퀴노아",
       "aliases": [
@@ -4870,47 +4850,6 @@
       "checkedAt": "2026-11-12"
     },
     {
-      "id": "mushroom",
-      "name": "버섯",
-      "categories": [
-        "채소"
-      ],
-      "summary": "햇빛을 쬔 버섯일수록 비타민D가 많아지고, 면역세포 활성화에 도움돼요",
-      "nutrition": {
-        "energy": {
-          "value": 22,
-          "unit": "kcal"
-        }
-      },
-      "highlights": [
-        {
-          "nutrient": "비타민D·베타글루칸"
-        }
-      ],
-      "checkedAt": null
-    },
-    {
-      "id": "cheonggukjang",
-      "name": "청국장",
-      "categories": [
-        "콩·견과",
-        "발효식품"
-      ],
-      "summary": "혈전을 녹이는 효소와 발효 유산균이 함께 있어 혈행·장 건강에 이중으로 좋아요",
-      "nutrition": {
-        "energy": {
-          "value": 196,
-          "unit": "kcal"
-        }
-      },
-      "highlights": [
-        {
-          "nutrient": "낫토키나제·유산균"
-        }
-      ],
-      "checkedAt": null
-    },
-    {
       "id": "miyeok",
       "name": "미역",
       "aliases": [
@@ -5188,46 +5127,6 @@
         }
       ],
       "checkedAt": "2026-11-12"
-    },
-    {
-      "id": "chia-seed",
-      "name": "치아씨드",
-      "categories": [
-        "콩·견과"
-      ],
-      "summary": "물에 불리면 부피가 커져 적은 양으로도 포만감을 오래 유지시켜줘요",
-      "nutrition": {
-        "energy": {
-          "value": 486,
-          "unit": "kcal"
-        }
-      },
-      "highlights": [
-        {
-          "nutrient": "오메가3·수용성 식이섬유"
-        }
-      ],
-      "checkedAt": null
-    },
-    {
-      "id": "dark-chocolate",
-      "name": "다크초콜릿",
-      "categories": [
-        "기타"
-      ],
-      "summary": "카카오 함량 70% 이상 제품일수록 혈압 개선과 항산화 효과가 커요",
-      "nutrition": {
-        "energy": {
-          "value": 546,
-          "unit": "kcal"
-        }
-      },
-      "highlights": [
-        {
-          "nutrient": "플라보노이드"
-        }
-      ],
-      "checkedAt": null
     },
     {
       "id": "natto",
@@ -5767,26 +5666,6 @@
         }
       ],
       "checkedAt": "2026-11-12"
-    },
-    {
-      "id": "fig",
-      "name": "무화과",
-      "categories": [
-        "과일"
-      ],
-      "summary": "장운동을 촉진하는 식이섬유가 풍부하고, 칼륨이 혈압 조절을 도와요",
-      "nutrition": {
-        "energy": {
-          "value": 74,
-          "unit": "kcal"
-        }
-      },
-      "highlights": [
-        {
-          "nutrient": "식이섬유·칼륨"
-        }
-      ],
-      "checkedAt": null
     },
     {
       "id": "carrot",
