@@ -427,6 +427,27 @@
   .set-sub.faint{color:var(--muted);overflow-wrap:anywhere;}
   .set-note{font-size:13px;color:var(--muted);margin:8px 4px 0;}
   .btn-sm{min-height:36px;padding:0 14px;font-size:13px;border-radius:12px;flex:0 0 auto;}
+  /* 로그인 버튼 (각 회사 안내에 맞춘 색) */
+  .login-list{display:flex;flex-direction:column;gap:10px;}
+  .login-btn{
+    position:relative;display:flex;align-items:center;justify-content:center;gap:10px;
+    width:100%;min-height:52px;padding:0 48px;border-radius:var(--r-ctl);border:none;
+    font-size:15px;font-weight:600;cursor:pointer;transition:transform .1s;
+  }
+  .login-btn:active:not(:disabled){transform:scale(.98);}
+  .login-btn .login-logo{position:absolute;left:18px;top:50%;transform:translateY(-50%);width:20px;height:20px;}
+  .login-btn.google{background:#fff;color:#1F1F1F;border:1px solid #DADCE0;}
+  .login-btn.kakao{background:#FEE500;color:rgba(0,0,0,.85);}
+  .login-btn.naver{background:#03C75A;color:#fff;}
+  .login-btn.apple{background:#000;color:#fff;}
+  .login-btn:disabled{opacity:.42;cursor:default;}
+  .login-soon{font-size:11px;font-weight:600;padding:2px 7px;border-radius:999px;background:rgba(255,255,255,.75);color:#29283A;}
+  .set-action{width:100%;background:none;border:none;font-size:15px;font-weight:500;text-align:left;cursor:pointer;color:var(--ink);min-height:52px;}
+  .set-action.danger{color:#C0392B;}
+  #me-box .set-group{margin-top:10px;}
+  .btn-danger{background:#C0392B;color:#fff;}
+  .btn-danger:active{background:#A93226;}
+  .sheet-text{font-size:15px;color:var(--text-2);line-height:1.6;margin:0;}
 
   /* ===== 사전 분류·제철 칩 ===== */
   .chips.months{margin-top:-8px;}
@@ -683,7 +704,7 @@
   <section class="view" id="view-settings">
     <div class="page-head"><button class="menu-btn" data-menu-open aria-label="메뉴 열기" aria-controls="drawer" aria-expanded="false"><svg class="ic" viewBox="0 0 24 24"><path d="M4.5 7h15M4.5 12h15M4.5 17h15"/></svg></button><div class="page-head-text"><h1 class="page-title">설정</h1></div></div>
 
-    <p class="set-label">계정</p>
+    <p class="set-label" id="account-label">계정</p>
     <div class="card set-group">
       <div class="set-row">
         <span class="set-ic"><svg class="ic sm" viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="3.5"/><path d="M5 20c1.2-3.6 4-5.5 7-5.5s5.8 1.9 7 5.5"/></svg></span>
@@ -692,10 +713,29 @@
           <div class="set-sub" id="account-sub">로그인하면 다른 기기에서도 기록이 이어져요</div>
           <div class="set-sub faint" id="account-email" hidden></div>
         </div>
-        <button class="btn btn-sm btn-primary" id="btn-login">로그인</button>
       </div>
     </div>
-    <p class="set-note">로그인하지 않으면 기록은 이 기기에만 저장돼요.</p>
+
+    <!-- 로그인 안 했을 때: 로그인 방법 고르기. 카카오·네이버·애플은 아직 준비 중 (handoff 참고) -->
+    <div id="login-box">
+      <p class="set-label">로그인</p>
+      <div class="login-list">
+        <button class="login-btn kakao" disabled><svg class="login-logo" viewBox="0 0 24 24" aria-hidden="true"><path fill="#000" d="M12 3.5c-5 0-9 3.15-9 7.03 0 2.5 1.66 4.7 4.16 5.95l-.85 3.1c-.07.27.24.49.47.33l3.66-2.43c.51.07 1.03.1 1.56.1 5 0 9-3.15 9-7.05S17 3.5 12 3.5z"/></svg>카카오로 계속하기 <span class="login-soon">준비 중</span></button>
+        <button class="login-btn naver" disabled><svg class="login-logo" viewBox="0 0 24 24" aria-hidden="true"><path fill="#fff" d="M14.4 12.5 9.4 5H5v14h4.6v-7.5l5 7.5H19V5h-4.6z"/></svg>네이버로 계속하기 <span class="login-soon">준비 중</span></button>
+        <button class="login-btn google" id="btn-login-google"><svg class="login-logo" viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>구글로 계속하기</button>
+        <button class="login-btn apple" disabled><svg class="login-logo" viewBox="0 0 24 24" aria-hidden="true"><path fill="#fff" d="M16.37 12.6c-.02-2.2 1.8-3.26 1.88-3.31-1.03-1.5-2.62-1.7-3.18-1.73-1.35-.14-2.64.8-3.33.8-.69 0-1.74-.78-2.86-.76-1.47.02-2.83.86-3.59 2.18-1.53 2.66-.39 6.6 1.1 8.75.73 1.05 1.6 2.24 2.73 2.2 1.1-.05 1.51-.71 2.84-.71 1.32 0 1.7.71 2.86.69 1.18-.02 1.93-1.07 2.65-2.13.83-1.22 1.18-2.4 1.2-2.46-.03-.01-2.28-.88-2.3-3.48zM14.2 6.13c.6-.73 1.01-1.75.9-2.76-.87.04-1.92.58-2.54 1.31-.56.65-1.05 1.69-.92 2.68.97.08 1.96-.49 2.56-1.23z"/></svg>Apple로 계속하기 <span class="login-soon">준비 중</span></button>
+      </div>
+      <p class="set-note">로그인하지 않으면 기록은 이 기기에만 저장돼요.</p>
+    </div>
+
+    <!-- 로그인했을 때: 로그아웃·계정 삭제 -->
+    <div id="me-box" hidden>
+      <div class="card set-group">
+        <button class="set-row set-action" id="btn-logout">로그아웃</button>
+        <button class="set-row set-action danger" id="btn-delete-account">계정 삭제</button>
+      </div>
+      <p class="set-note">계정을 삭제하면 클라우드에 저장된 바구니 기록도 함께 지워져요.</p>
+    </div>
 
     <!-- 설정 항목은 <p class="set-label">묶음 이름</p> + <div class="card set-group"> 안에 .set-row를 추가하는 식으로 늘림 -->
   </section>
@@ -764,6 +804,17 @@
   <div class="sheet-actions">
     <button class="btn btn-ghost" id="btn-cancel-add">취소</button>
     <button class="btn btn-primary" id="btn-add">추가</button>
+  </div>
+</div>
+
+<!-- ===== 계정 삭제 확인 ===== -->
+<div class="sheet" id="delete-sheet" role="dialog" aria-labelledby="delete-sheet-title">
+  <div class="sheet-handle"></div>
+  <h3 class="sheet-title" id="delete-sheet-title">계정을 삭제할까요?</h3>
+  <p class="sheet-text">클라우드에 저장된 바구니 기록과 계정이 함께 지워져요. 삭제하면 되돌릴 수 없어요.</p>
+  <div class="sheet-actions">
+    <button class="btn" id="btn-delete-cancel">취소</button>
+    <button class="btn btn-danger" id="btn-delete-confirm">삭제</button>
   </div>
 </div>
 
@@ -882,15 +933,17 @@ async function pushToCloud(){
   }
 }
 
-// 설정 > 계정 줄 표시. 이메일은 어느 계정인지 알 수 있게 작게만
+// 설정 > 계정 줄 표시. 로그인하면 「내 정보」로 바뀌고 로그아웃·계정 삭제가 보임
+const PROVIDER_NAME = { "google.com": "구글", "apple.com": "Apple" };
 function setAccountUI(user){
-  document.getElementById("account-status-value").textContent = user ? "로그인됨" : "로그인 안 됨";
+  const via = user && user.providerData && user.providerData[0] && PROVIDER_NAME[user.providerData[0].providerId];
+  document.getElementById("account-label").textContent = user ? "내 정보" : "계정";
+  document.getElementById("account-status-value").textContent = user ? (via ? `${via} 계정으로 로그인됨` : "로그인됨") : "로그인 안 됨";
   const email = document.getElementById("account-email");
   email.textContent = user && user.email ? user.email : "";
   email.hidden = !(user && user.email);
-  const btn = document.getElementById("btn-login");
-  btn.textContent = user ? "로그아웃" : "로그인";
-  btn.classList.toggle("btn-primary", !user);
+  document.getElementById("login-box").hidden = !!user;
+  document.getElementById("me-box").hidden = !user;
   setSyncStatus(user ? "loading" : "off");
 }
 // 동기화가 실제로 어떤 상태인지 계정 줄 아래에 표시
@@ -945,27 +998,74 @@ function onLogout(){
   setAccountUI(null);
 }
 
-document.getElementById("btn-login").addEventListener("click", async ()=>{
-  if(!(await startSync())){ toast("인터넷 연결을 확인해주세요"); return; }
-  if(currentUser){
-    await fb.signOut(auth);
-    // 이 기기의 바구니를 처음 상태로 되돌림. 안 그러면 다른 계정으로 로그인할 때 앞 계정 항목이 섞여 올라감
-    // (기록은 클라우드에 남아 있어 같은 계정으로 다시 로그인하면 돌아옴)
-    items = seedData();
-    deleted = {};
-    localStorage.setItem(STORE_KEY, JSON.stringify(items));
-    localStorage.setItem(DELETED_KEY, JSON.stringify(deleted));
-    renderAll();
-    return;
-  }
+// 이 기기의 바구니를 처음 상태로 되돌림. 안 그러면 다른 계정으로 로그인할 때 앞 계정 항목이 섞여 올라감
+function resetLocalBasket(){
+  items = seedData();
+  deleted = {};
+  localStorage.setItem(STORE_KEY, JSON.stringify(items));
+  localStorage.setItem(DELETED_KEY, JSON.stringify(deleted));
+  renderAll();
+}
+
+function googleProvider(){
   const provider = new fb.GoogleAuthProvider();
   // 매번 계정 고르는 창을 띄움. 안 그러면 로그아웃해도 전에 쓴 계정으로 바로 들어가서 다른 계정을 고를 수 없음
   provider.setCustomParameters({ prompt: "select_account" });
+  return provider;
+}
+
+document.getElementById("btn-login-google").addEventListener("click", async ()=>{
+  if(!(await startSync())){ toast("인터넷 연결을 확인해주세요"); return; }
+  const provider = googleProvider();
   try{
     await fb.signInWithPopup(auth, provider);
   }catch(e){
+    if(e && e.code === "auth/popup-closed-by-user") return;
     try{ await fb.signInWithRedirect(auth, provider); }
     catch(e2){ alert("로그인에 실패했어요. 사파리 설정에서 팝업 차단을 확인해주세요."); }
+  }
+});
+
+document.getElementById("btn-logout").addEventListener("click", async ()=>{
+  if(!(await startSync())){ toast("인터넷 연결을 확인해주세요"); return; }
+  await fb.signOut(auth);
+  // 기록은 클라우드에 남아 있어 같은 계정으로 다시 로그인하면 돌아옴
+  resetLocalBasket();
+  toast("로그아웃했어요");
+});
+
+const deleteSheet = document.getElementById("delete-sheet");
+document.getElementById("btn-delete-account").addEventListener("click", ()=> openSheet(deleteSheet));
+document.getElementById("btn-delete-cancel").addEventListener("click", ()=> closeSheet());
+
+// 계정 삭제: 클라우드 기록을 먼저 지우고(로그인한 상태여야 지울 수 있음) 계정을 지움
+document.getElementById("btn-delete-confirm").addEventListener("click", async (ev)=>{
+  const btn = ev.currentTarget;
+  const user = currentUser;
+  if(!user) { closeSheet(); return; }
+  if(!navigator.onLine){ toast("인터넷 연결을 확인해주세요"); return; }
+  btn.disabled = true;
+  try{
+    // 오래전에 로그인했으면 계정 삭제가 거절되므로, 먼저 본인 확인(로그인 창)을 한 번 더 받음
+    const lastLogin = Date.parse(user.metadata && user.metadata.lastSignInTime) || 0;
+    if(Date.now() - lastLogin > 4*60*1000){
+      await fb.reauthenticateWithPopup(user, googleProvider());
+    }
+    syncReady = false; // 지우는 사이에 다시 올라가지 않게 막음
+    if(unsubscribeSnapshot){ unsubscribeSnapshot(); unsubscribeSnapshot = null; }
+    await fb.deleteDoc(userDocRef(user.uid));
+    await fb.deleteUser(user);
+    closeSheet();
+    resetLocalBasket();
+    toast("계정을 삭제했어요");
+  }catch(e){
+    console.warn("계정 삭제 실패", e);
+    if(currentUser) onLogin(currentUser); // 지우다 멈췄으면 동기화를 다시 켬
+    if(!(e && (e.code === "auth/popup-closed-by-user" || e.code === "auth/cancelled-popup-request"))){
+      alert("계정을 삭제하지 못했어요. 잠시 뒤 다시 시도해주세요.");
+    }
+  }finally{
+    btn.disabled = false;
   }
 });
 
@@ -1347,7 +1447,7 @@ const sheet = document.getElementById("add-sheet");
 const recipeSheet = document.getElementById("recipe-sheet");
 const sheetBackdrop = document.getElementById("sheet-backdrop");
 function openSheet(el = sheet){ sheetBackdrop.classList.add("open"); el.classList.add("open"); }
-function closeSheet(){ sheetBackdrop.classList.remove("open"); sheet.classList.remove("open"); recipeSheet.classList.remove("open"); }
+function closeSheet(){ sheetBackdrop.classList.remove("open"); document.querySelectorAll(".sheet.open").forEach(el=>el.classList.remove("open")); }
 document.getElementById("btn-open-add").onclick = ()=> openSheet();
 document.getElementById("btn-cancel-add").onclick = closeSheet;
 sheetBackdrop.onclick = closeSheet;
