@@ -164,6 +164,10 @@
     display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
   .today-go{margin-top:auto;padding-top:14px;}
   .today-go span{display:inline-flex;width:34px;height:34px;border-radius:50%;background:#fff;color:var(--primary);align-items:center;justify-content:center;}
+  /* 자주 본 식재료: 5개씩 한 장, 옆으로 넘김 (오늘의 발견과 같은 방식) */
+  .rank-track{display:flex;align-items:flex-start;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 calc(var(--gutter) * -1);padding:2px var(--gutter) 12px;scrollbar-width:none;scroll-padding:0 var(--gutter);}
+  .rank-track::-webkit-scrollbar{display:none;}
+  .rank-track > .card{flex:0 0 100%;min-width:0;scroll-snap-align:start;}  /* min-width:0 — 긴 소개글이 카드를 화면 밖으로 밀지 않게 */
   .dots{display:flex;justify-content:center;gap:6px;margin-top:-2px;}
   .dots span{width:6px;height:6px;border-radius:50%;background:#D9D5DF;transition:.2s;}
   .dots span.on{background:var(--primary);width:16px;border-radius:3px;}
@@ -1742,6 +1746,8 @@ function foodRow(f, rank, subText){
     icon("chevron", "sm row-chev"));
 }
 
+const POPULAR_MAX = 10;   // 「자주 본 식재료」 몇 위까지
+const POPULAR_PAGE = 5;   // 한 장에 몇 개
 function renderHome(){
   const todayBox = document.getElementById("home-today");
   const seasonBox = document.getElementById("home-season");
@@ -1762,14 +1768,7 @@ function renderHome(){
       h("div", {class:"today-name", text:t.name}),
       t.summary && h("p", {class:"today-sum", text:t.summary}),
       h("div", {class:"today-go"}, h("span", null, icon("arrow", "sm")))))));
-  const dots = picks.length > 1 ? h("div", {class:"dots", "aria-hidden":"true"}, picks.map((_, i)=>h("span", {class: i===0 ? "on" : null}))) : null;
-  if(dots){
-    track.addEventListener("scroll", ()=>{
-      const w = track.firstElementChild.offsetWidth + 12;
-      const idx = Math.round(track.scrollLeft / w);
-      [...dots.children].forEach((d, i)=>d.classList.toggle("on", i===idx));
-    }, {passive:true});
-  }
+  const dots = pagerDots(track, picks.length);
   if(picks.length) todayBox.replaceChildren(track, dots || "");
   else todayBox.replaceChildren();
 
@@ -1789,14 +1788,33 @@ function renderHome(){
     seasonBox.replaceChildren(h("p", {class:"soft-empty", text:`${month}월 제철로 정리된 식재료가 아직 없어요. 사전에 제철 정보가 채워지면 여기에 보여요.`}));
   }
 
-  // 자주 본 식재료: 이 기기에서 연 횟수 순. 아직 본 게 없으면 사전 앞쪽 몇 개를 순위 없이
-  const ranked = viewedFoods().slice(0, 5);
+  // 자주 본 식재료: 이 기기에서 연 횟수 순 10위까지, 5개씩 한 장으로 옆으로 넘김. 아직 본 게 없으면 사전 앞쪽 10개를 순위 없이
+  const ranked = viewedFoods().slice(0, POPULAR_MAX);
   const more = document.getElementById("home-popular-more");
   if(ranked.length){ more.dataset.menuGo = "viewed"; delete more.dataset.goto; }
   else { more.dataset.goto = "dict"; delete more.dataset.menuGo; }
   document.getElementById("home-popular-title").textContent = ranked.length ? "자주 본 식재료" : "사전 둘러보기";
-  const rows = ranked.length ? ranked.map((f, i)=>foodRow(f, i+1)) : FOODS.slice(0, 5).map(f=>foodRow(f));
-  popBox.replaceChildren(h("div", {class:"card rows"}, rows));
+  const rows = ranked.length ? ranked.map((f, i)=>foodRow(f, i+1)) : FOODS.slice(0, POPULAR_MAX).map(f=>foodRow(f));
+  const pages = [];
+  for(let i=0; i<rows.length; i+=POPULAR_PAGE) pages.push(h("div", {class:"card rows"}, rows.slice(i, i+POPULAR_PAGE)));
+  if(pages.length > 1){
+    const popTrack = h("div", {class:"rank-track"}, pages);
+    popBox.replaceChildren(popTrack, pagerDots(popTrack, pages.length));
+  } else {
+    popBox.replaceChildren(...pages);
+  }
+}
+
+// 옆으로 넘기는 줄(track) 아래 점: 지금 보고 있는 장의 점이 길어짐. 한 장뿐이면 null
+function pagerDots(track, count){
+  if(count < 2) return null;
+  const dots = h("div", {class:"dots", "aria-hidden":"true"}, Array.from({length:count}, (_, i)=>h("span", {class: i===0 ? "on" : null})));
+  track.addEventListener("scroll", ()=>{
+    const w = track.firstElementChild.offsetWidth + 12;
+    const idx = Math.round(track.scrollLeft / w);
+    [...dots.children].forEach((d, i)=>d.classList.toggle("on", i===idx));
+  }, {passive:true});
+  return dots;
 }
 
 /* 홈 검색: 이름·별칭 → 영양소(두드러지는 영양소 highlights) → 분류·소개 순으로 찾음 */
