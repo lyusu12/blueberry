@@ -1516,6 +1516,7 @@
         }
       ],
       "image": { "src": "images/avocado.jpg", "alt": "반으로 가른 아보카도와 씨, 통 아보카도 두 개" },
+      "icon": { "src": "images/avocado-icon.png", "alt": "아보카도 한 개와 씨가 보이게 자른 반쪽" },
       "choosing": [
         {
           "method": "바로 먹을 것은 껍질이 짙은 녹갈색이고, 손으로 살짝 눌렀을 때 조금 들어가는 것",
@@ -3957,6 +3958,7 @@
         }
       ],
       "image": { "src": "images/quinoa.jpg", "alt": "얼룩무늬 그릇에 담긴 퀴노아" },
+      "icon": { "src": "images/quinoa-icon.png", "alt": "여러 색이 섞인 퀴노아 한 무더기" },
       "choosing": [
         {
           "method": "알이 고르고 잡티가 없는 것",
@@ -4513,6 +4515,7 @@
         }
       ],
       "image": { "src": "images/kale.jpg", "alt": "나무 도마 위 물방울 맺힌 곱슬 케일 잎" },
+      "icon": { "src": "images/kale-icon.png", "alt": "곱슬한 케일 잎 한 묶음" },
       "choosing": [
         {
           "method": "잎이 진한 녹색이고 싱싱하며 단단한 것",
@@ -4728,6 +4731,7 @@
         }
       ],
       "image": { "src": "images/pomegranate.jpg", "alt": "나무 탁자 위 반으로 가른 석류와 붉은 알갱이" },
+      "icon": { "src": "images/pomegranate-icon.png", "alt": "석류 한 개와 반으로 쪼갠 석류, 석류알" },
       "choosing": [
         {
           "method": "껍질이 약간 거친 듯하면서 단단하고 상처가 없는 것",
@@ -5559,6 +5563,7 @@
         }
       ],
       "image": { "src": "images/minari.jpg", "alt": "노끈으로 묶은 미나리 한 단" },
+      "icon": { "src": "images/minari-icon.png", "alt": "줄기가 긴 미나리 한 단" },
       "choosing": [
         {
           "method": "잎이 선명한 초록빛이고 끝까지 시들지 않은 것",
@@ -6677,6 +6682,7 @@
         }
       ],
       "image": { "src": "images/cabbage.jpg", "alt": "통양배추와 반으로 자른 양배추 단면" },
+      "icon": { "src": "images/cabbage-icon.png", "alt": "양배추 한 통" },
       "choosing": [
         {
           "method": "모양이 봉긋하고 둥글며, 겉잎이 연한 녹색인 것",
@@ -6939,6 +6945,7 @@
         }
       ],
       "image": { "src": "images/lettuce.jpg", "alt": "물방울 맺힌 연두색 상추 한 포기" },
+      "icon": { "src": "images/lettuce-icon.png", "alt": "붉은빛이 도는 상추 한 포기" },
       "choosing": [
         {
           "method": "잎이 연하면서도 도톰하고, 고유의 색이 선명한 것",
@@ -7182,6 +7189,7 @@
         }
       ],
       "image": { "src": "images/bellflower-root.jpg", "alt": "흙이 조금 묻은 통도라지 여러 뿌리" },
+      "icon": { "src": "images/bellflower-root-icon.png", "alt": "흙을 털어 낸 도라지 뿌리 여러 개" },
       "choosing": [
         {
           "method": "통도라지는 흙이 많이 묻어 있고, 연노랑이나 흰색을 띠는 것",
@@ -7933,6 +7941,7 @@
         }
       ],
       "image": { "src": "images/brown-rice.jpg", "alt": "나무 탁자 위 그릇에 담긴 현미와 벼 이삭" },
+      "icon": { "src": "images/brown-rice-icon.png", "alt": "현미 한 무더기" },
       "choosing": [
         {
           "method": "가공(도정)한 날짜가 최근인 것",
