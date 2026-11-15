@@ -2708,6 +2708,7 @@
         }
       ],
       "image": { "src": "images/tofu.jpg", "alt": "돌판 위 두부 한 모와 깍둑썬 두부" },
+      "icon": { "src": "images/tofu-icon.png", "alt": "네모난 두부 한 모" },
       "choosing": [
         {
           "method": "냉장 진열대에 있는 것, 포장에 적힌 소비기한이 넉넉한 것",
