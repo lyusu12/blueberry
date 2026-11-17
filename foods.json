@@ -5288,6 +5288,7 @@
         }
       ],
       "image": { "src": "images/natto.jpg", "alt": "검은 그릇에 담긴 낫토를 젓가락으로 들어 올려 실이 늘어나는 모습, 쪽파 고명" },
+      "icon": { "src": "images/natto-icon.png", "alt": "실이 엉긴 낫토 한 무더기" },
       "choosing": [
         {
           "method": "포장에 적힌 날짜가 넉넉한 것",
