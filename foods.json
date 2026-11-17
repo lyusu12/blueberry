@@ -7647,6 +7647,7 @@
         }
       ],
       "image": { "src": "images/mackerel.jpg", "alt": "얼음 위에 놓인 고등어 두 마리와 레몬" },
+      "icon": { "src": "images/mackerel-icon.png", "alt": "반으로 가른 고등어 두 토막" },
       "choosing": [
         {
           "method": "배가 빵빵하고 단단하며, 겉에 윤기가 도는 것",
