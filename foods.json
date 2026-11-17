@@ -4201,6 +4201,7 @@
         }
       ],
       "image": { "src": "images/lentil.jpg", "alt": "유리병과 계량 스쿱에 담긴 갈색 렌틸콩" },
+      "icon": { "src": "images/lentil-icon.png", "alt": "수북이 쌓인 갈색 렌틸콩" },
       "choosing": [
         {
           "method": "알이 고르고 깨지거나 벌레 먹은 흔적이 없는 것",
