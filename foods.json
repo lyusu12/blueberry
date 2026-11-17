@@ -8235,6 +8235,7 @@
         }
       ],
       "image": { "src": "images/green-tea.jpg", "alt": "돌 위 찻사발에 담긴 녹차와 찻잎, 가루녹차, 차선" },
+      "icon": { "src": "images/green-tea-icon.png", "alt": "받침 위 도자기 찻잔에 담긴 녹차" },
       "choosing": [
         {
           "method": "따는 시기를 보고 고른다. 곡우(4월 20일쯤) 전에 딴 우전이 가장 부드럽고, 세작·중작으로 갈수록 맛이 진하고 값이 싸다",
@@ -8533,6 +8534,7 @@
         }
       ],
       "image": { "src": "images/black-tea.jpg", "alt": "유리 찻잔에 담긴 김 나는 홍차와 나무 숟가락 위 찻잎" },
+      "icon": { "src": "images/black-tea-icon.png", "alt": "받침 위 유리 찻잔에 담긴 홍차" },
       "choosing": [
         {
           "method": "처음이라면 티백부터, 익숙해지면 잎차",
