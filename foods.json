@@ -7394,6 +7394,7 @@
         }
       ],
       "image": { "src": "images/turmeric.jpg", "alt": "노란 접시 위 생강황 뿌리와 나무 그릇에 담긴 강황 가루" },
+      "icon": { "src": "images/turmeric-icon.png", "alt": "강황 뿌리 두 개와 자른 단면, 강황 가루" },
       "choosing": [
         {
           "method": "색이 진한 노란색인 것",
