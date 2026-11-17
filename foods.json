@@ -5013,6 +5013,7 @@
         }
       ],
       "image": { "src": "images/miyeok.jpg", "alt": "유리 그릇에 담긴 불린 미역" },
+      "icon": { "src": "images/miyeok-icon.png", "alt": "윤기 나는 불린 미역 한 무더기" },
       "choosing": [
         {
           "method": "생미역은 색이 짙고 윤기가 나며 탄력 있는 것",
