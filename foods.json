@@ -8840,6 +8840,7 @@
         }
       ],
       "image": { "src": "images/dasima.jpg", "alt": "바닷가 대나무 채반 위에 놓인 말린 다시마" },
+      "icon": { "src": "images/dasima-icon.png", "alt": "불린 넓적한 다시마 몇 장" },
       "choosing": [
         {
           "method": "마른 다시마는 두툼하고 검은빛이 도는 짙은 갈색인 것",
