@@ -9724,6 +9724,8 @@
         "note": "농식품정보누리 기준. 주산지 칠곡·논산·충주·김천·해남. 하우스 재배로 일 년 내내 나옴"
       },
       "summary": "한입 크기의 토마토. 붉은 색소 라이코펜이 큰 토마토보다 많은 품종이 많고, 꼭지를 떼서 보관하면 더 오래 간다.",
+      "image": { "src": "images/cherry-tomato.jpg", "alt": "바질 잎과 함께 접시에 담긴 방울토마토" },
+      "icon": { "src": "images/cherry-tomato-icon.png", "alt": "방울토마토 두 알과 반으로 자른 한 알" },
       "nutrition": {
         "energy": {
           "value": 25,
