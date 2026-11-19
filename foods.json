@@ -9174,6 +9174,7 @@
         }
       ],
       "image": { "src": "images/black-soybean.jpg", "alt": "돌판 위 그릇에 담긴 윤기 나는 검은콩" },
+      "icon": { "src": "images/black-soybean-icon.png", "alt": "검은콩 한 줌" },
       "choosing": [
         {
           "method": "쓰임에 맞춰 종류를 고른다",
@@ -9477,6 +9478,7 @@
         }
       ],
       "image": { "src": "images/potato.jpg", "alt": "흙 위에 놓인 햇감자와 반으로 자른 감자" },
+      "icon": { "src": "images/potato-icon.png", "alt": "감자 두 알과 반으로 자른 감자" },
       "choosing": [
         {
           "method": "들었을 때 묵직하고 눌렀을 때 단단한 것",
