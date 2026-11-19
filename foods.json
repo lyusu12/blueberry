@@ -10000,6 +10000,8 @@
         "과일"
       ],
       "summary": "나무에서 딴 그대로는 써서 못 먹고, 소금물 등에 절여 쓴맛을 뺀 뒤 먹는 열매. 좋은 지방이 많지만 절임이라 짜다.",
+      "image": { "src": "images/olive.jpg", "alt": "그릇에 담긴 초록·검은 올리브와 로즈메리" },
+      "icon": { "src": "images/olive-icon.png", "alt": "씨를 뺀 초록 올리브 두 알과 검은 올리브 두 알" },
       "nutrition": {
         "energy": {
           "value": 137,
