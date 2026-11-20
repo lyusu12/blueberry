@@ -2038,11 +2038,12 @@ function howToEatSection(f){
 function pairingsSection(f){
   const xs = list(f.pairings).filter(x=>x && (x.target || x.targetName));
   if(!xs.length) return null;
-  // target이 사전에 있으면 눌러서 이동하는 태그, 없으면 targetName(없으면 id)을 그냥 태그로
+  // target이 사전에 있으면 눌러서 이동하는 태그, 없으면 targetName(없으면 id)을 그냥 태그로.
+  // 둘 다 있으면 targetName을 글자로 보여주고 target으로 이동 (예: 「올리브유」 → 올리브 항목)
   const tagOf = (x)=>{
     const t = x.target ? FOOD_BY_ID.get(x.target) : null;
     return t
-      ? h("a", {class:"pair-tag", href:foodHref(t.id)}, t.name, icon("chevron", "xs"))
+      ? h("a", {class:"pair-tag", href:foodHref(t.id)}, x.targetName || t.name, icon("chevron", "xs"))
       : h("span", {class:"pair-tag", text:x.targetName || x.target});
   };
   // 요약: 이름 태그만. 펼치면 하나씩 근거 등급·이유·참고 자료
