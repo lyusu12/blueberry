@@ -10353,6 +10353,8 @@
         "note": "노지 온주밀감 기준(감귤연구소). 주산지 제주"
       },
       "summary": "겨울 대표 과일. 2~3개면 하루 비타민C 기준치의 절반을 넘고, 귤을 주황색으로 만드는 색소 베타크립토잔틴이 많다.",
+      "image": { "src": "images/tangerine.jpg", "alt": "귤 두 개와 껍질을 벗긴 귤" },
+      "icon": { "src": "images/tangerine-icon.png", "alt": "귤 한 개와 반으로 자른 귤, 귤 한 쪽" },
       "nutrition": {
         "energy": {
           "value": 39,
