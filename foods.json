@@ -11412,7 +11412,7 @@
         "note": "물김을 거두는 때(해양수산부·국립수산과학원). 말린 김은 1년 내내 나온다"
       },
       "summary": "얇게 떠서 말린 바다풀. 1장(2g 남짓)에 요오드가 하루 기준치의 절반 넘게, 비타민B12가 3분의 2쯤 들어 있다.",
-      "image": { "src": "images/gim.jpg", "alt": "접시에 겹겹이 쌓은 마른김" },
+      "image": { "src": "images/gim.jpg", "alt": "바닷가 바위 위 접시에 쌓인 마른김" },
       "icon": { "src": "images/gim-icon.png", "alt": "마른김 몇 장" },
       "nutrition": {
         "energy": {
@@ -12232,6 +12232,8 @@
         "채소"
       ],
       "summary": "콩을 빛 없이 물로 키운 싹. 물이 90%쯤이라 열량은 낮지만, 100g에 비타민K가 하루 기준치의 4분의 3쯤 들어 있다.",
+      "image": { "src": "images/soybean-sprout.jpg", "alt": "푸른 그릇에 소복이 담긴 콩나물" },
+      "icon": { "src": "images/soybean-sprout-icon.png", "alt": "콩나물 한 줌" },
       "nutrition": {
         "energy": {
           "value": 43,
@@ -12480,6 +12482,8 @@
         "note": "햇고사리 기준(KREI·국립산림과학원). 말린 고사리는 1년 내내 나온다"
       },
       "summary": "봄에 돋는 어린 순을 삶아 말려 먹는 나물. 생으로는 먹지 않고, 삶아서 물에 우려 먹는다. 비타민K·엽산·망간이 들어 있다.",
+      "image": { "src": "images/bracken.jpg", "alt": "접시에 담긴 삶은 고사리" },
+      "icon": { "src": "images/bracken-icon.png", "alt": "삶은 고사리 한 줌" },
       "nutrition": {
         "energy": {
           "value": 21,
@@ -12736,6 +12740,8 @@
         "note": "노지 부추 기준(농사로). 봄 첫물이 가장 연하고, 겨울엔 하우스 부추가 나온다"
       },
       "summary": "베어 내도 다시 자라 일 년에 여러 번 거두는 잎채소. 100g에 비타민K가 하루 기준치보다 많고, 베타카로틴(비타민A)·식이섬유·엽산이 들어 있다. 서양의 차이브와는 다른 식물이다.",
+      "image": { "src": "images/chives.jpg", "alt": "부추 한 단" },
+      "icon": { "src": "images/chives-icon.png", "alt": "부추 한 묶음" },
       "nutrition": {
         "energy": {
           "value": 30,
