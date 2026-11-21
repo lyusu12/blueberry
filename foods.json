@@ -10640,6 +10640,8 @@
         "note": "아오리 8월, 홍로 9월, 부사는 10월 하순부터(농사로)"
       },
       "summary": "우리나라에서 가장 많이 먹는 과일. 비타민은 적은 편이지만 식이섬유가 있고, 껍질에 폴리페놀이 많아 껍질째 먹으면 좋다.",
+      "image": { "src": "images/apple.jpg", "alt": "사과 한 개와 반으로 자른 사과, 한 조각" },
+      "icon": { "src": "images/apple-icon.png", "alt": "빨간 사과 한 개" },
       "nutrition": {
         "energy": {
           "value": 53,
