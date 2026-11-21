@@ -1,5 +1,5 @@
 // 블루베리 — 오프라인 캐싱용 서비스워커
-const CACHE_NAME = "blueberry-v104";
+const CACHE_NAME = "blueberry-v105";
 const ASSETS = [
   "./",
   "./index.html",
