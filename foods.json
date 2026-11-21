@@ -11155,6 +11155,7 @@
       },
       "summary": "물이 95%쯤인 김장 채소. 100g만 먹어도 비타민K 하루 기준치를 채운다. 푸른 겉잎은 영양이, 노란 속잎은 단맛이 더 많다.",
       "image": { "src": "images/napa-cabbage.jpg", "alt": "배추 한 통과 세로로 자른 배추, 노란 속잎이 보임" },
+      "icon": { "src": "images/napa-cabbage-icon.png", "alt": "배추 한 통과 반으로 가른 배추" },
       "nutrition": {
         "energy": {
           "value": 15,
