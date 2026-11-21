@@ -11412,6 +11412,8 @@
         "note": "물김을 거두는 때(해양수산부·국립수산과학원). 말린 김은 1년 내내 나온다"
       },
       "summary": "얇게 떠서 말린 바다풀. 1장(2g 남짓)에 요오드가 하루 기준치의 절반 넘게, 비타민B12가 3분의 2쯤 들어 있다.",
+      "image": { "src": "images/gim.jpg", "alt": "접시에 겹겹이 쌓은 마른김" },
+      "icon": { "src": "images/gim-icon.png", "alt": "마른김 몇 장" },
       "nutrition": {
         "energy": {
           "value": 182,
@@ -11694,6 +11696,8 @@
         "콩·견과"
       ],
       "summary": "부드럽고 달큰한 견과. 다른 견과보다 탄수화물이 많고, 구리·마그네슘·아연·철이 많다. 열량이 높아 한 줌씩 먹는다.",
+      "image": { "src": "images/cashew.jpg", "alt": "그릇에 담긴 캐슈너트" },
+      "icon": { "src": "images/cashew-icon.png", "alt": "캐슈너트 네 알" },
       "nutrition": {
         "energy": {
           "value": 581,
@@ -11972,6 +11976,8 @@
         "콩·견과"
       ],
       "summary": "셀레늄이 아주 많은 큰 견과. 한 알에 하루 기준치만큼의 셀레늄이 들어 있을 수 있어 하루 한두 알이면 된다. 많이 먹는 견과가 아니다.",
+      "image": { "src": "images/brazil-nut.jpg", "alt": "작은 그릇에 담긴 브라질너트" },
+      "icon": { "src": "images/brazil-nut-icon.png", "alt": "브라질너트 세 알" },
       "nutrition": {
         "energy": {
           "value": 659,
