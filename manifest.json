@@ -1,7 +1,7 @@
 {
   "name": "블루베리",
   "short_name": "블루베리",
-  "description": "먹고 싶던 걸, 먹을 때 기억하기 위한 개인 기록",
+  "description": "식재료의 영양·궁합·속설을 근거 등급으로 알려 주는 사전",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",

@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
 <title>블루베리</title>
+<meta name="description" content="식재료의 영양·궁합·속설을 근거 등급으로 알려 주는 사전">
 
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
@@ -409,6 +410,7 @@
   .ref-list .no{flex:0 0 18px;color:var(--muted);font-variant-numeric:tabular-nums;}
   .ref-list a{color:var(--primary);word-break:break-all;}
   .food-checked{margin:20px 2px 0;font-size:12px;color:var(--muted);}
+  .food-disclaimer{margin:8px 2px 0;font-size:12px;line-height:1.55;color:var(--muted);}
 
   .food-cta{
     position:fixed;z-index:15;left:0;right:0;max-width:480px;margin:0 auto;
@@ -739,6 +741,24 @@
         <button class="set-row set-action danger" id="btn-delete-account">계정 삭제</button>
       </div>
       <p class="set-note">계정을 삭제하면 클라우드에 저장된 바구니 기록도 함께 지워져요.</p>
+    </div>
+
+    <p class="set-label">앱 정보</p>
+    <div class="card set-group">
+      <div class="set-row">
+        <span class="set-ic"><svg class="ic sm" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 11v5.5M12 7.6v.1"/></svg></span>
+        <div class="set-body">
+          <div class="set-title">의료 조언이 아니에요</div>
+          <div class="set-sub">블루베리의 정보는 일반적인 건강·영양 정보로, 병을 진단하거나 치료하지 않아요. 질환이 있거나 약을 먹고 있다면 먹는 양을 바꾸기 전에 의사·약사와 상의하세요.</div>
+        </div>
+      </div>
+      <div class="set-row">
+        <span class="set-ic"><svg class="ic sm" viewBox="0 0 24 24"><path d="M5 18.5V5.5A1.5 1.5 0 0 1 6.5 4H19v13H6.5A1.5 1.5 0 0 0 5 18.5zm0 0A1.5 1.5 0 0 0 6.5 20H19"/></svg></span>
+        <div class="set-body">
+          <div class="set-title">근거 등급은 이렇게 매겨요</div>
+          <div class="set-sub">논문, 공공기관, 대학병원·학회 같은 믿을 만한 기관의 자료로만 등급을 매겨요. 블로그나 영상은 사람들이 믿는 속설을 찾는 데만 써요. 각 식재료 맨 아래 「참고한 자료」에서 출처를 볼 수 있어요.</div>
+        </div>
+      </div>
     </div>
 
     <!-- 설정 항목은 <p class="set-label">묶음 이름</p> + <div class="card set-group"> 안에 .set-row를 추가하는 식으로 늘림 -->
@@ -2090,6 +2110,8 @@ function referencesSection(f){
   })));
 }
 
+// 의료 조언이 아니라는 안내 (상세 화면 맨 아래 + 설정 「앱 정보」에 같은 뜻으로 씀)
+const MEDICAL_NOTE = "블루베리의 정보는 일반적인 건강·영양 정보예요. 병을 진단하거나 치료하지 않아요. 질환이 있거나 약을 먹고 있다면 먹는 양을 바꾸기 전에 의사·약사와 상의하세요.";
 function renderFood(id){
   const box = document.getElementById("food-detail");
   const cta = document.getElementById("food-cta");
@@ -2126,7 +2148,8 @@ function renderFood(id){
       pairingsSection(f),
       mythsSection(f),
       referencesSection(f),
-      h("p", {class:"food-checked", text: f.checkedAt ? `마지막 확인 ${f.checkedAt}` : "아직 검증되지 않은 항목이에요."})),
+      h("p", {class:"food-checked", text: f.checkedAt ? `마지막 확인 ${f.checkedAt}` : "아직 검증되지 않은 항목이에요."}),
+      h("p", {class:"food-disclaimer", text: MEDICAL_NOTE})),
   );
 }
 

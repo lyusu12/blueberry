@@ -87,7 +87,7 @@
 
 ## 메뉴 구조
 
-- 하단 탭: 홈 · 사전 · 바구니 · 설정(view-settings, 계정 포함). 「오늘 뭐 먹지?」(view-pick, 예전 뽑기)는 사이드 메뉴에서만 들어감
+- 하단 탭: 홈 · 사전 · 바구니 · 설정(view-settings, 계정 포함, 맨 아래 「앱 정보」에 의료 안내·근거 등급 설명). 식재료 상세 맨 아래에도 의료 안내(`MEDICAL_NOTE`). 「오늘 뭐 먹지?」(view-pick, 예전 뽑기)는 사이드 메뉴에서만 들어감
 - 사이드 메뉴 항목은 `MENU` 배열에서만 정의 (`id`, `label`, `icon`, `go:{tab, filter}`, `children`). 데이터·화면이 없는 메뉴는 넣지 않는다
 - 사전 필터 `dictFilter`: `{type:"all"}` / `{type:"cat", cat}` / `{type:"season", month}` / `{type:"viewed"}`(인기 = 이 기기에서 많이 본 순)
 - 완성 음식은 사전 항목에 `"kind": "dish"`, `"cuisine": "한식"|"양식"|"중식"|"일식"|"간식·디저트"` (잠정). 「음식·레시피」(view-dishes)에 보이고 식재료 목록에선 빠짐
