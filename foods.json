@@ -13632,6 +13632,8 @@
         "note": "노지 7~8월, 하우스 6~7월 수확(농사로). 통째로 두면 가을·겨울에도 나온다"
       },
       "summary": "밤처럼 포슬포슬하고 단맛이 나는 호박. 같은 무게의 고구마보다 열량은 절반이 안 되고, 베타카로틴과 식이섬유가 많다.",
+      "image": { "src": "images/kabocha.jpg", "alt": "접시에 놓인 단호박 한 통과 자른 단호박" },
+      "icon": { "src": "images/kabocha-icon.png", "alt": "단호박 한 통과 한 조각" },
       "nutrition": {
         "energy": {
           "value": 57,
@@ -13910,6 +13912,8 @@
         "note": "연근 수확 때(제주특별자치도농업기술원). 저장 연근은 1년 내내 나온다"
       },
       "summary": "연꽃의 땅속줄기. 썰면 구멍 난 단면이 보이고 아삭하다. 녹말이 많아 채소치고 열량이 높고, 망간과 비타민C가 많다.",
+      "image": { "src": "images/lotus-root.jpg", "alt": "흙 묻은 연근과 썬 연근" },
+      "icon": { "src": "images/lotus-root-icon.png", "alt": "연근 한 토막과 썬 연근" },
       "nutrition": {
         "energy": {
           "value": 75,
