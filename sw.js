@@ -1,8 +1,9 @@
 // 블루베리 — 오프라인 캐싱용 서비스워커
-const CACHE_NAME = "blueberry-v119";
+const CACHE_NAME = "blueberry-v120";
 const ASSETS = [
   "./",
   "./index.html",
+  "./privacy.html",
   "./manifest.json",
   "./foods.json",
   "./icon-192.png",

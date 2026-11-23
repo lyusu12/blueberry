@@ -432,6 +432,9 @@
   .set-sub{font-size:13px;color:var(--text-2);margin-top:2px;line-height:1.5;}
   .set-sub.faint{color:var(--muted);overflow-wrap:anywhere;}
   .set-note{font-size:13px;color:var(--muted);margin:8px 4px 0;}
+  .set-note a{color:var(--primary);}
+  a.set-row{color:inherit;text-decoration:none;}
+  .set-chev{margin-left:auto;color:var(--muted);flex:0 0 auto;}
   .btn-sm{min-height:36px;padding:0 14px;font-size:13px;border-radius:12px;flex:0 0 auto;}
   /* 로그인 버튼 (각 회사 안내에 맞춘 색) */
   .login-list{display:flex;flex-direction:column;gap:10px;}
@@ -731,7 +734,7 @@
         <button class="login-btn google" id="btn-login-google"><svg class="login-logo" viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>구글로 계속하기</button>
         <button class="login-btn apple" disabled><svg class="login-logo" viewBox="0 0 24 24" aria-hidden="true"><path fill="#fff" d="M16.37 12.6c-.02-2.2 1.8-3.26 1.88-3.31-1.03-1.5-2.62-1.7-3.18-1.73-1.35-.14-2.64.8-3.33.8-.69 0-1.74-.78-2.86-.76-1.47.02-2.83.86-3.59 2.18-1.53 2.66-.39 6.6 1.1 8.75.73 1.05 1.6 2.24 2.73 2.2 1.1-.05 1.51-.71 2.84-.71 1.32 0 1.7.71 2.86.69 1.18-.02 1.93-1.07 2.65-2.13.83-1.22 1.18-2.4 1.2-2.46-.03-.01-2.28-.88-2.3-3.48zM14.2 6.13c.6-.73 1.01-1.75.9-2.76-.87.04-1.92.58-2.54 1.31-.56.65-1.05 1.69-.92 2.68.97.08 1.96-.49 2.56-1.23z"/></svg>Apple로 계속하기 <span class="login-soon">준비 중</span></button>
       </div>
-      <p class="set-note">로그인하지 않으면 기록은 이 기기에만 저장돼요.</p>
+      <p class="set-note">로그인하지 않으면 기록은 이 기기에만 저장돼요. 로그인하면 <a href="privacy.html">개인정보처리방침</a>에 따라 바구니 기록을 저장해요.</p>
     </div>
 
     <!-- 로그인했을 때: 로그아웃·계정 삭제 -->
@@ -759,6 +762,14 @@
           <div class="set-sub">논문, 공공기관, 대학병원·학회 같은 믿을 만한 기관의 자료로만 등급을 매겨요. 블로그나 영상은 사람들이 믿는 속설을 찾는 데만 써요. 각 식재료 맨 아래 「참고한 자료」에서 출처를 볼 수 있어요.</div>
         </div>
       </div>
+      <a class="set-row" href="privacy.html">
+        <span class="set-ic"><svg class="ic sm" viewBox="0 0 24 24"><path d="M12 3.5 5 6.5v5c0 4.2 3 7.6 7 9 4-1.4 7-4.8 7-9v-5z"/><path d="m9.2 12 2 2 3.8-4"/></svg></span>
+        <div class="set-body">
+          <div class="set-title">개인정보처리방침</div>
+          <div class="set-sub">어떤 정보를 왜 저장하고 언제 지우는지 · 문의 blueberry.app.help@gmail.com</div>
+        </div>
+        <svg class="ic xs set-chev" viewBox="0 0 24 24"><path d="m9.5 6 6 6-6 6"/></svg>
+      </a>
     </div>
 
     <!-- 설정 항목은 <p class="set-label">묶음 이름</p> + <div class="card set-group"> 안에 .set-row를 추가하는 식으로 늘림 -->
