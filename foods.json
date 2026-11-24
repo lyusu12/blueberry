@@ -14150,6 +14150,8 @@
         ],
         "note": "농식품정보누리 기준. 주산지 광양·부여·하동. 저장한 밤이 겨울까지 나옴"
       },
+      "image": { "src": "images/chestnut.jpg", "alt": "가시 송이 속과 바닥에 놓인 윤기 나는 갈색 밤" },
+      "icon": { "src": "images/chestnut-icon.png", "alt": "갈색 밤 세 알" },
       "summary": "견과류지만 지방이 거의 없고 녹말이 많아 영양은 고구마에 가깝다. 견과류에서는 드물게 비타민C가 들어 있다.",
       "nutrition": {
         "energy": {
