@@ -15133,6 +15133,8 @@
         "note": "늦가을에 가장 많이 거둔다(농식품정보누리). 통째로 두면 겨울 내내 간다"
       },
       "summary": "누렇게 익을 때까지 두었다가 거두는 큰 호박. 수분이 많고 열량이 낮다. 죽·전·떡으로 많이 먹는다.",
+      "image": { "src": "images/ripe-pumpkin.jpg", "alt": "늙은호박 한 통과 접시에 놓인 자른 조각" },
+      "icon": { "src": "images/ripe-pumpkin-icon.png", "alt": "늙은호박 한 통과 한 조각" },
       "nutrition": {
         "energy": {
           "value": 38,
