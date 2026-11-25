@@ -14385,6 +14385,8 @@
         "note": "농식품정보누리 기준. 가을 메밀 수확, 주산지 제주·봉평·봉화"
       },
       "summary": "냉메밀·막국수·메밀묵으로 먹는 곡물. 곡물치고 단백질과 마그네슘이 많고, 혈관 건강과 관련해 연구되는 루틴이 들어 있다.",
+      "image": { "src": "images/buckwheat.jpg", "alt": "나무 그릇과 스쿱에 담긴 메밀 낟알과 메밀꽃" },
+      "icon": { "src": "images/buckwheat-icon.png", "alt": "메밀 낟알 한 무더기" },
       "nutrition": {
         "energy": {
           "value": 363,
