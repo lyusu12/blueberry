@@ -7421,7 +7421,7 @@
           "role": "뼈를 만들고, 몸속 여러 효소가 일하는 데 필요하다. 1작은술이면 기준치의 3%."
         }
       ],
-      "image": { "src": "images/turmeric.jpg", "alt": "노란 접시 위 생강황 뿌리와 나무 그릇에 담긴 강황 가루" },
+      "image": { "src": "images/turmeric.jpg", "alt": "생강황 뿌리와 자른 단면, 그릇에 담긴 강황 가루" },
       "icon": { "src": "images/turmeric-icon.png", "alt": "강황 뿌리 두 개와 자른 단면, 강황 가루" },
       "choosing": [
         {
