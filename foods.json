@@ -15396,6 +15396,8 @@
         "note": "여름 노지 기준(농사로). 하우스 재배로 1년 내내 나온다"
       },
       "summary": "덜 자란 어린 호박. 100g에 22kcal로 열량이 낮고 대부분 물이다. 껍질이 얇아 껍질째 전·찌개·볶음에 두루 쓴다.",
+      "image": { "src": "images/young-pumpkin.jpg", "alt": "접시에 놓인 애호박과 둥글게 썬 애호박" },
+      "icon": { "src": "images/young-pumpkin-icon.png", "alt": "애호박 한 개와 썬 두 조각" },
       "nutrition": {
         "energy": {
           "value": 22,
