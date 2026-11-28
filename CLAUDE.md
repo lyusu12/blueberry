@@ -14,6 +14,7 @@
 - 대화는 **한국어로만**. 사용자는 프로그래밍 초보라 용어를 풀어서 설명한다.
 
 빌드 없는 단일 파일 PWA (`index.html`, `foods.json`, `manifest.json`, `sw.js`, 아이콘).
+앱 아이콘: `icon-192/512.png`(일반, 그림이 82%)와 `icon-maskable-192/512.png`(안드로이드용, 동그랗게 잘려도 되게 62%). 만드는 도구는 `tools/compose-icon.swift` (오려낸 그림을 흰 정사각형 가운데에 얹음)
 
 ## 규칙
 
@@ -88,7 +89,7 @@
 ## 메뉴 구조
 
 - 하단 탭: 홈 · 사전 · 바구니 · 설정(view-settings, 계정 포함, 맨 아래 「앱 정보」에 의료 안내·근거 등급 설명). 식재료 상세 맨 아래에도 의료 안내(`MEDICAL_NOTE`). 「오늘 뭐 먹지?」(view-pick, 예전 뽑기)는 사이드 메뉴에서만 들어감
-- 사이드 메뉴 항목은 `MENU` 배열에서만 정의 (`id`, `label`, `icon`, `go:{tab, filter}`, `children`). 데이터·화면이 없는 메뉴는 넣지 않는다
+- 사이드 메뉴 항목은 `MENU` 배열에서만 정의 (`id`, `label`, `icon`, `go:{tab, filter}`, `children`, `show`). 데이터·화면이 없는 메뉴는 넣지 않는다 — 데이터가 생길 메뉴는 `show` 함수로 감춰 둔다 (예: 「음식·레시피」는 `kind:"dish"` 항목이 생기면 저절로 보임)
 - 사전 필터 `dictFilter`: `{type:"all"}` / `{type:"cat", cat}` / `{type:"season", month}` / `{type:"viewed"}`(인기 = 이 기기에서 많이 본 순)
 - 완성 음식은 사전 항목에 `"kind": "dish"`, `"cuisine": "한식"|"양식"|"중식"|"일식"|"간식·디저트"` (잠정). 「음식·레시피」(view-dishes)에 보이고 식재료 목록에선 빠짐
 

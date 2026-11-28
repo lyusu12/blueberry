@@ -1,5 +1,5 @@
 // 블루베리 — 오프라인 캐싱용 서비스워커
-const CACHE_NAME = "blueberry-v128";
+const CACHE_NAME = "blueberry-v129";
 const ASSETS = [
   "./",
   "./index.html",
@@ -7,7 +7,9 @@ const ASSETS = [
   "./manifest.json",
   "./foods.json",
   "./icon-192.png",
-  "./icon-512.png"
+  "./icon-512.png",
+  "./icon-maskable-192.png",
+  "./icon-maskable-512.png"
 ];
 
 self.addEventListener("install", (e) => {
